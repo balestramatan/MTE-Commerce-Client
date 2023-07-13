@@ -1,11 +1,11 @@
-import React, {useState} from "react";
+import React, {useState, useRef} from "react";
 import styled, {keyframes} from "styled-components";
-import {menuItemType} from "../../interfaces/interfaces";
+import {MenuItemType} from "../../interfaces/interfaces";
 
 const fadeIn = keyframes`
   from {
     opacity: 0;
-    transform: translateY(-10px);
+    transform: translateY(0);
   }
   to {
     opacity: 1;
@@ -14,8 +14,12 @@ const fadeIn = keyframes`
 `;
 
 const HeaderContainer = styled.header`
+  display: flex;
+  justify-content: space-between;
   padding: 1rem;
   color: grey;
+
+  border: 1px solid grey;
 `;
 
 const Menu = styled.ul`
@@ -30,6 +34,7 @@ const MenuItem = styled.li`
   margin: 0 2rem;
 
   &:hover .dropdown {
+    background-color: white;
     display: block;
     animation: ${fadeIn} 0.3s ease-in-out;
   }
@@ -42,55 +47,59 @@ const Dropdown = styled.div`
   left: 0;
   background-color: #555;
   padding: 1rem;
-  color: white;
+  color: grey;
   z-index: 1;
+  border: 1px solid grey;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3);
 `;
 
-const mockMenuItems: menuItemType[] = [
+const Logo = styled.div`
+  background-color: #555;
+`;
+
+const Profile = styled.div`
+  background-color: red;
+`;
+
+const mockMenuItems: MenuItemType[] = [
     {
-        id: 'menu-item-1',
-        label: 'Menu Option 1',
+        id: "menu-item-1",
+        label: "Menu Option 1",
     },
     {
-        id: 'menu-item-2',
-        label: 'Menu Option 2',
+        id: "menu-item-2",
+        label: "Menu Option 2",
     },
     {
-        id: 'menu-item-3',
-        label: 'Menu Option 3'
-    }
+        id: "menu-item-3",
+        label: "Menu Option 3",
+    },
 ];
 
 const Header = () => {
-    const [isDropdownVisible, setDropdownVisible] = useState(false);
-    const [menuItems, setMenuItems] = useState<menuItemType[]>(mockMenuItems);
+    const [activeMenuItem, setActiveMenuItem] = useState<string | null>(null);
 
-    const handleMouseEnter = () => {
-        setDropdownVisible(true);
-    };
-
-    const handleMouseLeave = () => {
-        setDropdownVisible(false);
+    const handleMouseEnter = (menuItemId: string) => {
+        setActiveMenuItem(menuItemId);
     };
 
     return (
         <HeaderContainer>
+            <Logo>Logo</Logo>
             <Menu>
-                {
-                    menuItems.map((menuItem: menuItemType) => (
-                        <MenuItem key={menuItem.id} id={menuItem.id} onMouseEnter={handleMouseEnter}
-                                  onMouseLeave={handleMouseLeave}>
-                            {menuItem.label}
-                            {isDropdownVisible && (
-                                <Dropdown className="dropdown">
-                                    <h3>Dropdown Content {menuItem.id}</h3>
-                                    <p>Some more details here...</p>
-                                </Dropdown>
-                            )}
-                        </MenuItem>
-                    ))
-                }
+                {mockMenuItems.map((menuItem: MenuItemType) => (
+                    <MenuItem key={menuItem.id} onMouseEnter={() => handleMouseEnter(menuItem.id)}>
+                        {menuItem.label}
+                        {(
+                            <Dropdown className="dropdown">
+                                <h3>Dropdown Content {menuItem.id}</h3>
+                                <p>Some more details here...</p>
+                            </Dropdown>
+                        )}
+                    </MenuItem>
+                ))}
             </Menu>
+            <Profile>Profile</Profile>
         </HeaderContainer>
     );
 };
