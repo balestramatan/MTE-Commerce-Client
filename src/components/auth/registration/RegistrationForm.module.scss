@@ -1,0 +1,53 @@
+.registrationFormContainer {
+  display: flex;
+  justify-content: center;
+}
+.registrationFormContext {
+  // border: 1px solid red;
+  max-width: 400px;
+  width: 100%;
+}
+
+.registrationFormTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  p {
+    font-size: 14px;
+    font-weight: 500;
+  }
+}
+
+.registrationFormInputContainer {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.registrationFormInputTitle {
+  display: flex;
+  justify-content: right;
+  p {
+    font-size: 12px;
+  }
+}
+
+.registrationFormInputFiled {
+  display: flex;
+  justify-content: right;
+}
+
+.registrationFormPasswordRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  p {
+    font-size: 12px;
+  }
+}
+
+.registrationFormSignIn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 15px;
+}

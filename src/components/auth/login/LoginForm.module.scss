@@ -1,0 +1,61 @@
+.loginFormContainer{
+  display: flex;
+  justify-content: center;
+}
+.loginFormContext {
+  // border: 1px solid red;
+  max-width: 400px;
+  width: 100%;
+}
+
+.loginFormTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  p {
+    font-size: 14px;
+    font-weight: 500;
+  }
+}
+
+.loginFormInputContainer {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.loginFormInputTitle {
+  display: flex;
+  justify-content: right;
+  p {
+    font-size: 12px;
+  }
+}
+
+.loginFormInputFiled {
+  display: flex;
+  justify-content: right;
+}
+
+.loginFormPasswordRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  p {
+    font-size: 12px;
+  }
+  div {
+    width: 50%;
+    text-align: start;
+  }
+  .loginFormForgotPassword {
+    text-align: end;
+    align-items: center;
+  }
+}
+
+.loginFormSignIn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 15px;
+}
