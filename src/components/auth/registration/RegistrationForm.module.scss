@@ -23,6 +23,20 @@
   padding-right: 30px;
 }
 
+.erorrMessageContainer {
+  border: 1px solid #d02e2e;
+  color: #d02e2e;
+  background-color: #fff6f6;
+  border-radius: 4px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  p {
+    font-size: 12px;
+  }
+}
+
 .registrationFormInputTitle {
   display: flex;
   justify-content: right;
