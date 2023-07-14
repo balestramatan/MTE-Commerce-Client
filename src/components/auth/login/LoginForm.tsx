@@ -1,34 +1,76 @@
-import React from "react";
+import React, { useState } from "react";
 import layoutStyle from "./LoginForm.module.scss";
 import TextField from "@mui/material/TextField";
 import LinkButton from "../../../components/Elements/LinkButton/LinkButton";
+import validateEmail from "../../../actions/EmailValidation";
 
-interface Iprops {}
+interface Iprops {
+  loginHandle: any;
+  loginFailed: boolean;
+}
 
 const LoginForm = (props: Iprops) => {
-  const {} = props;
+  const { loginHandle, loginFailed } = props;
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [emailValidationObj, setEmailValidationObj] = useState({
+    isEmailValid: false,
+    error: [""],
+  });
 
   const a = () => {
     console.log("CLICED");
+  };
+  
+  const handleChange = (e: any) => {
+    e.id === "email-input" ? setEmail(e.value) : setPassword(e.value);
+  };
+
+  const handleEmailValidation = (email: string) => {
+    validateEmail(email)
+      ? setEmailValidationObj({ isEmailValid: true, error: [""] })
+      : setEmailValidationObj({ isEmailValid: false, error: ["emailInvalid"] });
+  };
+
+  const onClickLogin = () => {
+    loginHandle({ email, password });
   };
 
   return (
     <div className={layoutStyle.loginFormContainer}>
       <div className={layoutStyle.loginFormContext}>
+        <form>
         <div className={layoutStyle.loginFormTitle}>
           <p>התחברות</p>
         </div>
 
         <div className={layoutStyle.loginFormInputContainer}>
+
+          {loginFailed && (
+            <div className={layoutStyle.erorrMessageContainer}>
+              <p>שם משתמש או סיסמא שגויים</p>
+            </div>
+          )}
+
           <div className={layoutStyle.loginFormInputTitle}>
             <p>אימייל</p>
           </div>
           <div className={layoutStyle.loginFormInputFiled}>
             <TextField
               size="small"
+              onChange={(e) => {
+                handleChange(e.target);
+              }}
+              onBlur={(e) => {
+                handleEmailValidation(e.target.value);
+              }}
+              style={{
+                backgroundColor: emailValidationObj.error.includes("emailInvalid") ? emailValidationObj.isEmailValid ? "" : "#fff6f6" : "",
+              }}
               id="email-input"
               fullWidth={true}
               variant="outlined"
+              autoComplete="username"
             />
           </div>
         </div>
@@ -39,23 +81,41 @@ const LoginForm = (props: Iprops) => {
               <p>סיסמא</p>
             </div>
             <div className={layoutStyle.loginFormForgotPassword}>
-              <LinkButton onClick={a} title="שכחת סיסמא?" size="10px" />
+              <LinkButton
+                disabled={false}
+                onClick={a}
+                title="שכחת סיסמא?"
+                size="10px"
+              />
             </div>
           </div>
           <div className={layoutStyle.loginFormInputFiled}>
             <TextField
               type="password"
+              onChange={(e) => {
+                handleChange(e.target);
+              }}
               size="small"
+              inputProps={{ maxLength: 15 }}
               id="password-input"
               fullWidth={true}
               variant="outlined"
+              autoComplete="current-password"
             />
           </div>
         </div>
 
         <div className={layoutStyle.loginFormSignIn}>
-          <LinkButton onClick={a} title="כניסה" size="16px" />
+          <LinkButton
+            onClick={() => {
+              onClickLogin();
+            }}
+            title="כניסה"
+            size="16px"
+            disabled={!emailValidationObj.isEmailValid}
+          />
         </div>
+        </form>
       </div>
     </div>
   );

@@ -5,14 +5,15 @@ interface Iprops {
   title: string;
   size: string;
   onClick: any;
+  disabled: boolean;
 }
 
 const LinkButton = (props: Iprops) => {
-  const { title, size, onClick } = props;
+  const { title, size, onClick, disabled } = props;
 
   return (
     <p
-      onClick={onClick}
+      onClick={disabled ? () => {} : onClick}
       style={{ fontSize: size }}
       className={layoutStyle.linkButtonContainer}
     >
