@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import layoutStyle from "./RegistrationForm.module.scss";
 import TextField from "@mui/material/TextField";
-import LinkButton from "../../../components/Elements/LinkButton/LinkButton";
+import LinkButton from "../../Elements/LinkButton/LinkButton";
 import validateEmail from "../../../actions/EmailValidation";
 
 interface Iprops {

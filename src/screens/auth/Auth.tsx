@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import layoutStyle from "./Auth.module.scss";
-import LoginForm from "../../components/auth/login/LoginForm";
-import RegistrationForm from "../../components/auth/registration/RegistrationForm";
+import LoginForm from "../../components/auth/Login/LoginForm";
+import RegistrationForm from "../../components/auth/Registration/RegistrationForm";
 import LinkButton from "../../components/Elements/LinkButton/LinkButton";
 import LoginApi from "../../api/fetchers/auth/Login"
 import RegistrationApi from "../../api/fetchers/auth/Registration"
