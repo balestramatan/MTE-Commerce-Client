@@ -1,6 +1,6 @@
 import React from "react";
 import layoutStyle from "./NotFound.module.scss";
-import NotFoundMessage from "../../components/NotFoundMessage/NotFoundMessage";
+import NotFoundMessage from "../../components/notFoundMessage/NotFoundMessage";
 
 interface Iprops {}
 

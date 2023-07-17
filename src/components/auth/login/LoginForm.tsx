@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import layoutStyle from "./LoginForm.module.scss";
 import TextField from "@mui/material/TextField";
-import LinkButton from "../../Elements/LinkButton/LinkButton";
+import LinkButton from "../../elements/linkButton/LinkButton";
 import validateEmail from "../../../actions/EmailValidation";
 
-interface Iprops {
+interface IProps {
   loginHandle: any;
   loginFailed: boolean;
 }
 
-const LoginForm = (props: Iprops) => {
+const LoginForm = (props: IProps) => {
   const { loginHandle, loginFailed } = props;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -21,7 +21,7 @@ const LoginForm = (props: Iprops) => {
   const a = () => {
     console.log("CLICED");
   };
-  
+
   const handleChange = (e: any) => {
     e.id === "email-input" ? setEmail(e.value) : setPassword(e.value);
   };

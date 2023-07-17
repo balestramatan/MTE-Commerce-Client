@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  flex: 1;
+  padding: 1rem;
+}
+
+
+.menuItems {
+  display: flex;
+  justify-content: space-evenly;
+  flex: 3;
+  padding: 1rem;
+}
+
+.profile {
+  flex: 1;
+  padding: 1rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.popup {
+  border: 1px solid deeppink;
+
+  position: absolute;
+  top: 5%;
+  left: 0;
+
+  background-color: grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}

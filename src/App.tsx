@@ -1,17 +1,17 @@
 import React from "react";
-import { router } from "./Router/Routes";
+import { router } from "./router/Routes";
 import { RouterProvider } from "react-router-dom";
-import Layout from "./screens/Layout/Layout";
-import Header from "./components/Header/Header";
+import Layout from "./screens/layout/Layout";
+import Header from "./components/header/Header";
 
 function App() {
   return (
-    <div>
+    <>
       <Layout>
         <Header />
       </Layout>
       <RouterProvider router={router} />
-    </div>
+    </>
   );
 }
 

@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import layoutStyle from "./RegistrationForm.module.scss";
 import TextField from "@mui/material/TextField";
-import LinkButton from "../../Elements/LinkButton/LinkButton";
+import LinkButton from "../../elements/linkButton/LinkButton";
 import validateEmail from "../../../actions/EmailValidation";
 
-interface Iprops {
+interface IProps {
   registrationHandle: any;
   registrationRes: any;
 }
 
-const RegistrationForm = (props: Iprops) => {
+const RegistrationForm = (props: IProps) => {
   const { registrationHandle, registrationRes } = props;
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -21,7 +21,7 @@ const RegistrationForm = (props: Iprops) => {
   });
 
   const a = () => {
-    console.log("CLICED");
+    console.log("Clicked");
   };
 
   const handleChange = (e: any) => {
