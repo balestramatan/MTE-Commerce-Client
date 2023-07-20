@@ -17,6 +17,22 @@
   padding: 1rem;
 }
 
+.menuItem {
+  position: relative;
+  margin: 0.5em;
+  cursor: pointer;
+}
+
+.menuItem:after {
+  display:block;
+  content: '';
+  border-bottom: solid 3px black;
+  transform: scaleX(0);
+  transition: transform 250ms ease-in-out;
+}
+
+.menuItem:hover:after { transform: scaleX(1); }
+
 .profile {
   flex: 1;
   padding: 1rem;
@@ -25,11 +41,11 @@
 }
 
 .popup {
-  border: 1px solid deeppink;
-
   position: absolute;
-  top: 5%;
+  top: 8%;
   left: 0;
+
+  padding: 1rem;
 
   background-color: grey;
   display: flex;

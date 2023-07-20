@@ -1,6 +1,6 @@
 @font-face {
-  font-family: 'ShaliahSansBold';
-  src: url('../public/assets/fonts/ShaliahSansBold.ttf') format('truetype');
+  font-family: 'Arial Hebrew';
+  src: url('../public/assets/fonts/arial-hebrew.ttf') format('truetype');
 }
 
 html, body, #app, #app>div {
@@ -11,5 +11,5 @@ html, body, #app, #app>div {
 body {
   margin: 0;
   direction: rtl;
-  font-family: 'ShaliahSansBold', sans-serif;
+  font-family: 'Arial Hebrew', sans-serif;
 }

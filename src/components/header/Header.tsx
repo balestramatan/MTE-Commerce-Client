@@ -1,26 +1,25 @@
-import React, {useRef, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import {MenuItemType} from "../../interfaces/interfaces";
 import {CSSTransition} from 'react-transition-group';
 import PopupContent from "../elements/popup/PopupContent";
 
-import 'bootstrap/dist/css/bootstrap.min.css';
 import '../elements/popup/popupStyle.css';
 import headerStyle from './Header.module.scss';
 
 const mockMenuItems: MenuItemType[] = [
     {
         id: "menu-item-1",
-        label: "Menu Option 1",
+        label: "אופציה 1",
         content: <PopupContent>{'content 1'}</PopupContent>
     },
     {
         id: "menu-item-2",
-        label: "Menu Option 2",
+        label: "אופציה 2",
         content: <PopupContent>{'content 2'}</PopupContent>
     },
     {
         id: "menu-item-3",
-        label: "Menu Option 3",
+        label: "אופציה 3",
         content: <PopupContent>{'content 3'}</PopupContent>
     },
 ];
@@ -48,14 +47,18 @@ const Header = () => {
         if (mouseY >= divRect.bottom - 10) setPopup(false);
     };
 
+    useEffect(() => {
+
+    }, [])
+
     return (
         <div className={headerStyle.container}>
             <div className={headerStyle.logo}>
-                <span>Logo</span>
+                <span>לוגו</span>
             </div>
             <div className={headerStyle.menuItems}>
                 {mockMenuItems.map((menuItem: MenuItemType) => (
-                    <div key={menuItem.id}
+                    <div key={menuItem.id} className={headerStyle.menuItem}
                          onMouseEnter={() => handleMouseEnter(true, menuItem.id)}>
                         {menuItem.label}
                     </div>
@@ -70,14 +73,14 @@ const Header = () => {
                     unmountOnExit
                 >
                     <div ref={popupRef} className={headerStyle.popup} onMouseLeave={handleMouseLeave}>
-                        <p>Some more details here...</p>
+                        <span>קטגוריות</span>
 
                         {popUpContent}
                     </div>
                 </CSSTransition>
             )}
             <div className={headerStyle.profile}>
-                <span>Profile</span>
+                <span>פרופיל</span>
             </div>
         </div>
     );

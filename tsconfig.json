@@ -4,6 +4,7 @@
     "lib": [
       "dom",
       "dom.iterable",
+      "ES2020",
       "esnext"
     ],
     "allowJs": true,
@@ -12,16 +13,17 @@
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx",
-    "baseUrl": "./src"
+    "jsx": "react",
+    "noImplicitAny": false,
+    "experimentalDecorators": true,
+    "noFallthroughCasesInSwitch": true
   },
   "include": [
-    "src",
+    "src"
   ]
 }

@@ -19,3 +19,10 @@ export interface LoginConstants {
 export interface RegistrationConstants {
     ROUTE: string
 }
+
+export interface ApiResponseBody {
+    status: boolean;
+    results: any;
+    errorId: string;
+    errorMessage: string;
+}
