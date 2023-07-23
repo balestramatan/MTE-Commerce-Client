@@ -6,6 +6,13 @@ export interface IProduct {
     promotionPrice: string
 }
 
+export interface IStore {
+    aboutText: string;
+    usefulLinks: string[];
+    openingHours: string[];
+    storeInformation: any;
+}
+
 export interface MenuItemType {
     id: string;
     label: string;
