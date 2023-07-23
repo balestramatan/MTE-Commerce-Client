@@ -1,3 +1,11 @@
+export interface IProduct {
+    name: string;
+    images: string[];
+    stock: boolean;
+    price: string;
+    promotionPrice: string
+}
+
 export interface MenuItemType {
     id: string;
     label: string;
