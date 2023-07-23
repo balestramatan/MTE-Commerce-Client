@@ -1,0 +1,54 @@
+.footerContainer{
+    background-color: black;
+    color: white;
+    height: 60vh;
+    max-height: 450px;
+    padding: 3vh 5vh 0vh 5vh;
+    margin-top: 3vh;
+}
+
+p{
+    font-size: 12px;
+}
+
+.footerDivider{
+    background-color: white;
+    margin-bottom: 2vh !important;
+    margin-right: 0 !important;
+    width: 100%;
+}
+
+.footerColumn{
+    display: flex;
+    justify-content: center;
+
+    h5{
+        margin-bottom: 4vh;
+    }
+    span{
+        font-size: 12px;
+    }
+}
+
+.storeNameContainer{
+    padding-bottom: 4vh;
+}
+
+.footerCopyright{
+    display: flex;
+    justify-content: center;
+    padding-top: 6vh;
+    font-size: 12px;
+    a{
+        color: white;
+        padding-left: 2px;
+    }
+}
+
+.footerIconSpan{
+    padding-left: 1vw;
+}
+
+.footerIcon{
+    font-size: 18px;
+}
