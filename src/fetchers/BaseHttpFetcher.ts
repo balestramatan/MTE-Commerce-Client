@@ -1,5 +1,5 @@
 import axios, {AxiosInstance} from "axios";
-import * as https from "https";
+import https from "https-browserify";
 import ClientConfig from "../config";
 
 export class BaseHttpFetcher {

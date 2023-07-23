@@ -2,9 +2,13 @@ import React, {useEffect, useRef, useState} from "react";
 import {MenuItemType} from "../../interfaces/interfaces";
 import {CSSTransition} from 'react-transition-group';
 import PopupContent from "../elements/popup/PopupContent";
-
 import '../elements/popup/popupStyle.css';
 import headerStyle from './Header.module.scss';
+
+import rootStores from "../../stores";
+import {CATEGORIES_STORE} from '../../stores/consts'
+
+const categoriesStore = rootStores[CATEGORIES_STORE];
 
 const mockMenuItems: MenuItemType[] = [
     {
@@ -29,6 +33,8 @@ const Header = () => {
     const [showPopup, setPopup] = useState<boolean>(false);
     const popupRef = useRef<HTMLDivElement>(null);
 
+    const {getCategories} = categoriesStore;
+
     const handleMouseEnter = (showPopup: boolean, menuId?: string) => {
         setPopup(showPopup);
 
@@ -47,8 +53,12 @@ const Header = () => {
         if (mouseY >= divRect.bottom - 10) setPopup(false);
     };
 
-    useEffect(() => {
+    const fetchCategories = async () => {
+        getCategories();
+    }
 
+    useEffect(() => {
+        fetchCategories().then(() => console.log("fetched categories..."));
     }, [])
 
     return (

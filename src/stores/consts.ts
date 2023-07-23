@@ -1,0 +1,1 @@
+export const CATEGORIES_STORE: string = "CATEGORIES_STORE"
