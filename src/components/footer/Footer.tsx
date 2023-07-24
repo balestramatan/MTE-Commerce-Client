@@ -1,15 +1,15 @@
 import React from "react";
 import layoutStyle from "./Footer.module.scss";
 import Grid from "@mui/material/Grid";
-import {IStore} from "../../interfaces/interfaces"
+import { IStore } from "../../interfaces/interfaces";
 import Divider from "@mui/material/Divider";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
-
+import { SocialIcon } from "react-social-icons";
 
 interface Iprops {
-  store: IStore
+  store: IStore;
 }
 
 const Footer = (props: Iprops) => {
@@ -39,6 +39,15 @@ const Footer = (props: Iprops) => {
             <div>
               <h6>קצת עלינו</h6>
               <p>{store.aboutText}</p>
+              <div className={layoutStyle.footerSocialContainer}>
+                {store.mediaLinks.map((media,index) => (
+                  <SocialIcon
+                    key={index}
+                    className={layoutStyle.footerSocialIcon}
+                    url={media.url}
+                  />
+                ))}
+              </div>
             </div>
           </Grid>
           <Grid className={layoutStyle.footerColumn} item xs={4}>
@@ -46,7 +55,9 @@ const Footer = (props: Iprops) => {
               <h6>יצירת קשר</h6>
               {store.storeInformation.map((element, index) => (
                 <div key={index}>
-                  <span className={layoutStyle.footerIconSpan}>{renderIconByType(element.type)}</span>
+                  <span className={layoutStyle.footerIconSpan}>
+                    {renderIconByType(element.type)}
+                  </span>
                   <span>{element.value}</span>
                 </div>
               ))}
@@ -57,11 +68,12 @@ const Footer = (props: Iprops) => {
               <h6>שעות פתיחה</h6>
               {store.openingHours.map((info, index) => (
                 <div key={index}>
-                  <p>{info}</p>
-                  <Divider
-                    className={layoutStyle.footerDivider}
-                    variant="middle"
-                  />
+                  <p>{info.days}: {info.hours}</p>
+                  {index !== store.openingHours.length - 1 ? (
+                    <Divider
+                      className={layoutStyle.footerDivider}
+                    />
+                  ) : null}
                 </div>
               ))}
             </div>
