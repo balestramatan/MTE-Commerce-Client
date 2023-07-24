@@ -7,8 +7,9 @@ import headerStyle from './Header.module.scss';
 
 import rootStores from "../../stores";
 import {CATEGORIES_STORE} from '../../stores/consts'
+import CategoriesStore from "../../stores/Categories.store";
 
-const categoriesStore = rootStores[CATEGORIES_STORE];
+const categoriesStore = rootStores[CATEGORIES_STORE] as CategoriesStore;
 
 const mockMenuItems: MenuItemType[] = [
     {
