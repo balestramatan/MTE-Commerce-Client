@@ -6,14 +6,6 @@ export interface IProduct {
     promotionPrice: string
 }
 
-export interface IStore {
-    aboutText: string;
-    usefulLinks: UsefulLinks[];
-    openingHours: OpeningHours[];
-    information: Information[];
-    mediaLinks: MediaLinks[];
-}
-
 export interface OpeningHours {
     days: string,
     hours: string

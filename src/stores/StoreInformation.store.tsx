@@ -13,16 +13,19 @@ class StoreInformationStore {
   aboutText!: string;
 
   @observable
-  usefulLinks!: UsefulLinks;
+  usefulLinks!: UsefulLinks[];
 
   @observable
-  openingHours!: OpeningHours;
+  openingHours!: OpeningHours[];
 
   @observable
-  information!: Information;
+  information!: Information[];
 
   @observable
-  mediaLinks!: MediaLinks;
+  mediaLinks!: MediaLinks[];
+
+  @observable
+  storeName!: string;
 
   @observable
   isLoading: boolean = false;
@@ -31,19 +34,22 @@ class StoreInformationStore {
   setAboutText = (aboutText: string) => (this.aboutText = aboutText);
 
   @action
-  setUsefulLinks = (usefulLinks: UsefulLinks) =>
+  setUsefulLinks = (usefulLinks: UsefulLinks[]) =>
     (this.usefulLinks = usefulLinks);
 
   @action
-  setOpeningHours = (openingHours: OpeningHours) =>
+  setOpeningHours = (openingHours: OpeningHours[]) =>
     (this.openingHours = openingHours);
 
   @action
-  setInformation = (information: Information) =>
+  setInformation = (information: Information[]) =>
     (this.information = information);
 
   @action
-  setMediaLinks = (mediaLinks: MediaLinks) => (this.mediaLinks = mediaLinks);
+  setMediaLinks = (mediaLinks: MediaLinks[]) => (this.mediaLinks = mediaLinks);
+
+  @action
+  setStoreName = (storeName: string) => (this.storeName = storeName);
 
   @action
   setIsLoading = (isLoading: boolean) => (this.isLoading = isLoading);
@@ -52,12 +58,13 @@ class StoreInformationStore {
   getStoreInformation = async () => {
     try {
       this.isLoading = true;
-      let { storeInformation } = await StoreInformationFetcher.getStoreInformation();
-      this.setAboutText(storeInformation.aboutText);
-      this.setUsefulLinks(storeInformation.usefulLinks);
-      this.setOpeningHours(storeInformation.openingHours);
-      this.setInformation(storeInformation.storeInformation);
-      this.setMediaLinks(storeInformation.mediaLinks);
+      let {data} = await StoreInformationFetcher.getStoreInformation();
+      this.setAboutText(data.aboutText);
+      this.setUsefulLinks(data.usefulLinks);
+      this.setOpeningHours(data.openingHours);
+      this.setInformation(data.information);
+      this.setMediaLinks(data.mediaLinks);
+      this.setStoreName(data.storeName)
     } catch (err: any) {
       console.error(err?.message);
       ToastUtil.error("Some error occurred.");
