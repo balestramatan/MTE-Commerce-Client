@@ -8,10 +8,29 @@ export interface IProduct {
 
 export interface IStore {
     aboutText: string;
-    usefulLinks: any;
-    openingHours: any;
-    storeInformation: any;
-    mediaLinks: any;
+    usefulLinks: UsefulLinks[];
+    openingHours: OpeningHours[];
+    information: Information[];
+    mediaLinks: MediaLinks[];
+}
+
+export interface OpeningHours {
+    days: string,
+    hours: string
+}
+export interface UsefulLinks {
+    name: string,
+    url: string
+}
+export interface Information {
+    type: string,
+    value: string,
+    icon: string
+}
+
+export interface MediaLinks {
+    type: string;
+    url: string;
 }
 
 export interface MenuItemType {

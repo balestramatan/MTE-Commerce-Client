@@ -53,7 +53,7 @@ const Footer = (props: Iprops) => {
           <Grid className={layoutStyle.footerColumn} item xs={4}>
             <div>
               <h6>יצירת קשר</h6>
-              {store.storeInformation.map((element, index) => (
+              {store.information.map((element, index) => (
                 <div key={index}>
                   <span className={layoutStyle.footerIconSpan}>
                     {renderIconByType(element.type)}
