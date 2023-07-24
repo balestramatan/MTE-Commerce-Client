@@ -23,11 +23,35 @@ function App() {
         icon: "HomeOutlinedIcon",
       },
     ],
-    usefulLinks: ["Link 1", "Link 2", "Link 3"],
+    usefulLinks: [
+      {
+        name: "",
+        url: "",
+      },
+    ],
     openingHours: [
-      "ראשון עד חמישי: 07:00 - 20:00",
-      "שישי: 09:00 - 15:00",
-      `מוצ"ש: 21:00 - 00:00`,
+      {
+        days: "ראשון עד חמישי",
+        hours: "07:00 - 20:00",
+      },
+      {
+        days: "שישי",
+        hours: "09:00 - 15:00",
+      },
+      {
+        days: `מוצ"ש`,
+        hours: "21:00 - 00:00",
+      },
+    ],
+    mediaLinks: [
+      {
+        type: "instegram",
+        url: "https://www.instagram.com/smoke_talk_israel/",
+      },
+      {
+        type: "facebook",
+        url: "https://www.facebook.com/SmokeTalk1/?locale=he_IL",
+      },
     ],
   };
 
