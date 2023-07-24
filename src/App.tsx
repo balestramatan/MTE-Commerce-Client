@@ -10,7 +10,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
   const store = {
     aboutText: "מגוון מוצרים במחירים בלי תחרות משלוחים לכל איזור הדרום",
-    storeInformation: [
+    information: [
       {
         type: "address",
         value: "שדרות ירושלים 1, נתיבות",
@@ -25,8 +25,8 @@ function App() {
     ],
     usefulLinks: [
       {
-        name: "",
-        url: "",
+        name: "dsa",
+        url: "dsa",
       },
     ],
     openingHours: [

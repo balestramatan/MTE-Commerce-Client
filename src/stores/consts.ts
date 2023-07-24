@@ -1,1 +1,2 @@
-export const CATEGORIES_STORE: string = "CATEGORIES_STORE"
+export const CATEGORIES_STORE: string = "CATEGORIES_STORE";
+export const STORE_INFORMATION_STORE: string = "STORE_INFORMATION_STORE";
