@@ -47,7 +47,6 @@ const Header = () => {
     const handleMouseLeave = (event: any) => {
         setPopup(showPopup);
 
-
         // check if mouse is leaving popup from bottom
         const divRect = popupRef.current!.getBoundingClientRect();
         const mouseY = event.clientY;
@@ -55,11 +54,13 @@ const Header = () => {
     };
 
     const fetchCategories = async () => {
-        getCategories();
+        await getCategories();
     }
 
     useEffect(() => {
         fetchCategories().then(() => console.log("fetched categories..."));
+
+        console.log('i fire once');
     }, [])
 
     return (

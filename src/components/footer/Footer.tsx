@@ -1,117 +1,107 @@
-import React, { useEffect, useState } from "react";
-import layoutStyle from "./Footer.module.scss";
+import React, {useEffect} from "react";
+import {observer} from "mobx-react";
+import footerStyle from "./Footer.module.scss";
 import Grid from "@mui/material/Grid";
 import Divider from "@mui/material/Divider";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
 import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
-import { SocialIcon } from "react-social-icons";
+import {SocialIcon} from "react-social-icons";
 
 import rootStores from "../../stores";
-import { STORE_INFORMATION_STORE } from "../../stores/consts";
+import {STORE_INFORMATION_STORE} from "../../stores/consts";
 import StoreInformationStore from "../../stores/StoreInformation.store";
 
-interface IProps {}
-
 const storeInformationStore = rootStores[
-  STORE_INFORMATION_STORE
-] as StoreInformationStore;
+    STORE_INFORMATION_STORE
+    ] as StoreInformationStore;
 
-const Footer = (props: IProps) => {
-  const {} = props;
-  const {
-    getStoreInformation,
-    aboutText,
-    mediaLinks,
-    information,
-    openingHours,
-    storeName
-  } = storeInformationStore;
-  const [isLoading, setisLoading] = useState(true);
+const Footer = observer(() => {
+    const {
+        getStoreInformation,
+        aboutText,
+        mediaLinks,
+        information,
+        openingHours
+    } = storeInformationStore;
 
-  const renderIconByType = (type: string) => {
-    switch (type) {
-      case "address":
-        return <HomeOutlinedIcon className={layoutStyle.footerIcon} />;
-      case "phone":
-        return <LocalPhoneOutlinedIcon className={layoutStyle.footerIcon} />;
-      case "email":
-        return <EmailOutlinedIcon className={layoutStyle.footerIcon} />;
-      default:
-        return null;
-    }
-  };
+    const renderIconByType = (type: string) => {
+        switch (type) {
+            case "address":
+                return <HomeOutlinedIcon className={footerStyle.footerIcon}/>;
+            case "phone":
+                return <LocalPhoneOutlinedIcon className={footerStyle.footerIcon}/>;
+            case "email":
+                return <EmailOutlinedIcon className={footerStyle.footerIcon}/>;
+            default:
+                return null;
+        }
+    };
 
-  const fetchStoreInformation = async () => {
-    await getStoreInformation();
-    setisLoading(false);
-  };
+    const fetchStoreInformation = async () => {
+        await getStoreInformation();
+    };
 
-  useEffect(() => {
-    fetchStoreInformation();
-  }, []);
+    useEffect(() => {
+        // fetchStoreInformation().then(() => console.log('fetched store information...'));
+    }, []);
 
-
-  if(isLoading){
-    return <div>Loading</div>
-  }
-  return (
-    <footer className={layoutStyle.footerContainer}>
-      <div>
-        <div className={layoutStyle.storeNameContainer}>
-          <h3>{storeName}</h3>
-        </div>
-        <Grid container columns={12}>
-          <Grid className={layoutStyle.footerColumn} item xs={4}>
+    return (
+        <footer id={'footer'} className={footerStyle.footerContainer}>
             <div>
-              <h6>קצת עלינו</h6>
-              <p>{aboutText}</p>
-              <div className={layoutStyle.footerSocialContainer}>
-                {mediaLinks?.map((media, index) => (
-                  <SocialIcon
-                    key={index}
-                    className={layoutStyle.footerSocialIcon}
-                    url={media.url}
-                  />
-                ))}
-              </div>
-            </div>
-          </Grid>
-          <Grid className={layoutStyle.footerColumn} item xs={4}>
-            <div>
-              <h6>יצירת קשר</h6>
-              {information?.map((element, index) => (
-                <div key={index}>
-                  <span className={layoutStyle.footerIconSpan}>
+                <Grid container columns={12}>
+                    <Grid className={footerStyle.footerColumn} item xs={4}>
+                        <div>
+                            <div>
+                                <span className={footerStyle.title}>קצת עלינו</span>
+                            </div>
+                            <span className={footerStyle.contentText}>{aboutText}</span>
+                            <div className={footerStyle.footerSocialContainer}>
+                                {mediaLinks?.map((media, index) => (
+                                    <SocialIcon
+                                        key={index}
+                                        className={footerStyle.footerSocialIcon}
+                                        url={media.url}
+                                    />
+                                ))}
+                            </div>
+                        </div>
+                    </Grid>
+                    <Grid className={footerStyle.footerColumn} item xs={4}>
+                        <div>
+                            <span className={footerStyle.title}>יצירת קשר</span>
+                            {information?.map((element, index) => (
+                                <div key={index}>
+                  <span className={footerStyle.footerIconSpan}>
                     {renderIconByType(element.type)}
                   </span>
-                  <span>{element.value}</span>
-                </div>
-              ))}
+                                    <span className={footerStyle.contentText}>{element.value}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </Grid>
+                    <Grid className={footerStyle.footerColumn} item xs={4}>
+                        <div>
+                            <span className={footerStyle.title}>שעות פתיחה</span>
+                            {openingHours?.map((info, index) => (
+                                <div key={index}>
+                                    <span className={footerStyle.contentText}>
+                                        {info.days}: {info.hours}
+                                    </span>
+                                    {index !== openingHours?.length - 1 ? (
+                                        <Divider className={footerStyle.footerDivider}/>
+                                    ) : null}
+                                </div>
+                            ))}
+                        </div>
+                    </Grid>
+                </Grid>
             </div>
-          </Grid>
-          <Grid className={layoutStyle.footerColumn} item xs={4}>
-            <div>
-              <h6>שעות פתיחה</h6>
-              {openingHours?.map((info, index) => (
-                <div key={index}>
-                  <p>
-                    {info.days}: {info.hours}
-                  </p>
-                  {index !== openingHours?.length - 1 ? (
-                    <Divider className={layoutStyle.footerDivider} />
-                  ) : null}
-                </div>
-              ))}
+            <div className={footerStyle.footerCopyright}>
+                <a className={footerStyle.contentText} href="https://mdbootstrap.com/">MTECommerce</a> <span className={footerStyle.contentText}>2023 Copyright ©</span>
             </div>
-          </Grid>
-        </Grid>
-      </div>
-      <div className={layoutStyle.footerCopyright}>
-        <a href="https://mdbootstrap.com/">MTECommerce</a> 2023 Copyright ©
-      </div>
-    </footer>
-  );
-};
+        </footer>
+    );
+});
 
 export default Footer;

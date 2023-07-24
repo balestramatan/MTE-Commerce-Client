@@ -9,12 +9,13 @@ import rootStores from "./stores";
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
 );
+
 root.render(
-    <React.StrictMode>
+    <React.Fragment>
         <Provider {...rootStores}>
             <App/>
         </Provider>
-    </React.StrictMode>
+    </React.Fragment>
 );
 
 // If you want to start measuring performance in your app, pass a function

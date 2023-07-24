@@ -1,4 +1,4 @@
-import {action, computed, observable} from "mobx";
+import {action, computed, makeObservable, observable} from "mobx";
 import Category from "../models/Category.model";
 
 import CategoriesFetcher from '../fetchers/CategoriesFetchers';
@@ -11,6 +11,10 @@ class CategoriesStore {
 
     @observable
     isLoading: boolean = false;
+
+    constructor() {
+        makeObservable(this);
+    }
 
     @action
     setCategories = (categories: Category[]) => this.categories = categories;

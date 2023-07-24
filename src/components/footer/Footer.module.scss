@@ -1,20 +1,15 @@
 .footerContainer{
     background-color: black;
     color: white;
-    height: 60vh;
-    max-height: 450px;
-    padding: 3vh 5vh 0vh 5vh;
-    margin-top: 3vh;
-}
-
-p{
-    font-size: 12px;
+    width: 100%;
+    padding: 3vh 5vh;
+    position: absolute;
+    bottom: 0;
 }
 
 .footerDivider{
     background-color: white;
-    margin-bottom: 2vh !important;
-    margin-right: 0 !important;
+    margin: 1vh 0 !important;
     width: 100%;
 }
 
@@ -22,13 +17,6 @@ p{
     display: flex;
     justify-content: center;
     flex-direction: row;
-
-    h5{
-        margin-bottom: 4vh;
-    }
-    span{
-        font-size: 12px;
-    }
 }
 
 .storeNameContainer{
@@ -38,11 +26,10 @@ p{
 .footerCopyright{
     display: flex;
     justify-content: center;
-    padding-top: 6vh;
-    font-size: 12px;
+    gap: .5vw;
+
     a{
         color: white;
-        padding-left: 2px;
     }
 }
 
@@ -57,12 +44,19 @@ p{
 .footerSocialIcon{
     width: 30px !important;
     height: 30px !important;
-    margin-left: 15px ;
-    
+    margin-left: 15px;
 }
 
 .footerSocialContainer{
     display: flex;
     margin-top: 30px;
     justify-content: center;
+}
+
+.title {
+    font-size: 18px;
+}
+
+.contentText {
+    font-size: 12px;
 }
