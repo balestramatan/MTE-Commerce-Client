@@ -5,7 +5,7 @@ const categoriesPrefix = "categories";
 
 class CategoriesFetcher extends BaseHttpFetcher {
     async getCategories(): Promise<any> {
-        return await this.get(categoriesPrefix);
+        return await this.get(`topicsManagement/${categoriesPrefix}`);
     }
 
     async createCategory(categoryName: string): Promise<any> {

@@ -13,7 +13,7 @@ const PROD_SERVER = 'https://mte-commerce-server.vercel.app';
 const LOCAL_PORT = '4000';
 
 const local: IConfigEnvironment = {
-    apiBaseHost: `http://127.0.0.1:${LOCAL_PORT}/api`,
+    apiBaseHost: `http://localhost:${LOCAL_PORT}/api`,
 };
 
 const prod: IConfigEnvironment = {
