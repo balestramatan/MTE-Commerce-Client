@@ -9,7 +9,7 @@ interface IConfigEnvironment {
 export interface IClientConfig extends IConfigEnvironment {
 }
 
-const PROD_SERVER = 'https://mte-commerce-server.vercel.app';
+const PROD_SERVER = 'mte-commerce-server.vercel.app';
 const LOCAL_PORT = '4000';
 
 const local: IConfigEnvironment = {

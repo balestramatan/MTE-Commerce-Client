@@ -19,6 +19,9 @@ export default class StoreInformation {
     @observable
     mediaLinks!: MediaLinks;
 
+    @observable
+    storeName!: string;
+
 
     constructor(storeInformation?: StoreInformation) {
         if (storeInformation) {
@@ -27,6 +30,7 @@ export default class StoreInformation {
             this.openingHours = storeInformation.openingHours;
             this.information = storeInformation.information;
             this.mediaLinks = storeInformation.mediaLinks;
+            this.storeName = storeInformation.storeName;
         }
     }
 }
