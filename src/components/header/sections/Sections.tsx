@@ -59,15 +59,15 @@ const Sections = observer(() => {
                                 {categoriesToShow.map(category => {
                                     return (
                                         <div key={category.categoryId} className={headerStyle.categoryContainer}>
-                                                <span
-                                                    className={headerStyle.categoryTitleName}>{category.categoryName}
-                                                </span>
+                                            <span
+                                                className={`${headerStyle.categoryTitleName} ${headerStyle.textAnimated}`}>{category.categoryName}
+                                            </span>
 
                                             {category.subCategories?.map(subCategory => {
                                                 return (
                                                     <div key={subCategory.categoryId}>
                                                             <span
-                                                                className={`${headerStyle.subCategoryTitleName} ${headerStyle.animatedBottomBorder} ${headerStyle.fromRight}`}>
+                                                                className={`${headerStyle.subCategoryTitleName} ${headerStyle.animatedBottomBorder} ${headerStyle.fromRight} ${headerStyle.textAnimated}`}>
                                                                 {subCategory.categoryName}
                                                             </span>
                                                     </div>
