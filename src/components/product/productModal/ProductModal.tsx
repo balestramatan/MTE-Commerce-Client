@@ -18,7 +18,7 @@ const ProductModal = (props: IProps) => {
 
   return (
     <div>
-      <Button onClick={handleOpen}>Open modal</Button>
+      {/*<Button onClick={handleOpen}>Open modal</Button>*/}
       <Modal open={open} onClose={handleClose}>
         <div className={layoutStyle.productModalContainer}>
           <ProductInformation product={product} />

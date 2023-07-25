@@ -1,124 +1,124 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import layoutStyle from "./LoginForm.module.scss";
 import TextField from "@mui/material/TextField";
 import LinkButton from "../../elements/linkButton/LinkButton";
 import validateEmail from "../../../actions/EmailValidation";
 
 interface IProps {
-  loginHandle: any;
-  loginFailed: boolean;
+    loginHandle: any;
+    loginFailed: boolean;
 }
 
 const LoginForm = (props: IProps) => {
-  const { loginHandle, loginFailed } = props;
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [emailValidationObj, setEmailValidationObj] = useState({
-    isEmailValid: false,
-    error: [""],
-  });
+    const {loginHandle, loginFailed} = props;
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [emailValidationObj, setEmailValidationObj] = useState({
+        isEmailValid: false,
+        error: [""],
+    });
 
-  const a = () => {
-    console.log("CLICED");
-  };
+    const a = () => {
+        console.log("CLICKED");
+    };
 
-  const handleChange = (e: any) => {
-    e.id === "email-input" ? setEmail(e.value) : setPassword(e.value);
-  };
+    const handleChange = (e: any) => {
+        e.id === "email-input" ? setEmail(e.value) : setPassword(e.value);
+    };
 
-  const handleEmailValidation = (email: string) => {
-    validateEmail(email)
-      ? setEmailValidationObj({ isEmailValid: true, error: [""] })
-      : setEmailValidationObj({ isEmailValid: false, error: ["emailInvalid"] });
-  };
+    const handleEmailValidation = (email: string) => {
+        validateEmail(email)
+            ? setEmailValidationObj({isEmailValid: true, error: [""]})
+            : setEmailValidationObj({isEmailValid: false, error: ["emailInvalid"]});
+    };
 
-  const onClickLogin = () => {
-    loginHandle({ email, password });
-  };
+    const onClickLogin = () => {
+        loginHandle({email, password});
+    };
 
-  return (
-    <div className={layoutStyle.loginFormContainer}>
-      <div className={layoutStyle.loginFormContext}>
-        <form>
-        <div className={layoutStyle.loginFormTitle}>
-          <p>התחברות</p>
-        </div>
+    return (
+        <div className={layoutStyle.loginFormContainer}>
+            <div className={layoutStyle.loginFormContext}>
+                <form>
+                    <div className={layoutStyle.loginFormTitle}>
+                        <p>התחברות</p>
+                    </div>
 
-        <div className={layoutStyle.loginFormInputContainer}>
+                    <div className={layoutStyle.loginFormInputContainer}>
 
-          {loginFailed && (
-            <div className={layoutStyle.erorrMessageContainer}>
-              <p>שם משתמש או סיסמא שגויים</p>
+                        {loginFailed && (
+                            <div className={layoutStyle.errorMessageContainer}>
+                                <p>שם משתמש או סיסמא שגויים</p>
+                            </div>
+                        )}
+
+                        <div className={layoutStyle.loginFormInputTitle}>
+                            <p>אימייל</p>
+                        </div>
+                        <div className={layoutStyle.loginFormInputFiled}>
+                            <TextField
+                                size="small"
+                                onChange={(e) => {
+                                    handleChange(e.target);
+                                }}
+                                onBlur={(e) => {
+                                    handleEmailValidation(e.target.value);
+                                }}
+                                style={{
+                                    backgroundColor: emailValidationObj.error.includes("emailInvalid") ? emailValidationObj.isEmailValid ? "" : "#fff6f6" : "",
+                                }}
+                                id="email-input"
+                                fullWidth={true}
+                                variant="outlined"
+                                autoComplete="username"
+                            />
+                        </div>
+                    </div>
+
+                    <div className={layoutStyle.loginFormInputContainer}>
+                        <div className={layoutStyle.loginFormPasswordRow}>
+                            <div>
+                                <p>סיסמא</p>
+                            </div>
+                            <div className={layoutStyle.loginFormForgotPassword}>
+                                <LinkButton
+                                    disabled={false}
+                                    onClick={a}
+                                    title="שכחת סיסמא?"
+                                    size="10px"
+                                />
+                            </div>
+                        </div>
+                        <div className={layoutStyle.loginFormInputFiled}>
+                            <TextField
+                                type="password"
+                                onChange={(e) => {
+                                    handleChange(e.target);
+                                }}
+                                size="small"
+                                inputProps={{maxLength: 15}}
+                                id="password-input"
+                                fullWidth={true}
+                                variant="outlined"
+                                autoComplete="current-password"
+                            />
+                        </div>
+                    </div>
+
+                    <div className={layoutStyle.loginFormSignIn}>
+                        <LinkButton
+                            onClick={() => {
+                                onClickLogin();
+                            }}
+                            title="כניסה"
+                            size="16px"
+                            disabled={!emailValidationObj.isEmailValid}
+                        />
+                    </div>
+                </form>
             </div>
-          )}
-
-          <div className={layoutStyle.loginFormInputTitle}>
-            <p>אימייל</p>
-          </div>
-          <div className={layoutStyle.loginFormInputFiled}>
-            <TextField
-              size="small"
-              onChange={(e) => {
-                handleChange(e.target);
-              }}
-              onBlur={(e) => {
-                handleEmailValidation(e.target.value);
-              }}
-              style={{
-                backgroundColor: emailValidationObj.error.includes("emailInvalid") ? emailValidationObj.isEmailValid ? "" : "#fff6f6" : "",
-              }}
-              id="email-input"
-              fullWidth={true}
-              variant="outlined"
-              autoComplete="username"
-            />
-          </div>
         </div>
-
-        <div className={layoutStyle.loginFormInputContainer}>
-          <div className={layoutStyle.loginFormPasswordRow}>
-            <div>
-              <p>סיסמא</p>
-            </div>
-            <div className={layoutStyle.loginFormForgotPassword}>
-              <LinkButton
-                disabled={false}
-                onClick={a}
-                title="שכחת סיסמא?"
-                size="10px"
-              />
-            </div>
-          </div>
-          <div className={layoutStyle.loginFormInputFiled}>
-            <TextField
-              type="password"
-              onChange={(e) => {
-                handleChange(e.target);
-              }}
-              size="small"
-              inputProps={{ maxLength: 15 }}
-              id="password-input"
-              fullWidth={true}
-              variant="outlined"
-              autoComplete="current-password"
-            />
-          </div>
-        </div>
-
-        <div className={layoutStyle.loginFormSignIn}>
-          <LinkButton
-            onClick={() => {
-              onClickLogin();
-            }}
-            title="כניסה"
-            size="16px"
-            disabled={!emailValidationObj.isEmailValid}
-          />
-        </div>
-        </form>
-      </div>
-    </div>
-  );
+    );
 };
 
 export default LoginForm;

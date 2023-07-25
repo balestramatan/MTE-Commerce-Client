@@ -1,101 +1,94 @@
 import React, {useEffect, useRef, useState} from "react";
-import {MenuItemType} from "../../interfaces/interfaces";
+import {observer} from "mobx-react";
 import {CSSTransition} from 'react-transition-group';
-import PopupContent from "../elements/popup/PopupContent";
 import '../elements/popup/popupStyle.css';
 import headerStyle from './Header.module.scss';
 
 import rootStores from "../../stores";
-import {CATEGORIES_STORE} from '../../stores/consts'
-import CategoriesStore from "../../stores/Categories.store";
+import {TOPICS_STORE} from '../../stores/consts'
+import SectionsStore from "../../stores/Sections.store";
+import Category from "../../models/Category.model";
 
-const categoriesStore = rootStores[CATEGORIES_STORE] as CategoriesStore;
+const categoriesStore = rootStores[TOPICS_STORE] as SectionsStore;
 
-const mockMenuItems: MenuItemType[] = [
-    {
-        id: "menu-item-1",
-        label: "אופציה 1",
-        content: <PopupContent>{'content 1'}</PopupContent>
-    },
-    {
-        id: "menu-item-2",
-        label: "אופציה 2",
-        content: <PopupContent>{'content 2'}</PopupContent>
-    },
-    {
-        id: "menu-item-3",
-        label: "אופציה 3",
-        content: <PopupContent>{'content 3'}</PopupContent>
-    },
-];
-
-const Header = () => {
-    const [popUpContent, setPpoUpContent] = useState<any>(null);
+const Header = observer(() => {
+    const [categoriesToShow, setCategoriesToShow] = useState<Category[]>([]);
     const [showPopup, setPopup] = useState<boolean>(false);
-    const popupRef = useRef<HTMLDivElement>(null);
+    const transitionRef = useRef<HTMLDivElement>(null)
 
-    const {getCategories} = categoriesStore;
+    const {sections, getSections} = categoriesStore;
 
     const handleMouseEnter = (showPopup: boolean, menuId?: string) => {
         setPopup(showPopup);
 
         if (!menuId) return;
-        const activeMenu = mockMenuItems.find(e => e.id === menuId)
-        setPpoUpContent(activeMenu?.content)
+        const activeMenu = sections.find(s => s.categories!.find(c => c.categoryId === menuId))
+
+        console.log('activeMenu ::')
+        console.log(activeMenu)
+        setCategoriesToShow(activeMenu?.categories ? activeMenu.categories : [])
     };
 
     const handleMouseLeave = (event: any) => {
         setPopup(showPopup);
 
         // check if mouse is leaving popup from bottom
-        const divRect = popupRef.current!.getBoundingClientRect();
+        const divRect = transitionRef.current!.getBoundingClientRect();
         const mouseY = event.clientY;
         if (mouseY >= divRect.bottom - 10) setPopup(false);
     };
 
-    const fetchCategories = async () => {
-        await getCategories();
-    }
-
     useEffect(() => {
-        fetchCategories().then(() => console.log("fetched categories..."));
+        const fetchSections = async () => await getSections();
 
-        console.log('i fire once');
-    }, [])
+        fetchSections().then(() => console.log("fetched sections..."));
+    }, [getSections])
 
     return (
-        <div className={headerStyle.container}>
+        <div key={'header'} className={headerStyle.container}>
             <div className={headerStyle.logo}>
                 <span>לוגו</span>
             </div>
-            <div className={headerStyle.menuItems}>
-                {mockMenuItems.map((menuItem: MenuItemType) => (
-                    <div key={menuItem.id} className={headerStyle.menuItem}
-                         onMouseEnter={() => handleMouseEnter(true, menuItem.id)}>
-                        {menuItem.label}
-                    </div>
+            <div className={headerStyle.topics}>
+                {sections?.map((section) => {
+                    return (
+                        <div key={`${section.sectionId}_list`}>
+                            <div key={section.sectionId} className={headerStyle.topic}
+                                 onMouseEnter={() => handleMouseEnter(true, section.sectionId)}>
+                                <span
+                                    className={`${headerStyle.sectionName} ${headerStyle.fromRight}`}>{section.sectionName}</span>
+                            </div>
+                            <CSSTransition
+                                key={`${section.sectionId}_tran`}
+                                nodeRef={transitionRef}
+                                in={showPopup}
+                                classNames="popup"
+                                timeout={500}
+                                unmountOnExit
+                            >
+                                <div key={`${section.sectionId}_categories`} ref={transitionRef}
+                                     className={headerStyle.popupContainer}
+                                     onMouseLeave={handleMouseLeave}>
+                                    {categoriesToShow.map(category => {
+                                        console.log(category)
 
-                ))}
+                                        return (
+                                            <div>
+                                                {category.categoryName}
+                                            </div>
+                                        )
+                                    })}
+                                </div>
+                            </CSSTransition>
+                        </div>
+                    )
+                })}
             </div>
-            {(
-                <CSSTransition
-                    in={showPopup}
-                    classNames="popup"
-                    timeout={300}
-                    unmountOnExit
-                >
-                    <div ref={popupRef} className={headerStyle.popup} onMouseLeave={handleMouseLeave}>
-                        <span>קטגוריות</span>
-
-                        {popUpContent}
-                    </div>
-                </CSSTransition>
-            )}
             <div className={headerStyle.profile}>
                 <span>פרופיל</span>
             </div>
         </div>
     );
-};
+});
 
 export default Header;

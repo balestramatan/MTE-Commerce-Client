@@ -1,13 +1,12 @@
 import {action, computed, makeObservable, observable} from "mobx";
-import Category from "../models/Category.model";
-
-import CategoriesFetcher from '../fetchers/CategoriesFetchers';
+import SectionsFetcher from '../fetchers/SectionsFetchers.fetcher';
 import ToastUtil from '../utils/ToastUtils';
+import Section from "../models/Section";
 
-class CategoriesStore {
+class SectionsStore {
 
     @observable
-    categories: Category[] = [];
+    sections: Section[] = [];
 
     @observable
     isLoading: boolean = false;
@@ -17,14 +16,14 @@ class CategoriesStore {
     }
 
     @action
-    setCategories = (categories: Category[]) => this.categories = categories;
+    setSections = (sections: Section[]) => this.sections = sections;
 
     @action
-    getCategories = async () => {
+    getSections = async () => {
         try {
             this.isLoading = true;
-            let {categories} = await CategoriesFetcher.getCategories();
-            this.setCategories(categories);
+            const {data} = await SectionsFetcher.getSections();
+            this.setSections(data);
             this.isLoading = false;
         } catch (err: any) {
             console.error(err?.message);
@@ -35,7 +34,7 @@ class CategoriesStore {
     @action
     deleteCategories = async (categoryId) => {
         try {
-            await CategoriesFetcher.deleteCategories(categoryId);
+            await SectionsFetcher.deleteSection(categoryId);
         } catch (err: any) {
             console.error(err?.message);
             ToastUtil.error("Some error occurred.");
@@ -45,8 +44,8 @@ class CategoriesStore {
     @action
     createCategory = async (categoryName) => {
         try {
-            await CategoriesFetcher.createCategory(categoryName);
-            await this.getCategories();
+            await SectionsFetcher.createSection(categoryName);
+            await this.getSections();
         } catch (err: any) {
             ToastUtil.error(err?.message);
             console.error(err);
@@ -56,8 +55,8 @@ class CategoriesStore {
     @action
     updateCategory = async (categoryId, categoryName) => {
         try {
-            await CategoriesFetcher.updateCategory(categoryId, categoryName);
-            await this.getCategories();
+            await SectionsFetcher.updateSection(categoryId, categoryName);
+            await this.getSections();
         } catch (err: any) {
             ToastUtil.error(err?.message);
             console.error(err);
@@ -65,12 +64,12 @@ class CategoriesStore {
     };
 
     @computed
-    get classificationsSelectionOption() {
-        return this.categories.map(c => ({
-            label: c.categoryName,
-            value: c.categoryId
+    get sectionsSelectionOption() {
+        return this.sections.map(c => ({
+            label: c.sectionName,
+            value: c.sectionId
         }));
     };
 }
 
-export default CategoriesStore;
+export default SectionsStore;

@@ -43,7 +43,7 @@ const Footer = observer(() => {
     };
 
     useEffect(() => {
-        // fetchStoreInformation().then(() => console.log('fetched store information...'));
+        fetchStoreInformation().then(() => console.log('fetched store information...'));
     }, []);
 
     return (

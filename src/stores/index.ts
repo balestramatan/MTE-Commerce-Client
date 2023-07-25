@@ -1,13 +1,13 @@
 import StoreInformation from './StoreInformation.store';
-import CategoriesStore from './Categories.store';
+import SectionsStore from './Sections.store';
 
-import {CATEGORIES_STORE, STORE_INFORMATION_STORE} from "./consts"
+import {TOPICS_STORE, STORE_INFORMATION_STORE} from "./consts"
 
-const categoriesStore = new CategoriesStore();
+const topicsStore = new SectionsStore();
 const storeInformationStore = new StoreInformation();
 
 const rootStores = {
-    [CATEGORIES_STORE]: categoriesStore,
+    [TOPICS_STORE]: topicsStore,
     [STORE_INFORMATION_STORE]: storeInformationStore
 }
 

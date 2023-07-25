@@ -8,7 +8,7 @@ export default class SubCategory {
     categoryName!: string;
 
     @observable
-    parentCategoryId!: SubCategory[];
+    parentCategoryId!: string;
 
     constructor(subCategory?: SubCategory) {
         if (subCategory) {

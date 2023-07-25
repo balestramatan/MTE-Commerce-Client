@@ -1,7 +1,10 @@
+@import '../../../styles/colors.scss';
+
 .loginFormContainer {
   display: flex;
   justify-content: center;
 }
+
 .loginFormContext {
   // border: 1px solid red;
   max-width: 400px;
@@ -12,21 +15,22 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
   p {
     font-size: 14px;
     font-weight: 500;
   }
 }
 
-.erorrMessageContainer {
-  border: 1px solid #d02e2e;
-  color: #d02e2e;
-  background-color: #fff6f6;
+.errorMessageContainer {
+  color: $error;
+  background-color: $white;
   border-radius: 4px;
   height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
+
   p {
     font-size: 12px;
   }
@@ -40,6 +44,7 @@
 .loginFormInputTitle {
   display: flex;
   justify-content: right;
+
   p {
     font-size: 12px;
   }
@@ -54,13 +59,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   p {
     font-size: 12px;
   }
+
   div {
     width: 50%;
     text-align: start;
   }
+
   .loginFormForgotPassword {
     text-align: end;
     align-items: center;

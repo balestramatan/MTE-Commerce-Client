@@ -9,7 +9,7 @@ export default class Category {
     categoryName!: string;
 
     @observable
-    subCategories!: SubCategory[];
+    subCategories?: SubCategory[];
 
     constructor(category?: Category) {
         if (category) {
