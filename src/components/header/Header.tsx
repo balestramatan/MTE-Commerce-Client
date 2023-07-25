@@ -7,10 +7,16 @@ import HeaderActions from "./headerActions/HeaderActions";
 import Logo from "../Logo/Logo";
 import Sections from "./sections/Sections";
 
-const Header = observer(() => {
+interface IProps {
+    isCartOpen: boolean;
+    setIsCartOpen: Function;
+}
+
+const Header = observer((props: IProps) => {
+    const {isCartOpen, setIsCartOpen} = props;
     return (
         <div key={'header'} className={headerStyle.container}>
-            <HeaderActions/>
+            <HeaderActions isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen}/>
             <Sections/>
             <Logo/>
         </div>

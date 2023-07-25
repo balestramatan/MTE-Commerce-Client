@@ -1,10 +1,13 @@
-import React from "react";
+import React, {useState} from "react";
 import layoutStyle from "./Home.module.scss";
 import ProductModal from "../../components/product/productModal/ProductModal";
 import Footer from "../../components/footer/Footer";
 import Header from "../../components/header/Header";
 
 const Home = () => {
+    const [isCartOpen, setIsCartOpen] = useState(false);
+    const onClose = () => setIsCartOpen(false);
+
     const product = {
         name: "גחל יאקוזה לנרגילה",
         images: [
@@ -19,7 +22,7 @@ const Home = () => {
     return (
         <div className={layoutStyle.container}>
             <ProductModal product={product}/>
-            <Header/>
+            <Header isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen}/>
             <div className={layoutStyle.homePage}>
                 Home Page
             </div>
