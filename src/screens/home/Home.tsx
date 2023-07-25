@@ -6,8 +6,6 @@ import Header from "../../components/header/Header";
 
 const Home = () => {
     const [isCartOpen, setIsCartOpen] = useState(false);
-    const onClose = () => setIsCartOpen(false);
-
     const product = {
         name: "גחל יאקוזה לנרגילה",
         images: [
