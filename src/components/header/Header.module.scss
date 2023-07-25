@@ -29,7 +29,7 @@
 
 .popupContainer {
   position: absolute;
-  top: 5.5%;
+  top: 4.5%;
   left: 0;
   right: 0;
   margin: auto;
@@ -40,6 +40,8 @@
   min-height: 20%;
   display: flex;
   justify-content: space-evenly;
+
+  z-index: 1;
 }
 
 .categoriesContainer {

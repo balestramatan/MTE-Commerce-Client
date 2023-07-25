@@ -4,7 +4,7 @@ import '../elements/popup/popupStyle.css';
 import headerStyle from './Header.module.scss';
 
 import HeaderActions from "./headerActions/HeaderActions";
-import Logo from "../Logo/Logo";
+import Logo from "../logo/Logo";
 import Sections from "./sections/Sections";
 
 interface IProps {
