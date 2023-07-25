@@ -1,5 +1,9 @@
-.homeContainer{
-    display: flex;
-    justify-content: center;
-    text-align: center;
+@import '../../styles/colors.scss';
+
+.homeContainer {
+  display: flex;
+  justify-content: center;
+
+  background-color: $primary-color;
+  height: 100%;
 }

@@ -1,2 +1,2 @@
-export const TOPICS_STORE: string = "TOPICS_STORE";
+export const SECTIONS_STORE: string = "SECTIONS_STORE";
 export const STORE_INFORMATION_STORE: string = "STORE_INFORMATION_STORE";

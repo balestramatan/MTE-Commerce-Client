@@ -38,13 +38,12 @@ const Footer = observer(() => {
         }
     };
 
-    const fetchStoreInformation = async () => {
-        await getStoreInformation();
-    };
 
     useEffect(() => {
+        const fetchStoreInformation = async () => await getStoreInformation();
+
         fetchStoreInformation().then(() => console.log('fetched store information...'));
-    }, []);
+    }, [getStoreInformation]);
 
     return (
         <footer id={'footer'} className={footerStyle.footerContainer}>
@@ -98,7 +97,8 @@ const Footer = observer(() => {
                 </Grid>
             </div>
             <div className={footerStyle.footerCopyright}>
-                <a className={footerStyle.contentText} href="https://mdbootstrap.com/">MTECommerce</a> <span className={footerStyle.contentText}>2023 Copyright ©</span>
+                <a className={footerStyle.contentText} href="https://mdbootstrap.com/">MTECommerce</a> <span
+                className={footerStyle.contentText}>2023 Copyright ©</span>
             </div>
         </footer>
     );
