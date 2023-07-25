@@ -1,6 +1,8 @@
 import React from "react";
 import layoutStyle from "./Home.module.scss";
 import ProductModal from "../../components/product/productModal/ProductModal";
+import Footer from "../../components/footer/Footer";
+import Header from "../../components/header/Header";
 
 const Home = () => {
     const product = {
@@ -15,9 +17,13 @@ const Home = () => {
     }
 
     return (
-        <div className={layoutStyle.homeContainer}>
+        <div className={layoutStyle.container}>
             <ProductModal product={product}/>
-            <span>Home Page</span>
+            <Header/>
+            <div className={layoutStyle.homePage}>
+                Home Page
+            </div>
+            <Footer/>
         </div>
     );
 };

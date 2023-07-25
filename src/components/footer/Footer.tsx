@@ -46,7 +46,7 @@ const Footer = observer(() => {
     }, [getStoreInformation]);
 
     return (
-        <footer id={'footer'} className={footerStyle.footerContainer}>
+        <div id={'footer'} className={footerStyle.footerContainer}>
             <div>
                 <Grid container columns={12}>
                     <Grid className={footerStyle.footerColumn} item xs={4}>
@@ -100,7 +100,7 @@ const Footer = observer(() => {
                 <a className={footerStyle.contentText} href="https://mdbootstrap.com/">MTECommerce</a> <span
                 className={footerStyle.contentText}>2023 Copyright ©</span>
             </div>
-        </footer>
+        </div>
     );
 });
 
