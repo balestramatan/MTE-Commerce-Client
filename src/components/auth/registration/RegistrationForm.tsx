@@ -24,28 +24,8 @@ const RegistrationForm = (props: IProps) => {
         console.log("Clicked");
     };
 
-    const handleChange = (e: any) => {
-        switch (e.id) {
-            case "first-name-input": {
-                setFirstName(e.value);
-                break;
-            }
-            case "last-name-input": {
-                setLastName(e.value);
-                break;
-            }
-            case "email-input": {
-                setEmail(e.value);
-                break;
-            }
-            case "password-input": {
-                setPassword(e.value);
-                break;
-            }
-            default: {
-                break;
-            }
-        }
+    const handleChange = (setState: any) => (event: any) => {
+        setState(event.target.value)
     };
 
     const handleEmailValidation = (email: string) => {
@@ -78,10 +58,7 @@ const RegistrationForm = (props: IProps) => {
                         <div className={layoutStyle.registrationFormInputFiled}>
                             <TextField
                                 size="small"
-                                id="first-name-input"
-                                onChange={(e) => {
-                                    handleChange(e.target);
-                                }}
+                                onChange={handleChange(setFirstName)}
                                 fullWidth={true}
                                 variant="outlined"
                                 inputProps={{maxLength: 15}}
@@ -96,10 +73,7 @@ const RegistrationForm = (props: IProps) => {
                         <div className={layoutStyle.registrationFormInputFiled}>
                             <TextField
                                 size="small"
-                                id="last-name-input"
-                                onChange={(e) => {
-                                    handleChange(e.target);
-                                }}
+                                onChange={handleChange(setLastName)}
                                 fullWidth={true}
                                 variant="outlined"
                                 inputProps={{maxLength: 15}}
@@ -114,10 +88,7 @@ const RegistrationForm = (props: IProps) => {
                         <div className={layoutStyle.registrationFormInputFiled}>
                             <TextField
                                 size="small"
-                                id="email-input"
-                                onChange={(e) => {
-                                    handleChange(e.target);
-                                }}
+                                onChange={handleChange(setEmail)}
                                 onBlur={(e) => {
                                     handleEmailValidation(e.target.value);
                                 }}
@@ -145,10 +116,7 @@ const RegistrationForm = (props: IProps) => {
                             <TextField
                                 type="password"
                                 size="small"
-                                id="password-input"
-                                onChange={(e) => {
-                                    handleChange(e.target);
-                                }}
+                                onChange={handleChange(setPassword)}
                                 inputProps={{maxLength: 15}}
                                 fullWidth={true}
                                 variant="outlined"

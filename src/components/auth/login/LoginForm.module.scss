@@ -23,8 +23,9 @@
 }
 
 .errorMessageContainer {
-  color: $error;
-  background-color: $white;
+  color: $errorMessage;
+  background-color: $errorBackground;
+  border: .5px solid $errorBorder;
   border-radius: 4px;
   height: 30px;
   display: flex;
@@ -33,12 +34,15 @@
 
   p {
     font-size: 12px;
+    margin: 0;
   }
 }
 
 .loginFormInputContainer {
-  padding-left: 30px;
-  padding-right: 30px;
+  padding: 0 30px 5px 30px;
+  p{
+    margin-bottom: 5px;
+  }
 }
 
 .loginFormInputTitle {
