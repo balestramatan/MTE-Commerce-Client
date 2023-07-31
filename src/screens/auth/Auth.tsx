@@ -1,59 +1,75 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
+import { observer } from "mobx-react";
 import layoutStyle from "./Auth.module.scss";
 import LoginForm from "../../components/auth/login/LoginForm";
 import RegistrationForm from "../../components/auth/registration/RegistrationForm";
 import LinkButton from "../../components/elements/linkButton/LinkButton";
-import LoginApi from "../../api/fetchers/auth/Login"
-import RegistrationApi from "../../api/fetchers/auth/Registration"
 
-interface IProps {
-}
+import rootStores from "../../stores";
+import { LOGIN_STORE, REGISTRATION_STORE } from "../../stores/consts";
+import LoginStore from "../../stores/Login.store";
+import RegistrationStore from "../../stores/Registration.store";
 
-const Auth = (props: IProps) => {
-    const {} = props;
-    const [isLoginComponent, setIsLoginComponent] = useState(true);
-    const [loginFailed, setLoginFailed] = useState(false)
-    const [registrationRes, setRegistrationRes] = useState({})
+const loginStore = rootStores[LOGIN_STORE] as LoginStore;
+const registrationStore = rootStores[REGISTRATION_STORE] as RegistrationStore;
 
-    const switchComponent = () => {
-        setIsLoginComponent(!isLoginComponent);
-        setLoginFailed(false)
-        setRegistrationRes({})
-    };
+interface IProps {}
 
-    const loginHandle = async (payload: object) => {
-        try {
-            setLoginFailed(false)
-            const loginRes = await LoginApi.login(payload)
-            console.log("loginRes:", loginRes)
-        } catch (error) {
-            setLoginFailed(true)
-        }
-    };
+const Auth = observer((props: IProps) => {
+  const {} = props;
+  const { login } = loginStore;
+  const { registration } = registrationStore;
+  const [isLoginComponent, setIsLoginComponent] = useState(true);
+  const [loginFailed, setLoginFailed] = useState(false);
+  const [registrationRes, setRegistrationRes] = useState({});
 
-    const registrationHandle = async (payload: object) => {
-        try {
-            const registrationRes = await RegistrationApi.registration(payload)
-            setRegistrationRes(registrationRes)
-        } catch (error) {
+  const switchComponent = () => {
+    setIsLoginComponent(!isLoginComponent);
+    setLoginFailed(false);
+    setRegistrationRes({});
+  };
 
-        }
-    };
+  const loginHandle = async (payload: any) => {
+    try {
+      setLoginFailed(false);
+      await login(payload.email, payload.password);
+    } catch (error) {
+      setLoginFailed(true);
+    }
+  };
 
-    return (
-        <div className={layoutStyle.authContainer}>
-            {isLoginComponent ? <LoginForm loginFailed={loginFailed} loginHandle={loginHandle}/> :
-                <RegistrationForm registrationRes={registrationRes} registrationHandle={registrationHandle}/>}
-            <div className={layoutStyle.authSwitchComponentContainer}>
-                <LinkButton
-                    onClick={switchComponent}
-                    title={isLoginComponent ? "יצירת חשבון" : "התחברות"}
-                    size="12px"
-                    disabled={false}
-                />
-            </div>
-        </div>
-    );
-};
+  const registrationHandle = async (payload: any) => {
+    try {
+      const registrationRes = await registration(
+        payload.email,
+        payload.password,
+        payload.firstName,
+        payload.lastName
+      );
+      setRegistrationRes(registrationRes);
+    } catch (error) {}
+  };
+
+  return (
+    <div className={layoutStyle.authContainer}>
+      {isLoginComponent ? (
+        <LoginForm loginFailed={loginFailed} loginHandle={loginHandle} />
+      ) : (
+        <RegistrationForm
+          registrationRes={registrationRes}
+          registrationHandle={registrationHandle}
+        />
+      )}
+      <div className={layoutStyle.authSwitchComponentContainer}>
+        <LinkButton
+          onClick={switchComponent}
+          title={isLoginComponent ? "יצירת חשבון" : "התחברות"}
+          size="12px"
+          disabled={false}
+        />
+      </div>
+    </div>
+  );
+});
 
 export default Auth;

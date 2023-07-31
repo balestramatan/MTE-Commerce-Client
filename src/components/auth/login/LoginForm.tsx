@@ -22,8 +22,8 @@ const LoginForm = (props: IProps) => {
         console.log("CLICKED");
     };
 
-    const handleChange = (e: any) => {
-        e.id === "email-input" ? setEmail(e.value) : setPassword(e.value);
+    const handleChange = (setState: any) => (event: any) => {
+        setState(event.target.value)
     };
 
     const handleEmailValidation = (email: string) => {
@@ -58,16 +58,13 @@ const LoginForm = (props: IProps) => {
                         <div className={layoutStyle.loginFormInputFiled}>
                             <TextField
                                 size="small"
-                                onChange={(e) => {
-                                    handleChange(e.target);
-                                }}
+                                onChange={handleChange(setEmail)}
                                 onBlur={(e) => {
                                     handleEmailValidation(e.target.value);
                                 }}
                                 style={{
                                     backgroundColor: emailValidationObj.error.includes("emailInvalid") ? emailValidationObj.isEmailValid ? "" : "#fff6f6" : "",
                                 }}
-                                id="email-input"
                                 fullWidth={true}
                                 variant="outlined"
                                 autoComplete="username"
@@ -92,12 +89,9 @@ const LoginForm = (props: IProps) => {
                         <div className={layoutStyle.loginFormInputFiled}>
                             <TextField
                                 type="password"
-                                onChange={(e) => {
-                                    handleChange(e.target);
-                                }}
+                                onChange={handleChange(setPassword)}
                                 size="small"
                                 inputProps={{maxLength: 15}}
-                                id="password-input"
                                 fullWidth={true}
                                 variant="outlined"
                                 autoComplete="current-password"
