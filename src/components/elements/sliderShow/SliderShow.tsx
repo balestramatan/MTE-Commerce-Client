@@ -1,5 +1,5 @@
 import React from "react";
-import layoutStyle from "./SliderShow.module.scss";
+import sliderShowStyle from "./SliderShow.module.scss";
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 
@@ -14,7 +14,7 @@ const SliderShow = (props: Iprops) => {
     <Slide>
       {images.map((image,i) => {
         return (
-          <div className={layoutStyle.eachSlideEffect}>
+          <div className={sliderShowStyle.eachSlideEffect}>
             <div style={{ backgroundImage: `url(${image})`}}></div>
           </div>
         );

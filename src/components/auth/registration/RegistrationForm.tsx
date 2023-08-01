@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import layoutStyle from "./RegistrationForm.module.scss";
+import registrationStyle from "./RegistrationForm.module.scss";
 import TextField from "@mui/material/TextField";
 import LinkButton from "../../elements/linkButton/LinkButton";
 import validateEmail from "../../../actions/EmailValidation";
@@ -39,23 +39,23 @@ const RegistrationForm = (props: IProps) => {
     };
 
     return (
-        <div className={layoutStyle.registrationFormContainer}>
-            <div className={layoutStyle.registrationFormContext}>
+        <div className={registrationStyle.registrationFormContainer}>
+            <div className={registrationStyle.registrationFormContext}>
                 <form>
-                    <div className={layoutStyle.registrationFormTitle}>
+                    <div className={registrationStyle.registrationFormTitle}>
                         <p>יצירת חשבון</p>
                     </div>
 
-                    <div className={layoutStyle.registrationFormInputContainer}>
+                    <div className={registrationStyle.registrationFormInputContainer}>
                         {registrationRes?.userCreated === false && (
-                            <div className={layoutStyle.errorMessageContainer}>
+                            <div className={registrationStyle.errorMessageContainer}>
                                 <p>{`${registrationRes.email} קיים במערכת`}</p>
                             </div>
                         )}
-                        <div className={layoutStyle.registrationFormInputTitle}>
+                        <div className={registrationStyle.registrationFormInputTitle}>
                             <p>שם פרטי</p>
                         </div>
-                        <div className={layoutStyle.registrationFormInputFiled}>
+                        <div className={registrationStyle.registrationFormInputFiled}>
                             <TextField
                                 size="small"
                                 onChange={handleChange(setFirstName)}
@@ -66,11 +66,11 @@ const RegistrationForm = (props: IProps) => {
                         </div>
                     </div>
 
-                    <div className={layoutStyle.registrationFormInputContainer}>
-                        <div className={layoutStyle.registrationFormInputTitle}>
+                    <div className={registrationStyle.registrationFormInputContainer}>
+                        <div className={registrationStyle.registrationFormInputTitle}>
                             <p>שם משפחה</p>
                         </div>
-                        <div className={layoutStyle.registrationFormInputFiled}>
+                        <div className={registrationStyle.registrationFormInputFiled}>
                             <TextField
                                 size="small"
                                 onChange={handleChange(setLastName)}
@@ -81,11 +81,11 @@ const RegistrationForm = (props: IProps) => {
                         </div>
                     </div>
 
-                    <div className={layoutStyle.registrationFormInputContainer}>
-                        <div className={layoutStyle.registrationFormInputTitle}>
+                    <div className={registrationStyle.registrationFormInputContainer}>
+                        <div className={registrationStyle.registrationFormInputTitle}>
                             <p>אימייל</p>
                         </div>
-                        <div className={layoutStyle.registrationFormInputFiled}>
+                        <div className={registrationStyle.registrationFormInputFiled}>
                             <TextField
                                 size="small"
                                 onChange={handleChange(setEmail)}
@@ -108,11 +108,11 @@ const RegistrationForm = (props: IProps) => {
                         </div>
                     </div>
 
-                    <div className={layoutStyle.registrationFormInputContainer}>
-                        <div className={layoutStyle.registrationFormPasswordRow}>
+                    <div className={registrationStyle.registrationFormInputContainer}>
+                        <div className={registrationStyle.registrationFormPasswordRow}>
                             <p>סיסמא</p>
                         </div>
-                        <div className={layoutStyle.registrationFormInputFiled}>
+                        <div className={registrationStyle.registrationFormInputFiled}>
                             <TextField
                                 type="password"
                                 size="small"
@@ -125,7 +125,7 @@ const RegistrationForm = (props: IProps) => {
                         </div>
                     </div>
 
-                    <div className={layoutStyle.registrationFormSignIn}>
+                    <div className={registrationStyle.registrationFormSignIn}>
                         <LinkButton
                             disabled={!emailValidationObj.isEmailValid}
                             onClick={() => {

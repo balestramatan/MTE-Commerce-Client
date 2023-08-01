@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import layoutStyle from "./Home.module.scss";
+import homeStyle from "./Home.module.scss";
 import ProductModal from "../../components/product/productModal/ProductModal";
 import Footer from "../../components/footer/Footer";
 import Header from "../../components/header/Header";
@@ -18,10 +18,10 @@ const Home = () => {
     }
 
     return (
-        <div className={layoutStyle.container}>
+        <div className={homeStyle.container}>
             <ProductModal product={product}/>
             <Header isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen}/>
-            <div className={layoutStyle.homePage}>
+            <div className={homeStyle.homePage}>
                 Home Page
             </div>
             <Footer/>
