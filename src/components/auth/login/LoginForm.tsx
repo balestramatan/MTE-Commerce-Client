@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import layoutStyle from "./LoginForm.module.scss";
+import loginStyle from "./LoginForm.module.scss";
 import TextField from "@mui/material/TextField";
 import LinkButton from "../../elements/linkButton/LinkButton";
 import validateEmail from "../../../actions/EmailValidation";
@@ -37,25 +37,25 @@ const LoginForm = (props: IProps) => {
     };
 
     return (
-        <div className={layoutStyle.loginFormContainer}>
-            <div className={layoutStyle.loginFormContext}>
+        <div className={loginStyle.loginFormContainer}>
+            <div className={loginStyle.loginFormContext}>
                 <form>
-                    <div className={layoutStyle.loginFormTitle}>
+                    <div className={loginStyle.loginFormTitle}>
                         <p>התחברות</p>
                     </div>
 
-                    <div className={layoutStyle.loginFormInputContainer}>
+                    <div className={loginStyle.loginFormInputContainer}>
 
                         {loginFailed && (
-                            <div className={layoutStyle.errorMessageContainer}>
+                            <div className={loginStyle.errorMessageContainer}>
                                 <p>שם משתמש או סיסמא שגויים</p>
                             </div>
                         )}
 
-                        <div className={layoutStyle.loginFormInputTitle}>
+                        <div className={loginStyle.loginFormInputTitle}>
                             <p>אימייל</p>
                         </div>
-                        <div className={layoutStyle.loginFormInputFiled}>
+                        <div className={loginStyle.loginFormInputFiled}>
                             <TextField
                                 size="small"
                                 onChange={handleChange(setEmail)}
@@ -72,12 +72,12 @@ const LoginForm = (props: IProps) => {
                         </div>
                     </div>
 
-                    <div className={layoutStyle.loginFormInputContainer}>
-                        <div className={layoutStyle.loginFormPasswordRow}>
+                    <div className={loginStyle.loginFormInputContainer}>
+                        <div className={loginStyle.loginFormPasswordRow}>
                             <div>
                                 <p>סיסמא</p>
                             </div>
-                            <div className={layoutStyle.loginFormForgotPassword}>
+                            <div className={loginStyle.loginFormForgotPassword}>
                                 <LinkButton
                                     disabled={false}
                                     onClick={a}
@@ -86,7 +86,7 @@ const LoginForm = (props: IProps) => {
                                 />
                             </div>
                         </div>
-                        <div className={layoutStyle.loginFormInputFiled}>
+                        <div className={loginStyle.loginFormInputFiled}>
                             <TextField
                                 type="password"
                                 onChange={handleChange(setPassword)}
@@ -99,7 +99,7 @@ const LoginForm = (props: IProps) => {
                         </div>
                     </div>
 
-                    <div className={layoutStyle.loginFormSignIn}>
+                    <div className={loginStyle.loginFormSignIn}>
                         <LinkButton
                             onClick={() => {
                                 onClickLogin();

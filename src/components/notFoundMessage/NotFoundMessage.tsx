@@ -1,12 +1,12 @@
 import React from "react";
-import layoutStyle from "./NotFoundMessage.module.scss";
+import notFoundMessageStyle from "./NotFoundMessage.module.scss";
 
 interface IProps {
 }
 
 const NotFoundMessage = (props: IProps) => {
     return (
-        <div className={layoutStyle.notFoundMessageContainer}>
+        <div className={notFoundMessageStyle.notFoundMessageContainer}>
             <h1>אופס</h1>
             <p>שגיאה בקבלת בקשה</p>
         </div>

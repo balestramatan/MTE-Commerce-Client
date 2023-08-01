@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { observer } from "mobx-react";
-import layoutStyle from "./Auth.module.scss";
+import authStyle from "./Auth.module.scss";
 import LoginForm from "../../components/auth/login/LoginForm";
 import RegistrationForm from "../../components/auth/registration/RegistrationForm";
 import LinkButton from "../../components/elements/linkButton/LinkButton";
@@ -51,7 +51,7 @@ const Auth = observer((props: IProps) => {
   };
 
   return (
-    <div className={layoutStyle.authContainer}>
+    <div className={authStyle.authContainer}>
       {isLoginComponent ? (
         <LoginForm loginFailed={loginFailed} loginHandle={loginHandle} />
       ) : (
@@ -60,7 +60,7 @@ const Auth = observer((props: IProps) => {
           registrationHandle={registrationHandle}
         />
       )}
-      <div className={layoutStyle.authSwitchComponentContainer}>
+      <div className={authStyle.authSwitchComponentContainer}>
         <LinkButton
           onClick={switchComponent}
           title={isLoginComponent ? "יצירת חשבון" : "התחברות"}

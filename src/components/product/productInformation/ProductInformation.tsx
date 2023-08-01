@@ -2,7 +2,7 @@ import React from "react";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import SliderShow from "../../elements/sliderShow/SliderShow";
-import layoutStyle from "./ProductInformation.module.scss";
+import productInformationStyle from "./ProductInformation.module.scss";
 import Divider from "@mui/material/Divider";
 import Chip from "@mui/material/Chip";
 import {IProduct} from "../../../interfaces/interfaces";
@@ -16,19 +16,19 @@ interface IProps {
 const ProductInformation = (props: IProps) => {
     const {product} = props;
     return (
-        <div className={layoutStyle.productInformationContainer}>
+        <div className={productInformationStyle.productInformationContainer}>
             <Grid container columns={12}>
                 <Grid item xs={6}>
-                    <div className={layoutStyle.gridDetailsContainer}>
+                    <div className={productInformationStyle.gridDetailsContainer}>
                         <div>
-                            <div className={layoutStyle.productTitleContainer}>
+                            <div className={productInformationStyle.productTitleContainer}>
                                 <p>{product.name}</p>
                             </div>
-                            <div className={layoutStyle.productPriceContainer}>
+                            <div className={productInformationStyle.productPriceContainer}>
                                 {product.promotionPrice !== "" ? (
                                     <div>
                                         <span>₪{product.promotionPrice}</span>
-                                        <span className={layoutStyle.strikePrice}>
+                                        <span className={productInformationStyle.strikePrice}>
                           ₪{product.price}
                         </span>
                                     </div>
@@ -36,13 +36,13 @@ const ProductInformation = (props: IProps) => {
                                     <span>₪{product.price}</span>
                                 )}
                             </div>
-                            <div className={layoutStyle.dividerContainer}>
+                            <div className={productInformationStyle.dividerContainer}>
                                 <Divider
-                                    className={layoutStyle.customerDivider}
+                                    className={productInformationStyle.customerDivider}
                                     variant="middle"
                                 />
                             </div>
-                            <div className={layoutStyle.indicatorContainer}>
+                            <div className={productInformationStyle.indicatorContainer}>
                                 <Grid container columns={12}>
                                     <Grid item xs={4}>
                                         {product.stock ? (
@@ -61,9 +61,9 @@ const ProductInformation = (props: IProps) => {
                                     </Grid>
                                 </Grid>
                             </div>
-                            <div className={layoutStyle.addToCartButtonContainer}>
+                            <div className={productInformationStyle.addToCartButtonContainer}>
                                 <Button
-                                    className={layoutStyle.customButtonStyle}
+                                    className={productInformationStyle.customButtonStyle}
                                     size="small"
                                     variant="outlined"
                                     disabled={!product.stock}
@@ -71,7 +71,7 @@ const ProductInformation = (props: IProps) => {
                                     הוסף לעגלה
                                 </Button>
                             </div>
-                            <div className={layoutStyle.productDescriptionContainer}>
+                            <div className={productInformationStyle.productDescriptionContainer}>
                                 <p>
                                     גחלים איכותיים לנרגילה. גחלי יאקוזה מכילים עד 85% קליפות
                                     קוקוס. 2 מידות לבחירה: 26X26 ו-13X26 מ"מ.
@@ -81,7 +81,7 @@ const ProductInformation = (props: IProps) => {
                     </div>
                 </Grid>
                 <Grid item xs={6}>
-                    <div className={layoutStyle.gridImagesContainer}>
+                    <div className={productInformationStyle.gridImagesContainer}>
                         <SliderShow images={product.images}/>
                     </div>
                 </Grid>

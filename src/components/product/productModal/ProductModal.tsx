@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import ProductInformation from "../productInformation/ProductInformation";
 import { IProduct } from "../../../interfaces/interfaces";
-import Button from "@mui/material/Button";
-import layoutStyle from "./ProductModal.module.scss";
+import productModalStyle from "./ProductModal.module.scss";
 import Modal from "@mui/material/Modal";
 
 interface IProps {
@@ -18,9 +17,8 @@ const ProductModal = (props: IProps) => {
 
   return (
     <div>
-      {/*<Button onClick={handleOpen}>Open modal</Button>*/}
       <Modal open={open} onClose={handleClose}>
-        <div className={layoutStyle.productModalContainer}>
+        <div className={productModalStyle.productModalContainer}>
           <ProductInformation product={product} />
         </div>
       </Modal>

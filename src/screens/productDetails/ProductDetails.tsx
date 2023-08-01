@@ -1,5 +1,5 @@
 import React from "react";
-import layoutStyle from "./ProductDetails.module.scss";
+import productDetailsStyle from "./ProductDetails.module.scss";
 import ProductInformation from "../../components/product/productInformation/ProductInformation";
 
 interface Iprops {}
@@ -19,8 +19,8 @@ const ProductDetails = (props: Iprops) => {
   };
 
   return (
-    <div className={layoutStyle.productDetailsContainer}>
-        <div className={layoutStyle.productTitleContainer}>
+    <div className={productDetailsStyle.productDetailsContainer}>
+        <div className={productDetailsStyle.productTitleContainer}>
           <h1>עמוד מוצר</h1>
         </div>
           <ProductInformation product={product} />
