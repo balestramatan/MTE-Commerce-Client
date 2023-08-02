@@ -3,6 +3,7 @@ import homeStyle from "./Home.module.scss";
 import ProductModal from "../../components/product/productModal/ProductModal";
 import Footer from "../../components/footer/Footer";
 import Header from "../../components/header/Header";
+import OurServices from "../../components/ourServices/OurServices";
 
 const Home = () => {
     const [isCartOpen, setIsCartOpen] = useState(false);
@@ -24,6 +25,7 @@ const Home = () => {
             <div className={homeStyle.homePage}>
                 Home Page
             </div>
+            <OurServices />
             <Footer/>
         </div>
     );

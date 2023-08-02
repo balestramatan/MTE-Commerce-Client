@@ -1,5 +1,5 @@
 import React from "react";
-import linkButton from "./LinkButton.module.scss";
+import linkButtonStyle from "./LinkButton.module.scss";
 
 interface Iprops {
   title: string;
@@ -15,7 +15,7 @@ const LinkButton = (props: Iprops) => {
     <p
       onClick={disabled ? () => {} : onClick}
       style={{ fontSize: size }}
-      className={linkButton.linkButtonContainer}
+      className={linkButtonStyle.linkButtonContainer}
     >
       {title}
     </p>
