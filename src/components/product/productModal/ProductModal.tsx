@@ -6,18 +6,16 @@ import Modal from "@mui/material/Modal";
 
 interface IProps {
   product: IProduct;
+  isOpen: boolean;
+  handleClose: any;
 }
 
 const ProductModal = (props: IProps) => {
-  const { product } = props;
-
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const { product,isOpen,handleClose } = props;
 
   return (
     <div>
-      <Modal open={open} onClose={handleClose}>
+      <Modal open={isOpen} onClose={handleClose}>
         <div className={productModalStyle.productModalContainer}>
           <ProductInformation product={product} />
         </div>

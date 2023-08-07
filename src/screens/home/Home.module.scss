@@ -4,9 +4,10 @@
 
 }
 
-.homePage {
+.homePageNewProducts {
   display: flex;
+  width: 100%;
   justify-content: center;
-  align-items: center;
-  background-color: $primary-color;
+  gap: 15px;
+
 }
