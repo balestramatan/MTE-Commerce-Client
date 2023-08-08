@@ -5,6 +5,7 @@ import {
   Information,
   OpeningHours,
   UsefulLinks,
+  OurServices
 } from "../interfaces/interfaces";
 import StoreInformationFetcher from "../fetchers/StoreInformation.fetcher";
 
@@ -17,6 +18,9 @@ class StoreInformationStore {
 
   @observable
   openingHours: OpeningHours[] = [];
+
+  @observable
+  ourServices: OurServices[] = [];
 
   @observable
   information: Information[] = [];
@@ -53,6 +57,9 @@ class StoreInformationStore {
   setMediaLinks = (mediaLinks: MediaLinks[]) => (this.mediaLinks = mediaLinks);
 
   @action
+  setOurServices = (ourServices: OurServices[]) => (this.ourServices = ourServices);
+
+  @action
   setStoreName = (storeName: string) => (this.storeName = storeName);
 
   @action
@@ -69,6 +76,7 @@ class StoreInformationStore {
       this.setInformation(data.information);
       this.setMediaLinks(data.mediaLinks);
       this.setStoreName(data.storeName);
+      this.setOurServices(data.ourServices)
     } catch (err: any) {
       console.error(err?.message);
       ToastUtil.error("Some error occurred.");

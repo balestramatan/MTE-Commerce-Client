@@ -50,8 +50,8 @@ const Home = () => {
   return (
     <div className={homeStyle.container}>
       <div className={homeStyle.homePageNewProducts}>
-        {products.map((product) => {
-          return <ProductMiniCard product={product} />;
+        {products.map((product,i) => {
+          return <ProductMiniCard key={i} product={product} />;
         })}
       </div>
       <OurServices />
