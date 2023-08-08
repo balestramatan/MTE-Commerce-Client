@@ -1,13 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import homeStyle from "./Home.module.scss";
-import Footer from "../../components/footer/Footer";
-import Header from "../../components/header/Header";
 import OurServices from "../../components/ourServices/OurServices";
 import ProductMiniCard from "../../components/product/productMiniCard/ProductMiniCard";
 
 const Home = () => {
-  const [isCartOpen, setIsCartOpen] = useState(false);
-
   const products = [
     {
       name: "1גחל יאקוזה לנרגילה",
@@ -48,19 +44,17 @@ const Home = () => {
       stock: true,
       price: "49.99",
       promotionPrice: "",
-    }
-  ]
+    },
+  ];
 
   return (
     <div className={homeStyle.container}>
-      <Header isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen} />
       <div className={homeStyle.homePageNewProducts}>
-        {products.map((product)=>{
-          return <ProductMiniCard product={product} />
+        {products.map((product) => {
+          return <ProductMiniCard product={product} />;
         })}
       </div>
       <OurServices />
-      <Footer />
     </div>
   );
 };
