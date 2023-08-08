@@ -20,6 +20,12 @@ export interface Information {
     icon: string
 }
 
+export interface OurServices {
+    name: string,
+    type: string
+    description: string,
+}
+
 export interface MediaLinks {
     type: string;
     url: string;
