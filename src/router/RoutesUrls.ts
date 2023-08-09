@@ -3,11 +3,12 @@ export const RoutesParams = {
     token: "token",
     user: "user",
     username: "username",
-    password: "password"
+    password: "password",
+    productId: "productId"
 };
 
 export const RoutesUrl = {
     welcome: "/",
     auth: "/auth",
-    productDetails: "/product-details"
+    productDetails: `/product-details/:${RoutesParams.productId}`
 };
