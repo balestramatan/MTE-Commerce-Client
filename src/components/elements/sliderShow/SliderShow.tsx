@@ -14,7 +14,7 @@ const SliderShow = (props: IProps) => {
         <Slide>
             {images.map((image, i) => {
                 return (
-                        <img src={image} className={sliderShowStyle.image}/>
+                    <img key={`${image}_${i}`} src={image} className={sliderShowStyle.image} alt={image}/>
                 );
             })}
         </Slide>
