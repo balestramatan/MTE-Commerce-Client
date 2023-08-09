@@ -4,7 +4,6 @@ import Auth from "../screens/auth/Auth";
 import Home from "../screens/home/Home";
 import ProductDetails from "../screens/productDetails/ProductDetails"
 import Collections from "../screens/collections/Collections";
-import NotFound from "../screens/notFound/NotFound"
 import {RoutesUrl} from "./RoutesUrls";
 
 const Router = () => (

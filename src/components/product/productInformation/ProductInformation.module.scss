@@ -5,26 +5,16 @@ p {
 }
 
 .gridImagesContainer {
-  padding-right: 10px;
 }
 
 .gridDetailsContainer {
   max-height: 60vh;
-  height: 60vh;
-  overflow-y: auto;
   display: flex;
   padding: 4vh;
-  justify-content: center;
   direction: rtl;
-
-  div {
-    width: 100%;
-  }
 }
 
 .productTitleContainer {
-  justify-content: start;
-
   p {
     font-size: 20px;
     font-weight: 500;
