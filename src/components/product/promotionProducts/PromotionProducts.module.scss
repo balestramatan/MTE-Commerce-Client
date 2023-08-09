@@ -1,0 +1,17 @@
+.promotionProductsTitleContainer{
+    display: flex;
+    justify-content: center;
+    padding: 20px 0 20px;
+}
+
+.promotionProductsContainer {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  gap: 15px;
+}
+
+.promotionProductsTitle {
+  font-size: 24px;
+  font-weight: 600;
+}

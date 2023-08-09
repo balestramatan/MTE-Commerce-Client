@@ -14,7 +14,7 @@ const SliderShow = (props: Iprops) => {
     <Slide>
       {images.map((image,i) => {
         return (
-          <div className={sliderShowStyle.eachSlideEffect}>
+          <div key={i} className={sliderShowStyle.eachSlideEffect}>
             <div style={{ backgroundImage: `url(${image})`}}></div>
           </div>
         );

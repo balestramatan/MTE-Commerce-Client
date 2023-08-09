@@ -4,6 +4,25 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: sticky;
+  top: 0;
+  background-color: $white;
+  z-index: 99999;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+.popupContainer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: 10px;
+  background-color: $white;
+  box-shadow: 0px -4px 12px -8px $black;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  z-index: 1;
 }
 
 .logoContainer {
@@ -28,20 +47,6 @@
   cursor: pointer;
 }
 
-.popupContainer {
-  position: absolute;
-  top: 4.5%;
-  left: 0;
-  right: 0;
-  margin: auto;
-  padding: 10px;
-  background-color: $white;
-  box-shadow: 0px -4px 12px -8px $black;
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-  z-index: 1;
-}
 
 .categoriesContainer {
   margin: .5rem 2rem;

@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import productMiniCardStyle from "./ProductMiniCard.module.scss";
 import ProductModal from "../../../components/product/productModal/ProductModal";
+import { IProduct } from "../../../interfaces/interfaces";
 
 interface IProps {
-  product: any;
+  product: IProduct;
 }
 
 const ProductMiniCard = (props: IProps) => {
@@ -13,7 +14,7 @@ const ProductMiniCard = (props: IProps) => {
   const handleClose = () => setIsOpen(false);
 
   const cardImageStyle = {
-    "--background-image": `url(https://d3m9l0v76dty0.cloudfront.net/system/photos/9442559/extra_large/db04dd95075c786c32661df1351125d5.jpg)`,
+    "--background-image": `url(${product?.images?.[0]})`,
   } as any;
 
   return (
