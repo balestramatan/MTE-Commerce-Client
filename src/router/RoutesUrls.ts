@@ -9,5 +9,6 @@ export const RoutesParams = {
 export const RoutesUrl = {
     welcome: "/",
     auth: "/auth",
-    productDetails: "/product-details"
+    productDetails: "/product-details",
+    collections: "/collections"
 };
