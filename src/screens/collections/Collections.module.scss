@@ -1,0 +1,48 @@
+
+.CollectionTitleContainer {
+  display: flex;
+  justify-content: center;
+
+  span {
+    font-size: 24px;
+    font-weight: 600;
+  }
+}
+
+.CollectionSortContainer{
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20vw;
+
+  span{
+    font-size: 14px;
+    font-weight: 500;
+  }
+}
+
+.CollectionContainer {
+  display: flex;
+  padding: 0 50px 50px 50px;
+}
+
+.leftColumnContainer {
+  flex: 1;
+  padding: 20px;
+  min-height: 700px;
+  display: flex;
+  flex-wrap: wrap; /* Add this line to allow items to wrap */
+  justify-content: right;
+}
+
+.collectionMiniCardContainer {
+  display: flex;
+  margin: 0 10px 30px 10px; /* Add margin between items */
+}
+
+.rightColumnContainer {
+  flex: 0 0 18%;
+  max-width: 300px;
+  position: sticky;
+  top: 70px;
+  min-height: 50px;
+}
