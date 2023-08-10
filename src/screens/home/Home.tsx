@@ -97,7 +97,7 @@ const products2 = [
 const Home = () => {
     const navigate = useNavigate();
     const onProductClick = (product: IProduct) => {
-        navigate(`product-details/${product.id}`, {state: {product}})
+        navigate(`product-details/${product.name}`, {state: {product}})
     }
 
     return (
