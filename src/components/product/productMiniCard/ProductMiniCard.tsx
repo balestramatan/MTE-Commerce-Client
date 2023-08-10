@@ -44,11 +44,11 @@ const ProductMiniCard = (props: IProps) => {
                     </div>
                 </div>
                 <div className={productMiniCardStyle.productMiniCardProductDetailsContainer}>
-                    <div className={productMiniCardStyle.productName}>
-                        <span>{product.name}</span>
+                    <div className={productMiniCardStyle.productMiniCardProductDetailsRow  }>
+                        <span className={productMiniCardStyle.productName}>{product.name}</span>
                     </div>
-                    <div className={productMiniCardStyle.productPrice}>
-                        <span>₪{product.price}</span>
+                    <div className={productMiniCardStyle.productMiniCardProductDetailsRow}>
+                        <span className={productMiniCardStyle.productPrice}>₪{product.price}</span>
                     </div>
                 </div>
             </div>
