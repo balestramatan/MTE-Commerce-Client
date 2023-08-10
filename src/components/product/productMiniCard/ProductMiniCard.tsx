@@ -19,6 +19,10 @@ const ProductMiniCard = (props: IProps) => {
     }
     const handleClose = () => setModalIsOpen(false);
 
+    const cardImageStyle = {
+        "--background-image": `url(${product?.images?.[0]})`,
+    } as any;
+
     return (
         <>
             <ProductModal
@@ -26,11 +30,11 @@ const ProductMiniCard = (props: IProps) => {
                 isOpen={modalIsOpen}
                 product={product}
             />
-            <div className={productMiniCardStyle.productMiniCardContainer} onClick={() => onProductClick(product)}>
+            <div className={productMiniCardStyle.productMiniCardContainer}
+                 onClick={() => onProductClick(product)}
+                 style={cardImageStyle}>
                 <div
                     className={productMiniCardStyle.productMiniCardImage}>
-                    <img src={product.images[0]} className={productMiniCardStyle.productMiniCardImage}
-                         alt={product.name}/>
                     <div className={productMiniCardStyle.productMiniButtonContainer}>
                         <button
                             onClick={handleOpen}
