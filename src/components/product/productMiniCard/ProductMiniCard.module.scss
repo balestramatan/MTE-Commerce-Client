@@ -1,14 +1,14 @@
 .productMiniCardContainer {
   cursor: pointer;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2), 0px -1px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.2), 0px -1px 6px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
 }
-
 .productMiniCardImage {
   position: relative;
   width: 300px;
   height: 300px;
   border-radius: 5px;
+  overflow: hidden; /* Hide the overflow to clip the zoomed image */
 }
 
 .productMiniCardImage::before {
@@ -29,7 +29,6 @@
   .productMiniCardImage::before {
     transform: scale(1.1);
   }
-
   .productMiniButtonContainer {
     display: block; /* Show the button when hovering over the container */
   }
@@ -39,6 +38,7 @@
   position: absolute;
   bottom: 10px;
   left: 50%;
+  display: flex;
   width: 100%;
   transform: translateX(-50%);
   display: none;
@@ -46,32 +46,28 @@
 }
 
 .productMiniButton {
+  background-color: white;
   width: 100%;
+  background-color: #ffffff;
   border-radius: 5px;
   border: 0;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2), 0px -4px 6px rgba(0, 0, 0, 0.2); /* Set the box-shadow here */
 }
 
 .productMiniCardProductDetailsContainer {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-}
-
-.productName {
-  font-size: 18px;
-}
-
-.productPrice {
-  font-size: 24px;
 }
 
 .productMiniCardProductDetailsRow {
-  //display: flex;
-  //justify-content: center;
-  //
-  //span {
-  //  font-size: 12px;
-  //}
+  display: flex;
+  justify-content: center;
+
+}
+
+.productName {
+  font-size: 14px;
+}
+
+.productPrice {
+  font-size: 12px;
+  font-weight: 500;
 }
