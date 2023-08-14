@@ -4,10 +4,6 @@ import OurServices from "../../components/ourServices/OurServices";
 import PromotionProducts from "../../components/product/promotionProducts/PromotionProducts";
 import {useNavigate} from 'react-router-dom';
 import Product from "../../models/Product.model";
-import Header from "../../components/header/Header";
-import Footer from "../../components/footer/Footer";
-import CategoryModel from "../../models/Category.model";
-import {RoutesParams, RoutesUrl} from "../../router/RoutesUrls";
 
 const products: Product[] = [
     {
@@ -105,8 +101,6 @@ const Home = () => {
 
     return (
         <div className={homeStyle.container}>
-
-
             <PromotionProducts products={products} title={"מוצרים חדשים"} onProductClick={onProductClick}/>
             <PromotionProducts products={products2} title={"דילים חמים"} onProductClick={onProductClick}/>
             <OurServices/>

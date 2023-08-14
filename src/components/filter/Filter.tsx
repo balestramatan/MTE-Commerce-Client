@@ -10,7 +10,7 @@ import ExpandMore from "@mui/icons-material/ExpandMore";
 import rootStores from "../../stores";
 import { FILTERS_STORE } from "../../stores/consts";
 import FilterStore from "../../stores/Filters.store";
-import { FilterOptions, Filters } from "../../interfaces/interfaces";
+import { IFilterOptions, IFilters } from "../../interfaces/interfaces";
 
 const filterStore = rootStores[FILTERS_STORE] as FilterStore;
 
@@ -32,7 +32,7 @@ const Filter = observer((props: Iprops) => {
 
   return (
     <div>
-      {filters?.map((filter: Filters) => {
+      {filters?.map((filter: IFilters) => {
         return (
           <>
             <ListItemButton
@@ -45,7 +45,7 @@ const Filter = observer((props: Iprops) => {
               {open2 ? <ExpandLess /> : <ExpandMore />}
             </ListItemButton>
             <Collapse in={open2} timeout="auto" unmountOnExit>
-              {filter?.filterOptions?.map((option: FilterOptions, i) => {
+              {filter?.filterOptions?.map((option: IFilterOptions, i) => {
                 return (
                   <div key={i} className={filterStyle.checkboxContainer}>
                     <input
