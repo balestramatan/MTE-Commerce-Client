@@ -1,11 +1,11 @@
 import { action, makeObservable, observable } from "mobx";
 import ToastUtil from "../utils/ToastUtils";
 import FiltersFetcher from "../fetchers/Filters.fetcher";
-import { Filters } from "../interfaces/interfaces";
+import { IFilters } from "../interfaces/interfaces";
 
 class StoreInformationStore {
   @observable
-  filters: Filters[] = [];
+  filters: IFilters[] = [];
 
   @observable
   isLoading: boolean = false;
@@ -15,7 +15,7 @@ class StoreInformationStore {
   }
 
   @action
-  setFilters = (filters: []) => (this.filters = filters);
+  setFilters = (filters: IFilters[]) => (this.filters = filters);
 
   @action
   setIsLoading = (isLoading: boolean) => (this.isLoading = isLoading);

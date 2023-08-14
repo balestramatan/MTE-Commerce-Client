@@ -27,13 +27,13 @@ export interface IMediaLinks {
     url: string;
 }
 
-export interface FilterOptions {
+export interface IFilterOptions {
   label: string;
   name: string;
 }
 
-export interface Filters {
+export interface IFilters {
   filterLabel: string;
   filterName: string;
-  filterOptions: FilterOptions[];
+  filterOptions: IFilterOptions[];
 }
