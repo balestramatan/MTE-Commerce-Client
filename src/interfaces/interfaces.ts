@@ -1,47 +1,30 @@
-export interface IProduct {
-  id: string;
-  name: string;
-  images: string[];
-  stock: boolean;
-  price: string;
-  promotionPrice: string;
+import Category from "../models/Category.model";
+
+export interface IOpeningHours {
+    days: string,
+    hours: string
 }
 
-export interface OpeningHours {
-  days: string;
-  hours: string;
-}
-export interface UsefulLinks {
-  name: string;
-  url: string;
-}
-export interface Information {
-  type: string;
-  value: string;
-  icon: string;
+export interface IUsefulLinks {
+    name: string,
+    url: string
 }
 
-export interface OurServices {
-  name: string;
-  type: string;
-  description: string;
+export interface IInformation {
+    type: string,
+    value: string,
+    icon: string
 }
 
-export interface MediaLinks {
-  type: string;
-  url: string;
+export interface IOurServices {
+    name: string,
+    type: string
+    description: string,
 }
 
-export interface FetchConstants {
-  HOST: string;
-}
-
-export interface LoginConstants {
-  ROUTE: string;
-}
-
-export interface RegistrationConstants {
-  ROUTE: string;
+export interface IMediaLinks {
+    type: string;
+    url: string;
 }
 
 export interface FilterOptions {
@@ -53,11 +36,4 @@ export interface Filters {
   filterLabel: string;
   filterName: string;
   filterOptions: FilterOptions[];
-}
-
-export interface ApiResponseBody {
-  status: boolean;
-  results: any;
-  errorId: string;
-  errorMessage: string;
 }

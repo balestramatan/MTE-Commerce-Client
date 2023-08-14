@@ -6,18 +6,18 @@ import headerStyle from './Header.module.scss';
 import HeaderActions from "./headerActions/HeaderActions";
 import Logo from "../logo/Logo";
 import Sections from "./sections/Sections";
+import {useNavigate} from "react-router-dom";
+import CategoryModel from "../../models/Category.model";
 
-interface IProps {
-    isCartOpen: boolean;
-    setIsCartOpen: Function;
-}
+const Header = observer(() => {
+    const navigate = useNavigate();
 
-const Header = observer((props: IProps) => {
-    const {isCartOpen, setIsCartOpen} = props;
+    const onCategoryClick = (category: CategoryModel) => navigate(`products-page/${category.categoryName}`);
+
     return (
         <div key={'header'} className={headerStyle.container}>
-            <HeaderActions isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen}/>
-            <Sections/>
+            <HeaderActions/>
+            <Sections onCategoryClick={onCategoryClick}/>
             <Logo/>
         </div>
     );

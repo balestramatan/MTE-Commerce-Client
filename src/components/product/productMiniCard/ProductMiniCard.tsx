@@ -1,11 +1,11 @@
 import React, {useState} from "react";
 import productMiniCardStyle from "./ProductMiniCard.module.scss";
 import ProductModal from "../../../components/product/productModal/ProductModal";
-import {IProduct} from "../../../interfaces/interfaces";
+import Product from "../../../models/Product.model";
 
 interface IProps {
-    product: IProduct;
-    onProductClick: (product: IProduct) => void;
+    product: Product;
+    onProductClick: (product: Product) => void;
 }
 
 const ProductMiniCard = (props: IProps) => {
@@ -44,7 +44,7 @@ const ProductMiniCard = (props: IProps) => {
                     </div>
                 </div>
                 <div className={productMiniCardStyle.productMiniCardProductDetailsContainer}>
-                    <div className={productMiniCardStyle.productMiniCardProductDetailsRow  }>
+                    <div className={productMiniCardStyle.productMiniCardProductDetailsRow}>
                         <span className={productMiniCardStyle.productName}>{product.name}</span>
                     </div>
                     <div className={productMiniCardStyle.productMiniCardProductDetailsRow}>

@@ -22,7 +22,7 @@ p {
 }
 
 .productPriceContainer {
-  justify-content: end;
+  justify-content: flex-end;
   padding-top: 1vh;
   padding-bottom: 1vh;
 
@@ -34,7 +34,7 @@ p {
 
 .productDescriptionContainer {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   padding-top: 2vh;
   padding-bottom: 1vh;
 

@@ -23,9 +23,7 @@ const Filter = observer((props: Iprops) => {
   const { getFiltersByParentId, filters } = filterStore;
   const [open2, setOpen2] = useState(false);
 
-  const handleChange = (curState, setState) => {
-    setState(!curState);
-  };
+
 
   useEffect(() => {
     const fetchFilters = async () => await getFiltersByParentId(sectionId);
@@ -40,7 +38,7 @@ const Filter = observer((props: Iprops) => {
             <ListItemButton
               style={{ textAlign: "right" }}
               onClick={() => {
-                handleChange(open2, setOpen2);
+                setOpen2(!open2)
               }}
             >
               <ListItemText primary={filter?.filterName} />

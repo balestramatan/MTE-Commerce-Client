@@ -1,11 +1,11 @@
 import { action, makeObservable, observable } from "mobx";
 import ToastUtil from "../utils/ToastUtils";
 import {
-  MediaLinks,
-  Information,
-  OpeningHours,
-  UsefulLinks,
-  OurServices
+  IMediaLinks,
+  IInformation,
+  IOpeningHours,
+  IUsefulLinks,
+  IOurServices
 } from "../interfaces/interfaces";
 import StoreInformationFetcher from "../fetchers/StoreInformation.fetcher";
 
@@ -14,19 +14,19 @@ class StoreInformationStore {
   aboutText: string = "";
 
   @observable
-  usefulLinks: UsefulLinks[] = [];
+  usefulLinks: IUsefulLinks[] = [];
 
   @observable
-  openingHours: OpeningHours[] = [];
+  openingHours: IOpeningHours[] = [];
 
   @observable
-  ourServices: OurServices[] = [];
+  ourServices: IOurServices[] = [];
 
   @observable
-  information: Information[] = [];
+  information: IInformation[] = [];
 
   @observable
-  mediaLinks: MediaLinks[] = [];
+  mediaLinks: IMediaLinks[] = [];
 
   @observable
   storeName: string = "";
@@ -42,22 +42,22 @@ class StoreInformationStore {
   setAboutText = (aboutText: string) => (this.aboutText = aboutText);
 
   @action
-  setUsefulLinks = (usefulLinks: UsefulLinks[]) =>
+  setUsefulLinks = (usefulLinks: IUsefulLinks[]) =>
     (this.usefulLinks = usefulLinks);
 
   @action
-  setOpeningHours = (openingHours: OpeningHours[]) =>
+  setOpeningHours = (openingHours: IOpeningHours[]) =>
     (this.openingHours = openingHours);
 
   @action
-  setInformation = (information: Information[]) =>
+  setInformation = (information: IInformation[]) =>
     (this.information = information);
 
   @action
-  setMediaLinks = (mediaLinks: MediaLinks[]) => (this.mediaLinks = mediaLinks);
+  setMediaLinks = (mediaLinks: IMediaLinks[]) => (this.mediaLinks = mediaLinks);
 
   @action
-  setOurServices = (ourServices: OurServices[]) => (this.ourServices = ourServices);
+  setOurServices = (ourServices: IOurServices[]) => (this.ourServices = ourServices);
 
   @action
   setStoreName = (storeName: string) => (this.storeName = storeName);

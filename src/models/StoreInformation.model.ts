@@ -1,29 +1,29 @@
 import {observable} from "mobx";
-import { Information, MediaLinks, OpeningHours, UsefulLinks } from "../interfaces/interfaces";
+import { IInformation, IMediaLinks, IOpeningHours, IUsefulLinks } from "../interfaces/interfaces";
 
 
-export default class StoreInformation {
+export default class StoreInformationModel {
 
     @observable
     aboutText!: string;
 
     @observable
-    usefulLinks!: UsefulLinks;
+    usefulLinks!: IUsefulLinks;
 
     @observable
-    openingHours!: OpeningHours;
+    openingHours!: IOpeningHours;
 
     @observable
-    information!: Information;
+    information!: IInformation;
 
     @observable
-    mediaLinks!: MediaLinks;
+    mediaLinks!: IMediaLinks;
 
     @observable
     storeName!: string;
 
 
-    constructor(storeInformation?: StoreInformation) {
+    constructor(storeInformation?: StoreInformationModel) {
         if (storeInformation) {
             this.aboutText = storeInformation.aboutText;
             this.usefulLinks = storeInformation.usefulLinks;

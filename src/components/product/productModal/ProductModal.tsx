@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import ProductInformation from "../productInformation/ProductInformation";
-import { IProduct } from "../../../interfaces/interfaces";
 import productModalStyle from "./ProductModal.module.scss";
 import CloseIcon from "@mui/icons-material/Close";
 import Modal from "@mui/material/Modal";
+import Product from "../../../models/Product.model";
 
 interface IProps {
-  product: IProduct;
+  product: Product;
   isOpen: boolean;
   handleClose: any;
 }

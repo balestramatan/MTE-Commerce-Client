@@ -1,6 +1,6 @@
 import {observable} from "mobx";
 
-export default class SubCategory {
+export default class SubCategoryModel {
     @observable
     categoryId!: string;
 
@@ -10,7 +10,7 @@ export default class SubCategory {
     @observable
     parentCategoryId!: string;
 
-    constructor(subCategory?: SubCategory) {
+    constructor(subCategory?: SubCategoryModel) {
         if (subCategory) {
             this.categoryId = subCategory.categoryId;
             this.categoryName = subCategory.categoryName;

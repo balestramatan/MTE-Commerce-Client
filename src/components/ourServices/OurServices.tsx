@@ -54,7 +54,7 @@ const OurServices = observer((props: Iprops) => {
         {ourServices?.map((service, i) => (
           <div
             key={i}
-            className={ourServicesourServicesStyle.ourServicescolumnContainer}
+            className={ourServicesourServicesStyle.ourServicesColumnContainer}
           >
             <div className={ourServicesourServicesStyle.iconContainer}>
               {renderIconByType(service?.type)}

@@ -1,12 +1,12 @@
 import React from "react";
 import promotionProductsStyle from "./PromotionProducts.module.scss";
-import {IProduct} from "../../../interfaces/interfaces";
 import ProductMiniCard from "../productMiniCard/ProductMiniCard";
+import Product from "../../../models/Product.model";
 
 interface IProps {
     title: string;
-    onProductClick: (product: IProduct) => void;
-    products: IProduct[];
+    onProductClick: (product: Product) => void;
+    products: Product[];
 }
 
 const PromotionProducts = (props: IProps) => {
