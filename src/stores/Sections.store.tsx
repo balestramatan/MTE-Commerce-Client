@@ -9,6 +9,9 @@ class SectionsStore {
     sections: Section[] = [];
 
     @observable
+    selectedSection: any = {};
+
+    @observable
     isLoading: boolean = false;
 
     constructor() {
@@ -17,6 +20,9 @@ class SectionsStore {
 
     @action
     setSections = (sections: Section[]) => this.sections = sections;
+
+    @action
+    setSelectedSection = (selectedSection: any) => this.selectedSection = selectedSection;
 
     @action
     getSections = async () => {

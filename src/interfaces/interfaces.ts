@@ -1,52 +1,63 @@
 export interface IProduct {
-    id: string;
-    name: string;
-    images: string[];
-    stock: boolean;
-    price: string;
-    promotionPrice: string
+  id: string;
+  name: string;
+  images: string[];
+  stock: boolean;
+  price: string;
+  promotionPrice: string;
 }
 
 export interface OpeningHours {
-    days: string,
-    hours: string
+  days: string;
+  hours: string;
 }
 export interface UsefulLinks {
-    name: string,
-    url: string
+  name: string;
+  url: string;
 }
 export interface Information {
-    type: string,
-    value: string,
-    icon: string
+  type: string;
+  value: string;
+  icon: string;
 }
 
 export interface OurServices {
-    name: string,
-    type: string
-    description: string,
+  name: string;
+  type: string;
+  description: string;
 }
 
 export interface MediaLinks {
-    type: string;
-    url: string;
+  type: string;
+  url: string;
 }
 
 export interface FetchConstants {
-    HOST: string;
+  HOST: string;
 }
 
 export interface LoginConstants {
-    ROUTE: string
+  ROUTE: string;
 }
 
 export interface RegistrationConstants {
-    ROUTE: string
+  ROUTE: string;
+}
+
+export interface FilterOptions {
+  label: string;
+  name: string;
+}
+
+export interface Filters {
+  filterLabel: string;
+  filterName: string;
+  filterOptions: FilterOptions[];
 }
 
 export interface ApiResponseBody {
-    status: boolean;
-    results: any;
-    errorId: string;
-    errorMessage: string;
+  status: boolean;
+  results: any;
+  errorId: string;
+  errorMessage: string;
 }
