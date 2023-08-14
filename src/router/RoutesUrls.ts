@@ -1,16 +1,17 @@
 export const RoutesParams = {
-    id: "id",
-    token: "token",
-    user: "user",
-    username: "username",
-    password: "password",
-    productName: "productName",
-    categoryName: "categoryName"
+  id: "id",
+  token: "token",
+  user: "user",
+  username: "username",
+  password: "password",
+  sectionName: "sectionName",
+  categoryName: "categoryName",
+  productName: "productName",
 };
 
 export const RoutesUrl = {
-    welcome: "/",
-    auth: "/auth",
-    productsPage: `/products-page/:${RoutesParams.categoryName}`,
-    productDetails: `/product-details/:${RoutesParams.productName}`,
+  welcome: "/",
+  auth: "/auth",
+  productsPage: `/products-page/:${RoutesParams.sectionName}`,
+  productDetails: `/product-details/:${RoutesParams.productName}`,
 };

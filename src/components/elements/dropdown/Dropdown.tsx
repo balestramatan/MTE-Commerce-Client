@@ -12,8 +12,8 @@ const Dropdown = (props: Iprops) => {
 
   return (
     <div>
-      <select name="cars" id="cars" className={dropdownStyle.dropdownCustom}>
-        <option value="" disabled selected>
+      <select name="cars" id="cars" className={dropdownStyle.dropdownCustom} defaultValue={""}>
+        <option value="" disabled>
           {placeholder}
         </option>
         {options.map((option, i) => (

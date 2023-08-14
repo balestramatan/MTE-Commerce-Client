@@ -26,3 +26,14 @@ export interface IMediaLinks {
     type: string;
     url: string;
 }
+
+export interface FilterOptions {
+  label: string;
+  name: string;
+}
+
+export interface Filters {
+  filterLabel: string;
+  filterName: string;
+  filterOptions: FilterOptions[];
+}

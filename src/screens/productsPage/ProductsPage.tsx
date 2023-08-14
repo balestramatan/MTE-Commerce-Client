@@ -5,6 +5,12 @@ import ProductMiniCard from "../../components/product/productMiniCard/ProductMin
 import Dropdown from "../../components/elements/dropdown/Dropdown";
 import Product from "../../models/Product.model";
 
+import rootStores from "../../stores";
+import { SECTIONS_STORE } from "../../stores/consts";
+import SectionsStore from "../../stores/Sections.store";
+
+const sectionStore = rootStores[SECTIONS_STORE] as SectionsStore;
+
 const products: Product[] = [
     {
         name: "3גחל יאקוזה לנרגילה",
@@ -66,6 +72,9 @@ const products: Product[] = [
     },
 ];
 const ProductsPage = () => {
+
+    const { selectedSection } = sectionStore;
+
     return (
         <>
             <div className={collectionsStyle.CollectionTitleContainer}>
@@ -88,7 +97,7 @@ const ProductsPage = () => {
 
             <div className={collectionsStyle.CollectionContainer}>
                 <div className={collectionsStyle.rightColumnContainer}>
-                    <Filter/>
+                    <Filter sectionId={selectedSection.sectionId} />
                 </div>
                 <div className={collectionsStyle.leftColumnContainer}>
                     {products.map((product, i) => {
