@@ -1,19 +1,26 @@
 import React, {useEffect, useRef, useState} from 'react';
 import headerStyle from "../Header.module.scss";
-import {CSSTransition} from "react-transition-group";
 import Category from "../../../models/Category.model";
 
 import rootStores from "../../../stores";
 import {SECTIONS_STORE} from '../../../stores/consts'
 import SectionsStore from "../../../stores/Sections.store";
 import {observer} from "mobx-react";
+import Section from "./Section";
+import CategoryModel from "../../../models/Category.model";
 
 const categoriesStore = rootStores[SECTIONS_STORE] as SectionsStore;
 
-const Sections = observer(() => {
+interface IProps {
+    onCategoryClick: (c: CategoryModel) => void;
+}
+
+const Sections = observer((props: IProps) => {
     const [categoriesToShow, setCategoriesToShow] = useState<Category[]>([]);
     const [showPopup, setPopup] = useState<boolean>(false);
     const transitionRef = useRef<HTMLDivElement>(null)
+
+    const {onCategoryClick} = props;
 
     const {sections, getSections} = categoriesStore;
 
@@ -34,53 +41,11 @@ const Sections = observer(() => {
     }, [getSections])
 
     return (
-        <div className={headerStyle.sections} onMouseLeave={handleMouseLeave}>
+        <div key={'sections'} className={headerStyle.sections} onMouseLeave={handleMouseLeave}>
             {sections?.map((section) => {
-                return (
-                    <div key={`${section.sectionId}_list`}>
-                        <div key={section.sectionId} className={headerStyle.section}
-                             onMouseEnter={() => handleMouseEnter(true, section.sectionId, section.sectionName)}>
-                                <span
-                                    className={`${headerStyle.sectionNameTitle} ${headerStyle.animatedBottomBorder} ${headerStyle.fromRight}`}>{section.sectionName}</span>
-                        </div>
-                        <CSSTransition
-                            key={`${section.sectionId}_tran`}
-                            nodeRef={transitionRef}
-                            in={showPopup}
-                            classNames={"popup"}
-                            timeout={300}
-                            unmountOnExit
-                        >
-                            <div
-                                key={`${section.sectionId}_categories`}
-                                ref={transitionRef}
-                                className={headerStyle.popupContainer}>
-
-                                {categoriesToShow.map(category => {
-                                    return (
-                                        <div key={category.categoryId} className={headerStyle.categoryContainer}>
-                                            <span
-                                                className={`${headerStyle.categoryTitleName} ${headerStyle.textAnimated}`}>{category.categoryName}
-                                            </span>
-
-                                            {category.subCategories?.map(subCategory => {
-                                                return (
-                                                    <div key={subCategory.categoryId}>
-                                                            <span
-                                                                className={`${headerStyle.subCategoryTitleName} ${headerStyle.animatedBottomBorder} ${headerStyle.fromRight} ${headerStyle.textAnimated}`}>
-                                                                {subCategory.categoryName}
-                                                            </span>
-                                                    </div>
-                                                )
-                                            })}
-                                        </div>
-                                    )
-                                })}
-
-                            </div>
-                        </CSSTransition>
-                    </div>
-                )
+                return <Section section={section} handleMouseEnter={handleMouseEnter} onCategoryClick={onCategoryClick}
+                                transitionRef={transitionRef}
+                                showPopup={showPopup} categoriesToShow={categoriesToShow}/>
             })}
         </div>
     );

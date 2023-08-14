@@ -1,7 +1,7 @@
 import {observable} from "mobx";
 import Category from "./Category.model";
 
-export default class Section {
+export default class SectionModel {
     @observable
     sectionId!: string;
 
@@ -11,7 +11,7 @@ export default class Section {
     @observable
     categories?: Category[];
 
-    constructor(section?: Section) {
+    constructor(section?: SectionModel) {
         if (section) {
             this.sectionId = section.sectionId;
             this.sectionName = section.sectionName;

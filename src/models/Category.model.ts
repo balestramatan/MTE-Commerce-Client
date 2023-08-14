@@ -1,17 +1,17 @@
 import {observable} from "mobx";
 import SubCategory from "./SubCategory.model";
 
-export default class Category {
+export default class CategoryModel {
     @observable
-    categoryId!: string;
+    categoryId: string = '';
 
     @observable
-    categoryName!: string;
+    categoryName: string = '';
 
     @observable
     subCategories?: SubCategory[];
 
-    constructor(category?: Category) {
+    constructor(category?: CategoryModel) {
         if (category) {
             this.categoryId = category.categoryId;
             this.categoryName = category.categoryName;

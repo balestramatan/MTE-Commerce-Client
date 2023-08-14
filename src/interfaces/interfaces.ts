@@ -1,52 +1,28 @@
-export interface IProduct {
-    id: string;
-    name: string;
-    images: string[];
-    stock: boolean;
-    price: string;
-    promotionPrice: string
-}
+import Category from "../models/Category.model";
 
-export interface OpeningHours {
+export interface IOpeningHours {
     days: string,
     hours: string
 }
-export interface UsefulLinks {
+
+export interface IUsefulLinks {
     name: string,
     url: string
 }
-export interface Information {
+
+export interface IInformation {
     type: string,
     value: string,
     icon: string
 }
 
-export interface OurServices {
+export interface IOurServices {
     name: string,
     type: string
     description: string,
 }
 
-export interface MediaLinks {
+export interface IMediaLinks {
     type: string;
     url: string;
-}
-
-export interface FetchConstants {
-    HOST: string;
-}
-
-export interface LoginConstants {
-    ROUTE: string
-}
-
-export interface RegistrationConstants {
-    ROUTE: string
-}
-
-export interface ApiResponseBody {
-    status: boolean;
-    results: any;
-    errorId: string;
-    errorMessage: string;
 }

@@ -1,12 +1,12 @@
 import {action, computed, makeObservable, observable} from "mobx";
 import SectionsFetcher from '../fetchers/SectionsFetchers.fetcher';
 import ToastUtil from '../utils/ToastUtils';
-import Section from "../models/Section";
+import SectionModel from "../models/Section";
 
 class SectionsStore {
 
     @observable
-    sections: Section[] = [];
+    sections: SectionModel[] = [];
 
     @observable
     isLoading: boolean = false;
@@ -16,7 +16,7 @@ class SectionsStore {
     }
 
     @action
-    setSections = (sections: Section[]) => this.sections = sections;
+    setSections = (sections: SectionModel[]) => this.sections = sections;
 
     @action
     getSections = async () => {
@@ -65,9 +65,9 @@ class SectionsStore {
 
     @computed
     get sectionsSelectionOption() {
-        return this.sections.map(c => ({
-            label: c.sectionName,
-            value: c.sectionId
+        return this.sections.map(s => ({
+            label: s.sectionName,
+            value: s.sectionId
         }));
     };
 }

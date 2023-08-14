@@ -4,12 +4,13 @@ export const RoutesParams = {
     user: "user",
     username: "username",
     password: "password",
-    productName: "productName"
+    productName: "productName",
+    categoryName: "categoryName"
 };
 
 export const RoutesUrl = {
     welcome: "/",
     auth: "/auth",
-    collections: "/collections",
-    productDetails: `/product-details/:${RoutesParams.productName}`
+    productsPage: `/products-page/:${RoutesParams.categoryName}`,
+    productDetails: `/product-details/:${RoutesParams.productName}`,
 };

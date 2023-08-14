@@ -5,11 +5,11 @@ import SliderShow from "../../elements/sliderShow/SliderShow";
 import productInformationStyle from "./ProductInformation.module.scss";
 import Divider from "@mui/material/Divider";
 import Chip from "@mui/material/Chip";
-import {IProduct} from "../../../interfaces/interfaces";
+import Product from "../../../models/Product.model";
 
 
 interface IProps {
-    product: IProduct;
+    product: Product;
 }
 
 
@@ -25,9 +25,9 @@ const ProductInformation = (props: IProps) => {
                                 <p>{product.name}</p>
                             </div>
                             <div className={productInformationStyle.productPriceContainer}>
-                                {product.promotionPrice !== "" ? (
+                                {product.specialPrice !== "" ? (
                                     <div>
-                                        <span>₪{product.promotionPrice}</span>
+                                        <span>₪{product.specialPrice}</span>
                                         <span className={productInformationStyle.strikePrice}>
                           ₪{product.price}
                         </span>
@@ -45,7 +45,7 @@ const ProductInformation = (props: IProps) => {
                             <div className={productInformationStyle.indicatorContainer}>
                                 <Grid container columns={12}>
                                     <Grid item xs={4}>
-                                        {product.stock ? (
+                                        {product.inStock ? (
                                             <Chip
                                                 label="זמין במלאי"
                                                 color="success"
@@ -66,7 +66,7 @@ const ProductInformation = (props: IProps) => {
                                     className={productInformationStyle.customButtonStyle}
                                     size="small"
                                     variant="outlined"
-                                    disabled={!product.stock}
+                                    disabled={!product.inStock}
                                 >
                                     הוסף לעגלה
                                 </Button>
