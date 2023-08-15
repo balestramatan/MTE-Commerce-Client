@@ -12,6 +12,10 @@ p {
   display: flex;
   padding: 4vh;
   direction: rtl;
+
+  div{
+    width: 100%;
+  }
 }
 
 .productTitleContainer {
@@ -34,7 +38,7 @@ p {
 
 .productDescriptionContainer {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   padding-top: 2vh;
   padding-bottom: 1vh;
 

@@ -16,6 +16,7 @@ const products: Product[] = [
         inStock: false,
         price: "19.99",
         promotionPrice: "",
+        description: "",
         variants: [],
     },
     {
@@ -28,6 +29,7 @@ const products: Product[] = [
         inStock: true,
         price: "29.99",
         promotionPrice: "",
+        description: "",
         variants: [],
     },
     {
@@ -40,6 +42,7 @@ const products: Product[] = [
         inStock: false,
         price: "39.99",
         promotionPrice: "",
+        description: "",
         variants: [],
     },
     {
@@ -52,6 +55,7 @@ const products: Product[] = [
         inStock: true,
         price: "49.99",
         promotionPrice: "",
+        description: "",
         variants: [],
     },
 ];
@@ -64,6 +68,7 @@ const products2: Product[] = [
         ],
         inStock: false,
         price: "19.99",
+        description: "",
         promotionPrice: "",
         variants: [],
     },
@@ -76,6 +81,7 @@ const products2: Product[] = [
         inStock: true,
         price: "29.99",
         promotionPrice: "",
+        description: "",
         variants: [],
     },
     {
@@ -87,6 +93,7 @@ const products2: Product[] = [
         inStock: false,
         price: "39.99",
         promotionPrice: "",
+        description: "",
         variants: [],
     },
     {
@@ -98,6 +105,7 @@ const products2: Product[] = [
         inStock: true,
         price: "49.99",
         promotionPrice: "",
+        description: "",
         variants: [],
     },
 ];

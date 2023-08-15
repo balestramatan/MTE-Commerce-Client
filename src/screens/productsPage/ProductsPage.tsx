@@ -1,86 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { observer } from "mobx-react";
 import collectionsStyle from "./ProductsPage.module.scss";
 import Filter from "../../components/filter/Filter";
 import ProductMiniCard from "../../components/product/productMiniCard/ProductMiniCard";
 import Dropdown from "../../components/elements/dropdown/Dropdown";
-import Product from "../../models/Product.model";
 import rootStores from "../../stores";
-import { SECTIONS_STORE } from "../../stores/consts";
+import { SECTIONS_STORE, PRODUCTS_STORE } from "../../stores/consts";
 import SectionsStore from "../../stores/Sections.store";
+import ProductsStore from "../../stores/Products.store";
 
 const sectionStore = rootStores[SECTIONS_STORE] as SectionsStore;
+const productsStore = rootStores[PRODUCTS_STORE] as ProductsStore;
 
-const products: Product[] = [
-  {
-    name: "3גחל יאקוזה לנרגילה",
-    id: "1",
-    images: [
-      "https://d3m9l0v76dty0.cloudfront.net/system/photos/9442560/extra_large/d813c5a8e62a07af4f76add6959d46b0.jpg",
-    ],
-    inStock: false,
-    price: "39.99",
-    promotionPrice: "",
-    variants: [],
-  },
-  {
-    name: "3גחל יאקוזה לנרגילה",
-    id: "1",
-    images: [
-      "https://d3m9l0v76dty0.cloudfront.net/system/photos/9442560/extra_large/d813c5a8e62a07af4f76add6959d46b0.jpg",
-    ],
-    inStock: false,
-    price: "39.99",
-    promotionPrice: "",
-    variants: [],
-  },
-  {
-    name: "3גחל יאקוזה לנרגילה",
-    id: "1",
-    images: [
-      "https://d3m9l0v76dty0.cloudfront.net/system/photos/9442560/extra_large/d813c5a8e62a07af4f76add6959d46b0.jpg",
-    ],
-    inStock: false,
-    price: "39.99",
-    promotionPrice: "",
-    variants: [],
-  },
-  {
-    name: "3גחל יאקוזה לנרגילה",
-    id: "1",
-    images: [
-      "https://d3m9l0v76dty0.cloudfront.net/system/photos/9442560/extra_large/d813c5a8e62a07af4f76add6959d46b0.jpg",
-    ],
-    inStock: false,
-    price: "39.99",
-    promotionPrice: "",
-    variants: [],
-  },
-  {
-    name: "3גחל יאקוזה לנרגילה",
-    id: "1",
-    images: [
-      "https://d3m9l0v76dty0.cloudfront.net/system/photos/9442560/extra_large/d813c5a8e62a07af4f76add6959d46b0.jpg",
-    ],
-    inStock: false,
-    price: "39.99",
-    promotionPrice: "",
-    variants: [],
-  },
-  {
-    name: "3גחל יאקוזה לנרגילה",
-    id: "1",
-    images: [
-      "https://d3m9l0v76dty0.cloudfront.net/system/photos/9442560/extra_large/d813c5a8e62a07af4f76add6959d46b0.jpg",
-    ],
-    inStock: false,
-    price: "39.99",
-    promotionPrice: "",
-    variants: [],
-  },
-];
 const ProductsPage = observer(() => {
   const { selectedSection } = sectionStore;
+  const { products, getProductsByFilters } = productsStore;
+
+  useEffect(() => {
+    const fetchProducts = async () =>
+      await getProductsByFilters({ sectionId: selectedSection.sectionId });
+    fetchProducts().then(() => console.log("Fetched Products..."));
+  }, [selectedSection.sectionId]);
 
   return (
     <>

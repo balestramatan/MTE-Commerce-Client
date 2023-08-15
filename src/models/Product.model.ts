@@ -9,10 +9,10 @@ export default class ProductModel {
     name: string = '';
 
     @observable
-    description?: string = '';
+    description: string = '';
 
     @observable
-    promotionPrice?: string = '';
+    promotionPrice: string = '';
 
     @observable
     images: string[] = [];
