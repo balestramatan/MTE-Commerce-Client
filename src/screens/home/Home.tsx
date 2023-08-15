@@ -15,7 +15,8 @@ const products: Product[] = [
         ],
         inStock: false,
         price: "19.99",
-        specialPrice: "",
+        promotionPrice: "",
+        variants: [],
     },
     {
         id: '2',
@@ -26,7 +27,8 @@ const products: Product[] = [
         ],
         inStock: true,
         price: "29.99",
-        specialPrice: "",
+        promotionPrice: "",
+        variants: [],
     },
     {
         id: '3',
@@ -37,7 +39,8 @@ const products: Product[] = [
         ],
         inStock: false,
         price: "39.99",
-        specialPrice: "",
+        promotionPrice: "",
+        variants: [],
     },
     {
         id: '4',
@@ -48,10 +51,11 @@ const products: Product[] = [
         ],
         inStock: true,
         price: "49.99",
-        specialPrice: "",
+        promotionPrice: "",
+        variants: [],
     },
 ];
-const products2 = [
+const products2: Product[] = [
     {
         id: '5',
         name: "1גחל יאקוזה לנרגילה",
@@ -60,7 +64,8 @@ const products2 = [
         ],
         inStock: false,
         price: "19.99",
-        specialPrice: "",
+        promotionPrice: "",
+        variants: [],
     },
     {
         id: '6',
@@ -70,7 +75,8 @@ const products2 = [
         ],
         inStock: true,
         price: "29.99",
-        specialPrice: "",
+        promotionPrice: "",
+        variants: [],
     },
     {
         id: '7',
@@ -80,7 +86,8 @@ const products2 = [
         ],
         inStock: false,
         price: "39.99",
-        specialPrice: "",
+        promotionPrice: "",
+        variants: [],
     },
     {
         id: '8',
@@ -90,7 +97,8 @@ const products2 = [
         ],
         inStock: true,
         price: "49.99",
-        specialPrice: "",
+        promotionPrice: "",
+        variants: [],
     },
 ];
 

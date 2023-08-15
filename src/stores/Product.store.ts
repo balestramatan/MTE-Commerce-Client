@@ -1,45 +1,59 @@
-import {action, makeObservable, observable} from "mobx";
+import { action, makeObservable, observable } from "mobx";
+import { IVariants } from "../interfaces/interfaces";
 
 class ProductStore {
-    @observable
-    productId: string = "";
+  @observable
+  id: string = "";
 
-    @observable
-    name: string = "";
+  @observable
+  name: string = "";
 
-    @observable
-    description: string = "";
+  @observable
+  description?: string = "";
 
-    @observable
-    inStock: boolean = true;
+  @observable
+  promotionPrice?: string = "";
 
-    @observable
-    price?: string = undefined;
+  @observable
+  images: string[] = [];
 
-    @observable
-    specialPrice?: string = undefined;
+  @observable
+  inStock: boolean = true;
 
-    @observable
-    images: string[] = [];
+  @observable
+  price: string = "";
 
-    constructor() {
-        makeObservable(this);
-    }
+  @observable
+  variants: IVariants[] = [];
 
-    @action
-    setProductId = (productId: string) => this.productId = productId;
+  @observable
+  isLoading: boolean = false;
 
-    @action
-    setName = (name: string) => this.name = name;
+  constructor() {
+    makeObservable(this);
+  }
 
-    @action
-    setDescription = (des: string) => this.description = des;
+  @action
+  setProductId = (id: string) => (this.id = id);
 
-    @action
-    setPromotionPrice = (pp: string) => this.specialPrice = pp;
+  @action
+  setName = (name: string) => (this.name = name);
 
-    @action
-    setImages = (images: string[]) => this.images = images;
+  @action
+  setDescription = (description: string) => (this.description = description);
+
+  @action
+  setPromotionPrice = (promotionPrice: string) =>
+    (this.promotionPrice = promotionPrice);
+
+  @action
+  setImages = (images: string[]) => (this.images = images);
+
+  @action
+  setVariants = (variants: IVariants[]) => (this.variants = variants);
+
+  @action
+  setIsLoading = (isLoading: boolean) => (this.isLoading = isLoading);
 }
 
 export default ProductStore;

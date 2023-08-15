@@ -1,5 +1,4 @@
 import {observable} from "mobx";
-import SubCategory from "./SubCategory.model";
 
 export default class CategoryModel {
     @observable
@@ -9,7 +8,7 @@ export default class CategoryModel {
     categoryName: string = '';
 
     @observable
-    subCategories?: SubCategory[];
+    subCategories?: CategoryModel[];
 
     constructor(category?: CategoryModel) {
         if (category) {

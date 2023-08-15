@@ -25,9 +25,9 @@ const ProductInformation = (props: IProps) => {
                                 <p>{product.name}</p>
                             </div>
                             <div className={productInformationStyle.productPriceContainer}>
-                                {product.specialPrice !== "" ? (
+                                {product.promotionPrice !== "" ? (
                                     <div>
-                                        <span>₪{product.specialPrice}</span>
+                                        <span>₪{product.promotionPrice}</span>
                                         <span className={productInformationStyle.strikePrice}>
                           ₪{product.price}
                         </span>

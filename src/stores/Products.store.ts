@@ -8,6 +8,9 @@ class ProductsStore {
     @observable
     offset: number = 0;
 
+    @observable
+    isLoading: boolean = false;
+
     constructor() {
         makeObservable(this);
     }
@@ -17,6 +20,9 @@ class ProductsStore {
 
     @action
     setOffset = (offset: number) => this.offset = offset;
+
+    @action
+    setIsLoading = (isLoading: boolean) => (this.isLoading = isLoading);
 }
 
 export default ProductsStore;

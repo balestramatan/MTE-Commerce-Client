@@ -1,10 +1,9 @@
 import React from "react";
 import headerStyle from "../Header.module.scss";
-import SubCategory from "../../../models/SubCategory.model";
 import CategoryModel from "../../../models/Category.model";
 
 interface IProps {
-  subCategory: SubCategory;
+  subCategory: CategoryModel;
   onCategoryClick: any;
 }
 

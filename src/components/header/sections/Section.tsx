@@ -2,7 +2,7 @@ import React from "react";
 import headerStyle from "../Header.module.scss";
 import { CSSTransition } from "react-transition-group";
 import CategoryModel from "../../../models/Category.model";
-import SectionModel from "../../../models/Section";
+import SectionModel from "../../../models/Section.model";
 import Category from "../categories/Category";
 import Categories from "../categories/Categories";
 

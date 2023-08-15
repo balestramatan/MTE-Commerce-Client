@@ -1,7 +1,7 @@
 import {action, computed, makeObservable, observable} from "mobx";
 import SectionsFetcher from '../fetchers/SectionsFetchers.fetcher';
 import ToastUtil from '../utils/ToastUtils';
-import SectionModel from "../models/Section";
+import SectionModel from "../models/Section.model";
 
 class SectionsStore {
 

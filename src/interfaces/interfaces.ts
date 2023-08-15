@@ -37,3 +37,10 @@ export interface IFilters {
   filterName: string;
   filterOptions: IFilterOptions[];
 }
+
+export interface IVariants {
+    name: string;
+    value: string;
+    inStock: boolean;
+    extraPrice: string
+  }
