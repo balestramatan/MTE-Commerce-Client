@@ -73,8 +73,7 @@ const ProductInformation = (props: IProps) => {
                             </div>
                             <div className={productInformationStyle.productDescriptionContainer}>
                                 <p>
-                                    גחלים איכותיים לנרגילה. גחלי יאקוזה מכילים עד 85% קליפות
-                                    קוקוס. 2 מידות לבחירה: 26X26 ו-13X26 מ"מ.
+                                    {product?.description}
                                 </p>
                             </div>
                         </div>
