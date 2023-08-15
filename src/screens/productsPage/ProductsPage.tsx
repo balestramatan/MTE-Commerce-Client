@@ -1,5 +1,5 @@
 import React from "react";
-import {observer} from "mobx-react";
+import { observer } from "mobx-react";
 import collectionsStyle from "./ProductsPage.module.scss";
 import Filter from "../../components/filter/Filter";
 import ProductMiniCard from "../../components/product/productMiniCard/ProductMiniCard";
@@ -20,7 +20,8 @@ const products: Product[] = [
     ],
     inStock: false,
     price: "39.99",
-    specialPrice: "",
+    promotionPrice: "",
+    variants: [],
   },
   {
     name: "3גחל יאקוזה לנרגילה",
@@ -30,7 +31,8 @@ const products: Product[] = [
     ],
     inStock: false,
     price: "39.99",
-    specialPrice: "",
+    promotionPrice: "",
+    variants: [],
   },
   {
     name: "3גחל יאקוזה לנרגילה",
@@ -40,7 +42,8 @@ const products: Product[] = [
     ],
     inStock: false,
     price: "39.99",
-    specialPrice: "",
+    promotionPrice: "",
+    variants: [],
   },
   {
     name: "3גחל יאקוזה לנרגילה",
@@ -50,7 +53,8 @@ const products: Product[] = [
     ],
     inStock: false,
     price: "39.99",
-    specialPrice: "",
+    promotionPrice: "",
+    variants: [],
   },
   {
     name: "3גחל יאקוזה לנרגילה",
@@ -60,7 +64,8 @@ const products: Product[] = [
     ],
     inStock: false,
     price: "39.99",
-    specialPrice: "",
+    promotionPrice: "",
+    variants: [],
   },
   {
     name: "3גחל יאקוזה לנרגילה",
@@ -70,7 +75,8 @@ const products: Product[] = [
     ],
     inStock: false,
     price: "39.99",
-    specialPrice: "",
+    promotionPrice: "",
+    variants: [],
   },
 ];
 const ProductsPage = observer(() => {

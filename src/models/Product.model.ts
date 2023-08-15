@@ -1,4 +1,5 @@
 import {observable} from "mobx";
+import { IVariants } from "../interfaces/interfaces";
 
 export default class ProductModel {
     @observable
@@ -11,6 +12,9 @@ export default class ProductModel {
     description?: string = '';
 
     @observable
+    promotionPrice?: string = '';
+
+    @observable
     images: string[] = [];
 
     @observable
@@ -20,7 +24,8 @@ export default class ProductModel {
     price: string = '';
 
     @observable
-    specialPrice?: string = '';
+    variants: IVariants[] = [];
+
 
     constructor(product?: ProductModel) {
         if (product) {
@@ -29,7 +34,8 @@ export default class ProductModel {
             this.description = product.description;
             this.inStock = product.inStock;
             this.price = product.price;
-            this.specialPrice = product.specialPrice;
+            this.promotionPrice = product.promotionPrice;
+            this.variants = product.variants;
         }
     }
 }

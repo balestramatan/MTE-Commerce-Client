@@ -1,7 +1,7 @@
 import React from "react";
 import headerStyle from "../Header.module.scss";
 import Category from "./Category";
-import SectionModel from "../../../models/Section";
+import SectionModel from "../../../models/Section.model";
 import CategoryModel from "../../../models/Category.model";
 
 interface IProps {
