@@ -45,17 +45,26 @@ const ProductsPage = observer(() => {
         <div className={collectionsStyle.rightColumnContainer}>
           <Filter sectionId={selectedSection.sectionId} />
         </div>
-        <div className={collectionsStyle.leftColumnContainer}>
-          {products.map((product, i) => {
-            return (
-              <div
-                key={i}
-                className={collectionsStyle.collectionMiniCardContainer}
-              >
-                <ProductMiniCard onProductClick={() => {}} product={product} />
-              </div>
-            );
-          })}
+        <div className={collectionsStyle.leftColumnContainer}>          
+          {products.length === 0 && (
+            <div className={collectionsStyle.productsNotFound}>
+              <span>לא נמצאו מוצרים</span>
+            </div>
+          )}
+          {products.length !== 0 &&
+            products.map((product, i) => {
+              return (
+                <div
+                  key={i}
+                  className={collectionsStyle.collectionMiniCardContainer}
+                >
+                  <ProductMiniCard
+                    onProductClick={() => {}}
+                    product={product}
+                  />
+                </div>
+              );
+            })}
         </div>
       </div>
     </>

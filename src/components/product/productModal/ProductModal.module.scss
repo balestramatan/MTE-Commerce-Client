@@ -1,9 +1,10 @@
 .productModalContainer {
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 50vw;
+  width: 50em;
+  height: 30em;
   background-color: white;
   padding: 2vh;
 }
