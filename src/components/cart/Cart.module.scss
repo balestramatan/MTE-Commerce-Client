@@ -1,0 +1,45 @@
+.cartContextContainer {
+  margin-top: 5em;
+  height: 50em;
+  flex-direction: column;
+}
+
+.cartItemsContainer {
+  height: 40em;
+  overflow: auto;
+}
+
+.cartSummaryContainer {
+  padding-top: 1em;
+}
+.cartTotalPriceContainer {
+  display: flex;
+  justify-content: space-between;
+
+  span {
+    font-size: 14px;
+    font-weight: 600;
+  }
+}
+.cartButtonContainer {
+  padding-top: 2em;
+}
+
+.cartItemDividerContainer {
+  padding-right: 2em;
+}
+.cartItemDivider {
+  background-color: black;
+  width: 90%;
+}
+
+.cartEmptyContainer{
+    display: flex;
+    justify-content: center;
+
+    span{
+        font-size: 16px;
+        font-weight: 500;
+        width: fit-content;
+    }
+}

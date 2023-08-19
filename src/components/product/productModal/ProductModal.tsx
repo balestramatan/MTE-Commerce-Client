@@ -21,7 +21,7 @@ const ProductModal = (props: IProps) => {
           <span onClick={handleClose} className={productModalStyle.productModalCloseButtonContainer}>
               <CloseIcon />
           </span>
-          <ProductInformation product={product} />
+          <ProductInformation handleClose={handleClose} product={product} />
         </div>
       </Modal>
     </div>

@@ -9,7 +9,7 @@ const ProductDetails = () => {
 
   return (
     <div className={productDetailsStyle.productDetailsContainer}>
-      <ProductInformation product={product} />
+      <ProductInformation handleClose={()=>{}} product={product} />
     </div>
   );
 };
