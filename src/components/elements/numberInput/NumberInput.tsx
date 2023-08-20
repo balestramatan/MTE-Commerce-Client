@@ -2,19 +2,38 @@ import React, { useEffect, useState } from "react";
 import numberInputStyle from "./NumberInput.module.scss";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
+import { observer } from "mobx-react";
+import Product from "../../../models/Product.model";
 
-const NumberInput = () => {
-  const [counter, setCounter] = useState(1);
+import rootStores from "../../../stores";
+import { CART_STORE } from "../../../stores/consts";
+import CartStore from "../../../stores/Cart.store";
+
+const cartStoreStore = rootStores[CART_STORE] as CartStore;
+
+interface IProps {
+  product: Product;
+}
+
+const NumberInput = observer((props: IProps) => {
+  const { product } = props;
+  const { getProductQuantity, isCartUpdated, addProduct ,decreaseProductQuantity } = cartStoreStore;
+
+  const [quantity, setQuantity ] = useState(0);
+
 
   const handleIncrease = () => {
-    setCounter(counter + 1);
+    addProduct(product)
   };
 
   const handleDecrease = () => {
-    if (counter != 1) {
-      setCounter(counter - 1);
-    }
+    decreaseProductQuantity(product.id)
   };
+
+  useEffect(() => {
+    setQuantity(getProductQuantity(product.id));
+  }, [isCartUpdated]);
+  
   return (
     <div className={`${numberInputStyle.numberInputContainer} row`}>
       <div
@@ -24,13 +43,16 @@ const NumberInput = () => {
         <AddIcon className={numberInputStyle.numberInputIcon} />
       </div>
       <div className={`${numberInputStyle.numberInputCounterContainer} col-3`}>
-        {counter}
+        {quantity}
       </div>
-      <div onClick={handleDecrease} className={`${numberInputStyle.numberInputMinusContainer} col-3`}>
+      <div
+        onClick={handleDecrease}
+        className={`${numberInputStyle.numberInputMinusContainer} col-3`}
+      >
         <RemoveIcon className={numberInputStyle.numberInputIcon} />
       </div>
     </div>
   );
-};
+});
 
 export default NumberInput;

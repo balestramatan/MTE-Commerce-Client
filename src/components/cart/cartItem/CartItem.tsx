@@ -23,7 +23,7 @@ const CartItem = (props: IProps) => {
           <span>{product.name}</span>
         </div>
         <div className={`${cartItemStyle.counterContainer} row`}>
-          <NumberInput />
+          <NumberInput product={product} />
         </div>
       </div>
       <div className={`${cartItemStyle.priceColumnContainer} col-2`}>

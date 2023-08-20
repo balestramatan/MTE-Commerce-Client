@@ -90,7 +90,7 @@ const products2: Product[] = [
         images: [
             "https://d3m9l0v76dty0.cloudfront.net/system/photos/9442560/extra_large/d813c5a8e62a07af4f76add6959d46b0.jpg",
         ],
-        inStock: false,
+        inStock: true,
         price: "39.99",
         promotionPrice: "",
         description: "",

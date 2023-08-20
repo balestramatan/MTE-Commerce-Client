@@ -2,11 +2,13 @@
   margin-top: 5em;
   height: 50em;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .cartItemsContainer {
-  height: 40em;
   overflow: auto;
+  max-height: 40em;
+  
 }
 
 .cartSummaryContainer {
@@ -26,7 +28,7 @@
 }
 
 .cartItemDividerContainer {
-  padding-right: 2em;
+  padding: 1em 2em;
 }
 .cartItemDivider {
   background-color: black;
