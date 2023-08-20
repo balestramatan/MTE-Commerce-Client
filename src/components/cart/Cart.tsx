@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Drawer } from "antd";
 import { observer } from "mobx-react";
 import cartStyle from "./Cart.module.scss";
@@ -19,7 +19,12 @@ interface IProps {
 
 const Cart = observer((props: IProps) => {
   const { isCartOpen, onClose } = props;
-    const { products } = cartStoreStore;
+  const { products, getTotalPrice, isCartUpdated } = cartStoreStore;
+  const [totalPrice, setTotalPrice] = useState(0);
+
+  useEffect(() => {
+    setTotalPrice(getTotalPrice());
+  }, [isCartUpdated]);
   return (
     <Drawer
       title="עגלת קניות"
@@ -30,15 +35,13 @@ const Cart = observer((props: IProps) => {
       <div className={`${cartStyle.cartContextContainer} row`}>
         {products?.length !== 0 ? (
           <>
-            {" "}
             <div className={`${cartStyle.cartItemsContainer} row`}>
               {products?.map((product, i) => {
                 return (
-                  <>
-                    <CartItem key={i} product={product} />
+                  <div key={i}>
+                    <CartItem product={product} />
                     {i !== products.length - 1 ? (
                       <div
-                        key={i}
                         className={`${cartStyle.cartItemDividerContainer} row`}
                       >
                         <Divider className={`${cartStyle.cartItemDivider}`} />
@@ -46,7 +49,7 @@ const Cart = observer((props: IProps) => {
                     ) : (
                       <></>
                     )}
-                  </>
+                  </div>
                 );
               })}
             </div>
@@ -56,7 +59,7 @@ const Cart = observer((props: IProps) => {
                   <span>סה"כ</span>
                 </div>
                 <div className={`col-2`}>
-                  <span>₪150</span>
+                  <span>₪{totalPrice}</span>
                 </div>
               </div>
               <div className={`${cartStyle.cartButtonContainer} row`}>
