@@ -12,6 +12,7 @@ export const RoutesParams = {
 export const RoutesUrl = {
   welcome: "/",
   auth: "/auth",
+  profile: "/profile",
   productsPage: `/products-page/:${RoutesParams.sectionName}`,
   productDetails: `/product-details/:${RoutesParams.productName}`,
 };

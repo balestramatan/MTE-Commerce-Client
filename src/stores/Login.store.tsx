@@ -16,6 +16,9 @@ class LoginStore {
     isLoggedIn: boolean = false;
 
     @observable
+    isLoggedInFailed: boolean = false;
+
+    @observable
     isLoading: boolean = false;
 
     constructor() {
@@ -32,6 +35,9 @@ class LoginStore {
     setIsLoggedIn = (isLoggedIn: boolean) => this.isLoggedIn = isLoggedIn;
 
     @action
+    setIsLoggedInFailed = (isLoggedInFailed: boolean) => this.isLoggedInFailed = isLoggedInFailed;
+
+    @action
     setIsLoading = (isLoading: boolean) => this.isLoading = isLoading;
 
     @action
@@ -44,7 +50,10 @@ class LoginStore {
             const {data} = await LoginFetcher.login(email, password);
             this.setAccessToken(data.access_token);
             this.setIsLoggedIn(true);
+            this.setIsLoggedInFailed(false)
+            return data
         } catch (err: any) {
+            this.setIsLoggedInFailed(true)
             console.error(err?.message);
             ToastUtil.error("Some error occurred.");
         } finally {
