@@ -4,7 +4,7 @@ import authStyle from "./Auth.module.scss";
 import LoginForm from "../../components/auth/login/LoginForm";
 import RegistrationForm from "../../components/auth/registration/RegistrationForm";
 import LinkButton from "../../components/elements/linkButton/LinkButton";
-
+import { useNavigate } from 'react-router-dom';
 import rootStores from "../../stores";
 import { LOGIN_STORE, REGISTRATION_STORE } from "../../stores/consts";
 import LoginStore from "../../stores/Login.store";
@@ -17,24 +17,25 @@ interface IProps {}
 
 const Auth = observer((props: IProps) => {
   const {} = props;
-  const { login } = loginStore;
+  const { login, isLoggedInFailed, setIsLoggedInFailed } = loginStore;
   const { registration } = registrationStore;
   const [isLoginComponent, setIsLoginComponent] = useState(true);
-  const [loginFailed, setLoginFailed] = useState(false);
   const [registrationRes, setRegistrationRes] = useState({});
+  const navigate = useNavigate();
+
 
   const switchComponent = () => {
     setIsLoginComponent(!isLoginComponent);
-    setLoginFailed(false);
     setRegistrationRes({});
+    setIsLoggedInFailed(false);
   };
 
   const loginHandle = async (payload: any) => {
-    try {
-      setLoginFailed(false);
-      await login(payload.email, payload.password);
-    } catch (error) {
-      setLoginFailed(true);
+    const logInRes = await login(payload.email, payload.password);
+    if(logInRes){
+      console.log("LOGGED IN")
+      console.log("logInRes:",logInRes)
+      navigate("/"); 
     }
   };
 
@@ -50,10 +51,11 @@ const Auth = observer((props: IProps) => {
     } catch (error) {}
   };
 
+
   return (
     <div className={authStyle.authContainer}>
       {isLoginComponent ? (
-        <LoginForm loginFailed={loginFailed} loginHandle={loginHandle} />
+        <LoginForm loginFailed={isLoggedInFailed} loginHandle={loginHandle} />
       ) : (
         <RegistrationForm
           registrationRes={registrationRes}
