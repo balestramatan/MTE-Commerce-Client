@@ -1,5 +1,6 @@
 import React from "react";
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
+import ShoppingBagTwoToneIcon from "@mui/icons-material/ShoppingBagTwoTone";
 import PersonIcon from "@mui/icons-material/Person";
 import headerActionsStyle from "./HeaderActions.module.scss";
 import { useNavigate } from "react-router-dom";
@@ -17,19 +18,28 @@ const loginStore = rootStores[LOGIN_STORE] as LoginStore;
 const HeaderActions = observer(() => {
   const navigate = useNavigate();
 
-  const { isOpen, setCartIsOpen } = cartStore;
+  const { isOpen, setCartIsOpen, products } = cartStore;
   const { isLoggedIn } = loginStore;
 
-  const handlePersonClick = () => isLoggedIn ? navigate("/profile") : navigate("/auth");
+  const handlePersonClick = () =>
+    isLoggedIn ? navigate("/profile") : navigate("/auth");
   const handleCartClick = () => setCartIsOpen(!isOpen);
 
   return (
     <div className={headerActionsStyle.container}>
       <Cart isCartOpen={isOpen} onClose={() => setCartIsOpen(false)} />
-      <ShoppingBagOutlinedIcon
-        className={headerActionsStyle.shoppingBagIcon}
-        onClick={handleCartClick}
-      />
+      {products.length > 0 ? (
+        <ShoppingBagTwoToneIcon
+          className={headerActionsStyle.shoppingBagIcon}
+          onClick={handleCartClick}
+        />
+      ) : (
+        <ShoppingBagOutlinedIcon
+          className={headerActionsStyle.shoppingBagIcon}
+          onClick={handleCartClick}
+        />
+      )}
+
       <PersonIcon
         className={headerActionsStyle.personIcon}
         onClick={handlePersonClick}
