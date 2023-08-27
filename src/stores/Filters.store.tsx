@@ -1,4 +1,5 @@
 import { action, makeObservable, observable } from "mobx";
+import { makePersistable } from 'mobx-persist-store';
 import ToastUtil from "../utils/ToastUtils";
 import FiltersFetcher from "../fetchers/Filters.fetcher";
 import { IFilters } from "../interfaces/interfaces";
@@ -12,6 +13,8 @@ class StoreInformationStore {
 
   constructor() {
     makeObservable(this);
+    makePersistable(this, { name: 'FiltersStore', properties: ['filters'], storage: window.localStorage });
+
   }
 
   @action

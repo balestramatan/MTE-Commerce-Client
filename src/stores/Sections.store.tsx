@@ -1,4 +1,5 @@
 import {action, computed, makeObservable, observable} from "mobx";
+import { makePersistable } from 'mobx-persist-store';
 import SectionsFetcher from '../fetchers/SectionsFetchers.fetcher';
 import ToastUtil from '../utils/ToastUtils';
 import SectionModel from "../models/Section.model";
@@ -16,6 +17,8 @@ class SectionsStore {
 
     constructor() {
         makeObservable(this);
+        makePersistable(this, { name: 'SectionsStore', properties: ['selectedSection','sections'], storage: window.localStorage });
+
     }
 
     @action

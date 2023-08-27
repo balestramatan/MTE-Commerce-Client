@@ -1,4 +1,5 @@
 import {action, makeObservable, observable} from "mobx";
+import { makePersistable } from 'mobx-persist-store';
 import ToastUtil from "../utils/ToastUtils";
 import ProductsFetcher from "../fetchers/Products.fetcher";
 import Product from "../models/Product.model";
@@ -15,6 +16,7 @@ class ProductsStore {
 
     constructor() {
         makeObservable(this);
+        makePersistable(this, { name: 'ProductsStore', properties: ['products'], storage: window.localStorage });
     }
 
     @action
