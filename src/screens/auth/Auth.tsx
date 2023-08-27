@@ -31,10 +31,8 @@ const Auth = observer((props: IProps) => {
   };
 
   const loginHandle = async (payload: any) => {
-    const logInRes = await login(payload.email, payload.password);
-    if(logInRes){
-      console.log("LOGGED IN")
-      console.log("logInRes:",logInRes)
+    const loggedInSuccess = await login(payload.email, payload.password);
+    if(loggedInSuccess){
       navigate("/"); 
     }
   };

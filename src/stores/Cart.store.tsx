@@ -1,4 +1,5 @@
 import { action, makeObservable, observable } from "mobx";
+import { makePersistable } from 'mobx-persist-store';
 import Product from "../models/Product.model";
 
 class CartStore {
@@ -16,6 +17,8 @@ class CartStore {
 
   constructor() {
     makeObservable(this);
+    makePersistable(this, { name: 'CartStore', properties: ['products', 'productQuantities'], storage: window.localStorage });
+
   }
 
   @action

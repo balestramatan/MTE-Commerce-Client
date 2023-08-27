@@ -1,4 +1,5 @@
 import {action, makeObservable, observable} from "mobx";
+import { makePersistable } from 'mobx-persist-store';
 import LoginFetcher from "../fetchers/Login.fetcher";
 import ToastUtil from "../utils/ToastUtils";
 
@@ -23,6 +24,7 @@ class LoginStore {
 
     constructor() {
         makeObservable(this);
+        makePersistable(this, { name: 'LoginStore', properties: ['accessToken', 'isLoggedIn'], storage: window.localStorage });
     }
 
     @action
@@ -51,7 +53,7 @@ class LoginStore {
             this.setAccessToken(data.access_token);
             this.setIsLoggedIn(true);
             this.setIsLoggedInFailed(false)
-            return data
+            return true
         } catch (err: any) {
             this.setIsLoggedInFailed(true)
             console.error(err?.message);
