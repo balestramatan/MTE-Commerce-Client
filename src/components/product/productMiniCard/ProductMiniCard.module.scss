@@ -1,8 +1,11 @@
 .productMiniCardContainer {
   cursor: pointer;
-  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.2), 0px -1px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2), 0px -1px 6px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
+
+  margin: 15px 0;
 }
+
 .productMiniCardImage {
   position: relative;
   width: 300px;

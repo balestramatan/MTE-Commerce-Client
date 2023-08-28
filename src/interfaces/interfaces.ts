@@ -39,7 +39,7 @@ export interface IFilters {
 }
 
 export interface IVariants {
-    name: string;
+    type: string;
     value: string;
     inStock: boolean;
     extraPrice: string

@@ -3,6 +3,7 @@ import productMiniCardStyle from "./ProductMiniCard.module.scss";
 import ProductModal from "../../../components/product/productModal/ProductModal";
 import Product from "../../../models/Product.model";
 import {useNavigate} from 'react-router-dom';
+import {IVariants} from "../../../interfaces/interfaces";
 
 interface IProps {
     product: Product;
@@ -22,7 +23,32 @@ const ProductMiniCard = (props: IProps) => {
     }
     const handleClose = () => setModalIsOpen(false);
 
-    const onProductClick = (product: Product) => navigate(`product-details/${product.name}`, {state: {product}})
+    const onProductClick = (product: Product) => {
+        const simplifiedVariants: IVariants[] = product.variants.map((variant) => {
+            return {
+                type: variant.type,
+                value: variant.value,
+                inStock: variant.inStock,
+                extraPrice: variant.extraPrice
+                // Omit any non-serializable properties from the variant
+            };
+        });
+
+        const simplifiedImages: string[] = product.images.map((imageUrl) => imageUrl);
+
+        const data: Product = {
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            images: simplifiedImages,
+            description: product.description,
+            inStock: product.inStock,
+            variants: simplifiedVariants,
+            promotionPrice: product.promotionPrice
+        }
+
+        navigate(`product-details/${product.name}`, {state: {product: data}})
+    }
 
     const cardImageStyle = {
         "--background-image": `url(${product?.images?.[0]})`,
