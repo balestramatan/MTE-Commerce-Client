@@ -5,12 +5,11 @@ import Product from "../../../models/Product.model";
 
 interface IProps {
     title: string;
-    onProductClick: (product: Product) => void;
     products: Product[];
 }
 
 const PromotionProducts = (props: IProps) => {
-    const {title, onProductClick, products} = props;
+    const {title, products} = props;
     return (
         <>
             <div className={promotionProductsStyle.promotionProductsTitleContainer}>
@@ -21,7 +20,7 @@ const PromotionProducts = (props: IProps) => {
 
             <div className={promotionProductsStyle.promotionProductsContainer}>
                 {products.map((product, i) => {
-                    return <ProductMiniCard key={i} product={product} onProductClick={onProductClick}/>;
+                    return <ProductMiniCard key={i} product={product}/>;
                 })}
             </div>
         </>

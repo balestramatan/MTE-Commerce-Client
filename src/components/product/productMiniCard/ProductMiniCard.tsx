@@ -2,14 +2,17 @@ import React, {useState} from "react";
 import productMiniCardStyle from "./ProductMiniCard.module.scss";
 import ProductModal from "../../../components/product/productModal/ProductModal";
 import Product from "../../../models/Product.model";
+import {useNavigate} from 'react-router-dom';
 
 interface IProps {
     product: Product;
-    onProductClick: (product: Product) => void;
 }
 
 const ProductMiniCard = (props: IProps) => {
-    const {product, onProductClick} = props;
+    const {product} = props;
+
+    const navigate = useNavigate();
+
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const handleOpen = (event: React.MouseEvent) => {
         // This prevents from the outsider div onClick function to invoked
@@ -18,6 +21,8 @@ const ProductMiniCard = (props: IProps) => {
         setModalIsOpen(true);
     }
     const handleClose = () => setModalIsOpen(false);
+
+    const onProductClick = (product: Product) => navigate(`product-details/${product.name}`, {state: {product}})
 
     const cardImageStyle = {
         "--background-image": `url(${product?.images?.[0]})`,

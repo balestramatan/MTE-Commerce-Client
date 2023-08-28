@@ -45,7 +45,7 @@ const ProductsPage = observer(() => {
         <div className={collectionsStyle.rightColumnContainer}>
           <Filter sectionId={selectedSection.sectionId} />
         </div>
-        <div className={collectionsStyle.leftColumnContainer}>          
+        <div className={collectionsStyle.leftColumnContainer}>
           {products.length === 0 && (
             <div className={collectionsStyle.productsNotFound}>
               <span>לא נמצאו מוצרים</span>
@@ -59,7 +59,6 @@ const ProductsPage = observer(() => {
                   className={collectionsStyle.collectionMiniCardContainer}
                 >
                   <ProductMiniCard
-                    onProductClick={() => {}}
                     product={product}
                   />
                 </div>

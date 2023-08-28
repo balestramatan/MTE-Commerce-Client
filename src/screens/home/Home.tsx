@@ -1,8 +1,7 @@
-import React, {useState} from "react";
+import React from "react";
 import homeStyle from "./Home.module.scss";
 import OurServices from "../../components/ourServices/OurServices";
 import PromotionProducts from "../../components/product/promotionProducts/PromotionProducts";
-import {useNavigate} from 'react-router-dom';
 import Product from "../../models/Product.model";
 
 const products: Product[] = [
@@ -111,14 +110,10 @@ const products2: Product[] = [
 ];
 
 const Home = () => {
-    const navigate = useNavigate();
-
-    const onProductClick = (product: Product) => navigate(`product-details/${product.name}`, {state: {product}})
-
     return (
         <div className={homeStyle.container}>
-            <PromotionProducts products={products} title={"מוצרים חדשים"} onProductClick={onProductClick}/>
-            <PromotionProducts products={products2} title={"דילים חמים"} onProductClick={onProductClick}/>
+            <PromotionProducts products={products} title={"מוצרים חדשים"}/>
+            <PromotionProducts products={products2} title={"דילים חמים"}/>
             <OurServices/>
 
         </div>
