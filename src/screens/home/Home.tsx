@@ -115,7 +115,6 @@ const Home = () => {
             <PromotionProducts products={products} title={"מוצרים חדשים"}/>
             <PromotionProducts products={products2} title={"דילים חמים"}/>
             <OurServices/>
-
         </div>
     );
 };

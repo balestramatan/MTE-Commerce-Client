@@ -21,8 +21,7 @@ const HeaderActions = observer(() => {
   const { isOpen, setCartIsOpen, products } = cartStore;
   const { isLoggedIn } = loginStore;
 
-  const handlePersonClick = () =>
-    isLoggedIn ? navigate("/profile") : navigate("/auth");
+  const handlePersonClick = () => navigate(isLoggedIn ? "/profile" : "/auth");
   const handleCartClick = () => setCartIsOpen(!isOpen);
 
   return (
