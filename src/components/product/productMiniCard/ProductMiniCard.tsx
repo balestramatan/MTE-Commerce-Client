@@ -47,7 +47,7 @@ const ProductMiniCard = (props: IProps) => {
             promotionPrice: product.promotionPrice
         }
 
-        navigate(`product-details/${product.name}`, {state: {product: data}})
+        navigate(`/product-details/${product.name}`, {state: {product: data}})
     }
 
     const cardImageStyle = {

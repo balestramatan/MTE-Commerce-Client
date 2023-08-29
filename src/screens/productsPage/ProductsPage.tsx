@@ -19,6 +19,7 @@ const ProductsPage = observer(() => {
     useEffect(() => {
         const fetchProducts = async () =>
             await getProductsByFilters({sectionId: selectedSection.sectionId});
+
         fetchProducts().then(() => console.log("Fetched Products..."));
     }, [selectedSection.sectionId, getProductsByFilters]);
 
