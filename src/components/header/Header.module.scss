@@ -3,12 +3,21 @@
 .container {
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
   align-items: center;
   position: sticky;
   top: 0;
   background-color: $white;
   z-index: 99999;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 1rem;
+}
+
+.actionsCon {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 
@@ -25,6 +34,17 @@
   z-index: 1;
 }
 
+.titleContainer {
+  font-family: "Heiti TC", serif;
+  font-size: 26px;
+}
+
+.storeName {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .logoContainer {
   margin: 5px 0;
   cursor: pointer;
@@ -32,13 +52,12 @@
 
 .logo {
   width: 100px;
-  height: 60px;
 }
 
 .sections {
   display: flex;
-  justify-content: space-evenly;
-  gap: 2rem;
+  justify-content: center;
+  gap: 3rem;
 }
 
 .section {

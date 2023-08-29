@@ -7,6 +7,7 @@ import rootStores from "../../stores";
 import {PRODUCTS_STORE} from "../../stores/consts";
 import ProductsStore from "../../stores/Products.store";
 import {observer} from "mobx-react";
+import MainBanner from "../../components/banners/mainBanner/MainBanner";
 
 const productsStore = rootStores[PRODUCTS_STORE] as ProductsStore;
 
@@ -129,6 +130,7 @@ const Home = observer(() => {
 
     return (
         <div className={homeStyle.container}>
+            <MainBanner/>
             <PromotionProducts products={hotProducts} title={"מוצרים חמים"}/>
             <PromotionProducts products={onSaleProducts} title={"מוצרים במבצע"}/>
             <OurServices/>

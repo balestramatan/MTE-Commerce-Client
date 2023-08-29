@@ -4,9 +4,10 @@ import '../elements/popup/popupStyle.css';
 import './Header.css';
 import headerStyle from './Header.module.scss';
 import HeaderActions from "./headerActions/HeaderActions";
-import Logo from "../logo/Logo";
 import Sections from "./sections/Sections";
 import {animated, useTransition} from '@react-spring/web'
+import Title from "./title/Title";
+import SearchIcon from "../search/SearchIcon";
 
 const textOptions = ['משלוחים חינם בקנייה מעל 299 ש״ח', 'כל המוצרים בהנחות משוגעות', 'בעל הבית השתגע!'];
 
@@ -38,9 +39,12 @@ const Header = observer(() => {
                 </div>
             </header>
             <div key={'header'} className={headerStyle.container}>
-                <HeaderActions/>
+                <div className={headerStyle.actionsCon}>
+                    <HeaderActions/>
+                    <Title className={headerStyle.titleContainer} title={'SmokeTalk'}/>
+                    <SearchIcon/>
+                </div>
                 <Sections/>
-                <Logo/>
             </div>
         </>
     );
