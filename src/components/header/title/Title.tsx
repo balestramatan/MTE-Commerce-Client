@@ -1,8 +1,15 @@
 import React from 'react';
+import titleStyle from './Title.module.scss';
 
-const Title = ({title, className}) => {
+interface IProps {
+    title: string,
+    onClick: () => void
+}
+const Title = (props: IProps) => {
+    const {title, onClick} = props
+
     return (
-        <span className={className}>{title}</span>
+        <span onClick={onClick} className={titleStyle.titleContainer}>{title}</span>
     );
 };
 
