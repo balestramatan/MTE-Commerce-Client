@@ -6,6 +6,7 @@ import headerStyle from './Header.module.scss';
 import HeaderActions from "./headerActions/HeaderActions";
 import Sections from "./sections/Sections";
 import {animated, useTransition} from '@react-spring/web'
+import {useNavigate} from "react-router-dom";
 import Title from "./title/Title";
 import SearchIcon from "../search/SearchIcon";
 
@@ -13,11 +14,14 @@ const textOptions = ['משלוחים חינם בקנייה מעל 299 ש״ח', '
 
 const Header = observer(() => {
     const [index, setIndex] = useState(0);
+    const navigate = useNavigate();
+
+    const onTitleClickHandler = () => navigate("/")
 
     useEffect(() => {
         const interval = setInterval(() => {
             setIndex(prevIndex => (prevIndex + 1) % textOptions.length);
-        }, 5000); // Adjust the interval between text changes
+        }, 5000);
 
         return () => clearInterval(interval);
     }, []);
@@ -41,7 +45,7 @@ const Header = observer(() => {
             <div key={'header'} className={headerStyle.container}>
                 <div className={headerStyle.actionsCon}>
                     <HeaderActions/>
-                    <Title className={headerStyle.titleContainer} title={'SmokeTalk'}/>
+                    <Title onClick={onTitleClickHandler} title={'SmokeTalk'}/>
                     <SearchIcon/>
                 </div>
                 <Sections/>

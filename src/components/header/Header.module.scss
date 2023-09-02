@@ -10,7 +10,6 @@
   background-color: $white;
   z-index: 99999;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin: 1rem;
 }
 
 .actionsCon {
@@ -32,11 +31,6 @@
   display: flex;
   justify-content: space-evenly;
   z-index: 1;
-}
-
-.titleContainer {
-  font-family: "Heiti TC", serif;
-  font-size: 26px;
 }
 
 .storeName {
