@@ -37,7 +37,7 @@ const ProductMiniCard = (props: IProps) => {
         const simplifiedImages: string[] = product.images.map((imageUrl) => imageUrl);
 
         const data: Product = {
-            id: product.id,
+            _id: product._id,
             name: product.name,
             price: product.price,
             images: simplifiedImages,

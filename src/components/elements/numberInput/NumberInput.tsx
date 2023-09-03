@@ -27,11 +27,11 @@ const NumberInput = observer((props: IProps) => {
   };
 
   const handleDecrease = () => {
-    decreaseProductQuantity(product.id)
+    decreaseProductQuantity(product._id)
   };
 
   useEffect(() => {
-    setQuantity(getProductQuantity(product.id));
+    setQuantity(getProductQuantity(product._id));
   }, [isCartUpdated]);
   
   return (

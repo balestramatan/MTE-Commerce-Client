@@ -43,7 +43,7 @@ const Footer = observer(() => {
         const fetchStoreInformation = async () => await getStoreInformation();
 
         fetchStoreInformation().then(() => console.log('fetched store information...'));
-    }, [getStoreInformation]);
+    }, []);
 
     return (
         <div id={'footer'} className={footerStyle.footerContainer}>
