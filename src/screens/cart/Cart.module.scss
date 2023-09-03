@@ -1,0 +1,95 @@
+.cartHeaderContainer {
+  display: flex;
+  justify-content: center;
+  padding-top: 3em;
+
+  span {
+    font-size: 18px;
+    font-weight: 600;
+  }
+}
+
+.cartContextContainer {
+    padding: 0 5em;
+    min-height: 500px;
+    display: flex;
+
+  .productsColumnContainer {
+    padding: 5em;
+
+    .cartItemDividerContainer {
+      padding: 3em 3em;
+    }
+
+    .cartItemDivider {
+      background-color: black;
+      width: 90%;
+    }
+
+    .cartEmptyContainer{
+        display: flex;
+        justify-content: center;
+    
+        span{
+            font-size: 16px;
+            font-weight: 500;
+        }
+    }
+  }
+
+  .checkOutColumnContainer {
+    padding: 10em;
+    height: 100px;
+    position: sticky;
+    top: 30px;
+
+    .deliveryOptionContainer{
+        padding-bottom: 2em;
+
+        .optionBoxColumn{
+            display: flex;
+            justify-content: center;
+        }
+
+        .optionBox{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 214px;
+            height: 110px;
+            border: 1px solid black;
+            cursor: pointer;
+        }
+        .optionBox:hover{
+            background-color: #D8A48D;
+            border: 1px solid black;
+        }
+    }
+
+    .subTotalContainer {
+
+      .subTotalColumn {
+        display: flex;
+        justify-content: center;
+      }
+
+      span {
+        font-size: 16px;
+        font-weight: 600;
+      }
+    }
+
+    .checkoutButtonContainer {
+      padding-top: 2em;
+      padding-left: 2em;
+      padding-right: 2em;
+
+      .cartButton {
+        background-color: black;
+      }
+      .cartButton:hover {
+        background-color: black;
+      }
+    }
+  }
+}

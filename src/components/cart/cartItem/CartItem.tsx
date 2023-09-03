@@ -14,9 +14,7 @@ const CartItem = (props: IProps) => {
   return (
     <div className={`${cartItemStyle.cartItemContainer} row`}>
       <div className={`${cartItemStyle.imageColumnContainer} col-3`}>
-        <div>
           <img src={product.images[0]} alt="IMG" />
-        </div>
       </div>
       <div className={`${cartItemStyle.descriptionColumnContainer} col-7`}>
         <div className={`${cartItemStyle.titleContainer} row`}>

@@ -13,6 +13,7 @@ export const RoutesUrl = {
   welcome: "/",
   auth: "/auth",
   profile: "/profile",
+  cart: "/cart",
   productsPage: `/products-page/:${RoutesParams.sectionName}`,
   productDetails: `/product-details/:${RoutesParams.productName}`,
 };

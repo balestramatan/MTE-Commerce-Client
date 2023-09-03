@@ -23,7 +23,8 @@ const NumberInput = observer((props: IProps) => {
 
 
   const handleIncrease = () => {
-    addProduct(product)
+    const shouldOpenCart = false
+    addProduct(product,shouldOpenCart)
   };
 
   const handleDecrease = () => {

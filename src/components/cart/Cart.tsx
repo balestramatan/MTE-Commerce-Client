@@ -5,7 +5,7 @@ import cartStyle from "./Cart.module.scss";
 import CartItem from "./cartItem/CartItem";
 import Divider from "@mui/material/Divider";
 import Button from "@mui/material/Button";
-
+import {useNavigate} from "react-router-dom";
 import rootStores from "../../stores";
 import {CART_STORE} from "../../stores/consts";
 import CartStore from "../../stores/Cart.store";
@@ -21,10 +21,11 @@ const Cart = observer((props: IProps) => {
     const {isCartOpen, onClose} = props;
     const {products, getTotalPrice, isCartUpdated} = cartStoreStore;
     const [totalPrice, setTotalPrice] = useState(0);
+    const navigate = useNavigate();
 
     useEffect(() => {
         setTotalPrice(getTotalPrice());
-    }, [isCartUpdated, getTotalPrice]);
+    }, [isCartUpdated]);
 
     useEffect(() => {
         if (isCartOpen) {
@@ -33,6 +34,11 @@ const Cart = observer((props: IProps) => {
             document.body.classList.remove('cart-open');
         }
     }, [isCartOpen]);
+
+    const cartNavigationHandler = () => {
+        onClose();
+        navigate("/cart")
+    }
 
     return (
         <Drawer
@@ -73,7 +79,7 @@ const Cart = observer((props: IProps) => {
                                 </div>
                             </div>
                             <div className={`${cartStyle.cartButtonContainer} row`}>
-                                <Button variant="contained">עגלה</Button>
+                                <Button onClick={cartNavigationHandler} className={cartStyle.cartButton} variant="contained">עגלה</Button>
                             </div>
                         </div>
                     </>

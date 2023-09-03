@@ -24,7 +24,8 @@ const ProductInformation = observer((props: IProps) => {
   const { addProduct, setCartIsOpen } = cartStoreStore;
 
   const handleAddToCart = () => {
-    addProduct(product);
+    const shouldOpenCart = true;
+    addProduct(product, shouldOpenCart);
     setCartIsOpen(true);
     handleClose();
   };
