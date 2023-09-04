@@ -50,11 +50,13 @@ const OurServices = observer((props: Iprops) => {
       <div className={ourServicesourServicesStyle.ourServicesTitleContainer}>
         <span>השירותים שלנו</span>
       </div>
-      <div className={ourServicesourServicesStyle.ourServicesContextContainer}>
+      <div
+        className={`${ourServicesourServicesStyle.ourServicesContextContainer} row`}
+      >
         {ourServices?.map((service, i) => (
           <div
             key={i}
-            className={ourServicesourServicesStyle.ourServicesColumnContainer}
+            className={`${ourServicesourServicesStyle.ourServicesColumnContainer} col-12 col-md-4`}
           >
             <div className={ourServicesourServicesStyle.iconContainer}>
               {renderIconByType(service?.type)}

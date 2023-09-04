@@ -3,60 +3,61 @@
 .footerContainer {
   background-color: $black;
   color: $white;
-  width: 100%;
-  padding: 3vh 5vh;
-}
+  padding: 0 5vh;
 
-.footerDivider {
-  background-color: $white;
-  margin: 1vh 0 !important;
-  width: 100%;
-}
-
-.footerColumn {
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-}
-
-.storeNameContainer {
-  padding-bottom: 3vh;
-}
-
-.footerCopyright {
-  display: flex;
-  justify-content: center;
-  gap: .5vw;
-
-  a {
-    color: white;
+  .footerInformationContainer {
+    display: flex;
+    justify-content: center;
   }
-}
 
-.footerIconSpan {
-  padding-left: 1vw;
-}
+  .footerCopyrightContainer {
+    display: flex;
+    justify-content: center;
+    padding: 1em 0;
+    a {
+      color: white;
+    }
+  }
 
-.footerIcon {
-  font-size: 18px !important;
-}
+  .footerIconSpan {
+    padding-left: 1vw;
+  }
 
-.footerSocialIcon {
-  width: 30px !important;
-  height: 30px !important;
-  margin-left: 15px;
-}
+  .footerIcon {
+    font-size: 18px !important;
+  }
 
-.footerSocialContainer {
-  display: flex;
-  margin-top: 30px;
-  justify-content: center;
-}
+  .footerSocialIcon {
+    width: 30px !important;
+    height: 30px !important;
+    margin-left: 15px;
+  }
 
-.title {
-  font-size: 18px;
-}
+  .footerSocialContainer {
+    display: flex;
+    justify-content: center;
+  }
 
-.contentText {
-  font-size: 12px;
+  .title {
+    font-size: 18px;
+    font-weight: 500;
+    padding: 1em 0;
+  }
+
+  .footerColumn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 5px;
+
+    .footerDivider {
+      background-color: $white;
+      width: 10em;
+      margin-top: 5px;
+    }
+  }
+
+  .contentText {
+    font-size: 12px;
+  }
 }
