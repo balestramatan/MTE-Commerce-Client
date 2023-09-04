@@ -3,7 +3,7 @@ import { IVariants } from "../interfaces/interfaces";
 
 export default class ProductModel {
     @observable
-    id: string = '';
+    _id: string = '';
 
     @observable
     name: string = '';
@@ -29,7 +29,7 @@ export default class ProductModel {
 
     constructor(product?: ProductModel) {
         if (product) {
-            this.id = product.id;
+            this._id = product._id;
             this.name = product.name;
             this.description = product.description;
             this.inStock = product.inStock;

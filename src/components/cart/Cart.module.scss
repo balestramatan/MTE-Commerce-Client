@@ -13,6 +13,8 @@
 
 .cartSummaryContainer {
   padding-top: 1em;
+  display: flex;
+  justify-content: center;
 }
 .cartTotalPriceContainer {
   display: flex;
@@ -25,6 +27,13 @@
 }
 .cartButtonContainer {
   padding-top: 2em;
+
+  .cartButton{
+    background-color: black;
+  }
+  .cartButton:hover{
+    background-color: black;
+  }
 }
 
 .cartItemDividerContainer {
