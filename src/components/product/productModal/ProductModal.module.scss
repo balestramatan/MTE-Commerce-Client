@@ -1,12 +1,12 @@
 .productModalContainer {
   position: absolute;
-  top: 60%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 50em;
-  height: 30em;
+  width: 45em;
   background-color: white;
-  padding: 2vh;
+  border-radius: 1em;
+  padding: 1em;
 }
 
 .productModalCloseButtonContainer{

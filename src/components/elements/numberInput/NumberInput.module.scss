@@ -17,7 +17,9 @@
 
 
 }
-.numberInputPlusContainer:hover , .numberInputMinusContainer:hover{
+
+.numberInputPlusContainer:active,
+.numberInputMinusContainer:active {
     background-color: #353434;
     .numberInputIcon{
         color: white;
