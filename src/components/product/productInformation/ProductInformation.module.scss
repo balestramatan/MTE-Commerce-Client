@@ -1,76 +1,83 @@
 @import "../../../styles/colors.scss";
 
-p {
-  margin: 0;
-}
-
-.gridImagesContainer {
-}
-
-.gridDetailsContainer {
-  max-height: 60vh;
+.productInformationContainer {
   display: flex;
-  padding: 4vh;
-  direction: rtl;
+  justify-content: center;
 
-  div{
-    width: 100%;
+  .customColumn{
+    display: flex;
+    justify-content: center;
+
+  }
+
+  .productTitleContainer {
+    span {
+      font-size: 20px;
+      font-weight: 500;
+    }
+  }
+
+  .productPriceContainer {
+
+    span {
+      font-size: 16px;
+      padding-left: 1em;
+    }
+
+    .strikePrice {
+      text-decoration: line-through;
+    }
+  }
+
+  .dividerContainer {
+    padding: 1em 0;
+
+    .customerDivider {
+      background-color: $black;
+      width: 200px;
+    }
+  }
+
+  .inStockContainer{
+    
+    .customChip{
+      width: 120px;
+    }
+
+  }
+
+  .addToCartButtonContainer {
+    margin-top: 1em;
+  
+    .customButtonStyle {
+      border-radius: 20px;
+      width: 120px;
+      height: 32px;
+    }
+  }
+
+  .productDescriptionContainer {
+    padding-top: 2em;
+    padding-bottom: 1em;
+  
+    p {
+      font-size: 14px;
+    }
+  }
+
+  .gridImagesContainer{
+    max-width: 22em;
+    
   }
 }
 
-.productTitleContainer {
-  p {
-    font-size: 20px;
-    font-weight: 500;
-  }
-}
 
-.productPriceContainer {
-  justify-content: flex-end;
-  padding-top: 1vh;
-  padding-bottom: 1vh;
 
-  span {
-    font-size: 16px;
-    padding-left: 1vw;
-  }
-}
 
-.productDescriptionContainer {
-  display: flex;
-  justify-content: flex-start;
-  padding-top: 2vh;
-  padding-bottom: 1vh;
 
-  p {
-    font-size: 14px;
-  }
-}
 
-.dividerContainer {
-  padding-top: 2vh;
-}
 
-.indicatorContainer {
-  padding-top: 2vh;
-  padding-bottom: 2vh;
-}
 
-.strikePrice {
-  text-decoration: line-through;
-}
 
-.addToCartButtonContainer {
-  margin-top: 2vh;
-  padding-right: 2vw;
-  padding-left: 2vw;
-}
 
-.customButtonStyle {
-  border-radius: 20px;
-  width: 100%;
-}
 
-.customerDivider {
-  background-color: $black;
-}
