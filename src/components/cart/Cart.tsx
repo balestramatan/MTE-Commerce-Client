@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import {Drawer} from "antd";
 import {observer} from "mobx-react";
 import cartStyle from "./Cart.module.scss";
+import "./Cart.customization.css"
 import CartItem from "./cartItem/CartItem";
 import Divider from "@mui/material/Divider";
 import Button from "@mui/material/Button";

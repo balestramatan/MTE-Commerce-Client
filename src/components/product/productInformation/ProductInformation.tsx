@@ -2,6 +2,7 @@ import React from "react";
 import Button from "@mui/material/Button";
 import SliderShow from "../../elements/sliderShow/SliderShow";
 import productInformationStyle from "./ProductInformation.module.scss";
+import "./ProductInformation.customization.css"
 import Divider from "@mui/material/Divider";
 import Chip from "@mui/material/Chip";
 import Product from "../../../models/Product.model";
