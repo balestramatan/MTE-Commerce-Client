@@ -9,15 +9,24 @@ import { RoutesUrl } from "./RoutesUrls";
 import PrivateRoute from "./PrivateRoute";
 import Cart from "../screens/cart/Cart";
 
-const Router = () => (
-  <Routes>
-    <Route path={RoutesUrl.welcome} element={<Home />}></Route>
-    <Route path={RoutesUrl.auth} element={<Auth />}></Route>
-    <Route path={RoutesUrl.cart} element={<Cart />}></Route>
-    <Route path={RoutesUrl.profile} element={<PrivateRoute element={<Profile/>} />} />
-    <Route path={RoutesUrl.productsPage} element={<ProductsPage />}></Route>
-    <Route path={RoutesUrl.productDetails} element={<ProductDetails />}></Route>
-  </Routes>
-);
+const Router = () => {
+
+  return (
+    <Routes>
+      <Route path={RoutesUrl.welcome} element={<Home />}></Route>
+      <Route path={RoutesUrl.auth} element={<Auth />}></Route>
+      <Route path={RoutesUrl.cart} element={<Cart />}></Route>
+      <Route
+        path={RoutesUrl.profile}
+        element={<PrivateRoute element={<Profile />} />}
+      />
+      <Route path={RoutesUrl.productsPage} element={<ProductsPage />}></Route>
+      <Route
+        path={RoutesUrl.productDetails}
+        element={<ProductDetails />}
+      ></Route>
+    </Routes>
+  );
+};
 
 export default Router;

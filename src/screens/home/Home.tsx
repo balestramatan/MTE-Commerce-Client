@@ -14,6 +14,7 @@ const Home = observer(() => {
     const {hotProducts, onSaleProducts, getHotProducts, getProductsOnSale} = productsStore;
 
     useEffect(() => {
+        window.scrollTo(0, 0); // Scroll to the top of the page on route change
         const fetchHotProducts = async () => await getHotProducts();
         const fetchProductsOnSale = async () => await getProductsOnSale();
         fetchHotProducts().then(() => console.log('fetched hot products'));
