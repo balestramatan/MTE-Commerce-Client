@@ -1,3 +1,17 @@
 .ant-drawer-content-wrapper{
     width: 280px !important;
 }
+
+@media screen and (max-width: 768px) {
+    /* Adjust the height for screens with a maximum width of 768px */
+    .ant-drawer-content-wrapper {
+        width: 280px !important;
+    }
+  }
+  
+  @media screen and (min-width: 769px) {
+    /* Adjust the height for screens with a minimum width of 769px */
+    .ant-drawer-content-wrapper {
+        width: 375px !important;
+    }
+  }
