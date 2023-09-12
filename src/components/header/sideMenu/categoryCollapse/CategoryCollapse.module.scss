@@ -1,0 +1,20 @@
+.categoryCollapseContainer {
+  text-align: right !important;
+  .categoryCollapseText {
+    span {
+      font-size: 14px !important;
+      font-weight: 400 !important;
+    }
+  }
+}
+
+.subCategoryCollapseContainer {
+  border-right: 1px solid black;
+
+  .subCategoryCollapseText {
+    span {
+      font-size: 14px !important;
+      font-weight: 400 !important;
+    }
+  }
+}
