@@ -1,20 +1,19 @@
-import { action, makeObservable, observable } from "mobx";
-import RegistrationFetcher from "../fetchers/Registration.fetcher";
-import ToastUtil from "../utils/ToastUtils";
+import { action, makeObservable, observable } from 'mobx';
+import RegistrationFetcher from '../fetchers/Registration.fetcher';
+import ToastUtil from '../utils/ToastUtils';
 
 class RegistrationStore {
+  @observable
+  email: string = '';
 
   @observable
-  email: string = "";
+  password: string = '';
 
   @observable
-  password: string = "";
+  firstName: string = '';
 
   @observable
-  firstName: string = "";
-
-  @observable
-  lastName: string = "";
+  lastName: string = '';
 
   @observable
   isLoading: boolean = false;
@@ -38,23 +37,19 @@ class RegistrationStore {
   @action
   setIsLoading = (isLoading: boolean) => (this.isLoading = isLoading);
 
-
-
   @action
-  registration = async (email: string, password: string,firstName: string, lastName: string) => {
+  registration = async (email: string, password: string, firstName: string, lastName: string) => {
     try {
       this.setIsLoading(true);
-      const { data } = await RegistrationFetcher.registration(email, password,firstName,lastName);
-      console.log(data)
-      return data
+      const { data } = await RegistrationFetcher.registration(email, password, firstName, lastName);
+      return data;
     } catch (err: any) {
       console.error(err?.message);
-      ToastUtil.error("Some error occurred.");
+      ToastUtil.error('Some error occurred.');
     } finally {
       this.setIsLoading(false);
     }
   };
-
 }
 
 export default RegistrationStore;
