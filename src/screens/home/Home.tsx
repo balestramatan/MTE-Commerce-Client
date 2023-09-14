@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect} from "react";
+import React, {useEffect} from "react";
 import homeStyle from "./Home.module.scss";
 import OurServices from "../../components/ourServices/OurServices";
 import PromotionProducts from "../../components/product/promotionProducts/PromotionProducts";
@@ -19,7 +19,7 @@ const Home = observer(() => {
         const fetchProductsOnSale = async () => await getProductsOnSale();
         fetchHotProducts().then(() => console.log('fetched hot products'));
         fetchProductsOnSale().then(() => console.log('fetched products on sale'));
-    }, []);
+    }, [getHotProducts, getProductsOnSale]);
 
     return (
         <div className={homeStyle.container}>
