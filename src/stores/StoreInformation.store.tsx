@@ -80,8 +80,6 @@ class StoreInformationStore {
             this.setIsLoading(true);
             let {data} = await StoreInformationFetcher.getStoreInformation();
 
-            console.log('data ::')
-            console.log(data)
             this.setAboutText(data.aboutText);
             this.setUsefulLinks(data.usefulLinks);
             this.setOpeningHours(data.openingHours);
