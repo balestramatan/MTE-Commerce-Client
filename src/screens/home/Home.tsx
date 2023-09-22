@@ -2,12 +2,15 @@ import React, {useEffect} from "react";
 import homeStyle from "./Home.module.scss";
 import OurServices from "../../components/ourServices/OurServices";
 import PromotionProducts from "../../components/product/promotionProducts/PromotionProducts";
-import rootStores from "../../stores";
-import {PRODUCTS_STORE} from "../../stores/consts";
-import ProductsStore from "../../stores/Products.store";
 import {observer} from "mobx-react";
 import MainBanner from "../../components/banners/mainBanner/MainBanner";
 
+import rootStores from "../../stores";
+import {PRODUCTS_STORE, STORE_INFORMATION_STORE} from "../../stores/consts";
+import ProductsStore from "../../stores/Products.store";
+import StoreInformationStore from "../../stores/StoreInformation.store";
+
+const storeInformationStore = rootStores[STORE_INFORMATION_STORE] as StoreInformationStore;
 const productsStore = rootStores[PRODUCTS_STORE] as ProductsStore;
 
 const Home = observer(() => {

@@ -1,10 +1,17 @@
 import React from 'react';
 import mainBannerStyle from './MainBanner.module.scss';
-const banner = require('./mainBanner.jpg');
+import rootStores from "../../../stores";
+import {STORE_INFORMATION_STORE} from "../../../stores/consts";
+import StoreInformationStore from "../../../stores/StoreInformation.store";
+
+const storeInformationStore = rootStores[STORE_INFORMATION_STORE] as StoreInformationStore;
+
 const MainBanner = () => {
+    const {mainBannerUrl} = storeInformationStore;
+
     return (
         <div className={mainBannerStyle.container}>
-            <img src={banner} alt={'main-banner'} className={mainBannerStyle.banner}/>
+            <img src={mainBannerUrl} alt={'main-banner'} className={mainBannerStyle.banner}/>
         </div>
     );
 };

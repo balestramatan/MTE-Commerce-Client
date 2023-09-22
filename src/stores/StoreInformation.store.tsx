@@ -32,6 +32,9 @@ class StoreInformationStore {
     storeName: string = "";
 
     @observable
+    mainBannerUrl: string = "";
+
+    @observable
     headerAddsTexts: string[] = [];
 
     @observable
@@ -42,34 +45,34 @@ class StoreInformationStore {
     }
 
     @action
-    setAboutText = (aboutText: string) => (this.aboutText = aboutText);
+    setAboutText = (aboutText: string) => this.aboutText = aboutText;
 
     @action
-    setUsefulLinks = (usefulLinks: IUsefulLinks[]) =>
-        (this.usefulLinks = usefulLinks);
+    setUsefulLinks = (usefulLinks: IUsefulLinks[]) => this.usefulLinks = usefulLinks;
 
     @action
-    setOpeningHours = (openingHours: IOpeningHours[]) =>
-        (this.openingHours = openingHours);
+    setOpeningHours = (openingHours: IOpeningHours[]) => this.openingHours = openingHours;
 
     @action
-    setInformation = (information: IInformation[]) =>
-        (this.information = information);
+    setInformation = (information: IInformation[]) => this.information = information;
 
     @action
-    setMediaLinks = (mediaLinks: IMediaLinks[]) => (this.mediaLinks = mediaLinks);
+    setMediaLinks = (mediaLinks: IMediaLinks[]) => this.mediaLinks = mediaLinks;
 
     @action
-    setOurServices = (ourServices: IOurServices[]) => (this.ourServices = ourServices);
+    setOurServices = (ourServices: IOurServices[]) => this.ourServices = ourServices;
 
     @action
-    setStoreName = (storeName: string) => (this.storeName = storeName);
+    setStoreName = (storeName: string) => this.storeName = storeName;
 
     @action
-    setHeaderAddsTexts = (texts: string[]) => (this.headerAddsTexts = texts);
+    setMainBannerUrl = (url: string) => this.mainBannerUrl = url;
 
     @action
-    setIsLoading = (isLoading: boolean) => (this.isLoading = isLoading);
+    setHeaderAddsTexts = (texts: string[]) => this.headerAddsTexts = texts;
+
+    @action
+    setIsLoading = (isLoading: boolean) => this.isLoading = isLoading;
 
     @action
     getStoreInformation = async () => {
@@ -77,6 +80,8 @@ class StoreInformationStore {
             this.setIsLoading(true);
             let {data} = await StoreInformationFetcher.getStoreInformation();
 
+            console.log('data ::')
+            console.log(data)
             this.setAboutText(data.aboutText);
             this.setUsefulLinks(data.usefulLinks);
             this.setOpeningHours(data.openingHours);
@@ -85,6 +90,7 @@ class StoreInformationStore {
             this.setStoreName(data.storeName);
             this.setOurServices(data.ourServices)
             this.setHeaderAddsTexts(data.headerAddsTexts)
+            this.setMainBannerUrl(data.mainBannerUrl)
         } catch (err: any) {
             console.error(err?.message);
             ToastUtil.error("Some error occurred.");
