@@ -1,67 +1,39 @@
+.collectionTitleContainer {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 30px;
 
-.CollectionTitleContainer {
-  display: flex;
-  justify-content: center;
-  padding-bottom: 30px;
-
-  span {
-    font-size: 24px;
-    font-weight: 600;
-  }
+    span {
+        font-size: 24px;
+        font-weight: 600;
+    }
 }
 
-.CollectionSortContainer{
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 0 20vw;
-
-  span{
-    font-size: 14px;
-    font-weight: 500;
-  }
+.headerColumnContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    span {
+        font-size: 14px;
+        font-weight: 500;
+    }
 }
 
-.CollectionContainer {
-  display: flex;
-  padding: 0 0px 50px 50px;
+.collectionContainer {
+    display: flex;
+    justify-content: center;
 }
 
-.leftColumnContainer {
-  flex: 1;
-  padding: 20px;
-  display: flex;
-  flex-wrap: wrap; /* Add this line to allow items to wrap */
-  justify-content: right;
-}
-
-.collectionMiniCardContainer {
-  margin: 0 10px 30px 10px; /* Add margin between items */
-}
-
-.rightColumnContainer {
-  flex: 0 0 18%;
-  display: flex;
-  position: sticky;
-  top: 120px;
-  height: 400px;
-  margin-top: 10px;
-
-  div{
+.productsNotFound {
+    display: flex;
+    justify-content: start;
+    padding-right: 50px;
     width: 100%;
-  }
-}
+    padding-top: 50px;
 
-.productsNotFound{
-  display: flex;
-  justify-content: start;
-  padding-right: 50px;
-  width: 100%;
-  padding-top: 50px;
-
-  span{
-    font-size: 16px;
-    font-weight: 500;
-  }
-  
+    span {
+        font-size: 16px;
+        font-weight: 500;
+    }
 }

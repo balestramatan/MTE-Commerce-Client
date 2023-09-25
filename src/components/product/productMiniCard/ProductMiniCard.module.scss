@@ -1,76 +1,76 @@
 .productMiniCardContainer {
-  cursor: pointer;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2), 0px -1px 6px rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
-
-  margin: 15px 0;
+    cursor: pointer;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2), 0px -1px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    margin: 15px 0;
 }
 
 .productMiniCardImage {
-  position: relative;
-  width: 300px;
-  height: 300px;
-  border-radius: 5px;
-  overflow: hidden; /* Hide the overflow to clip the zoomed image */
+    position: relative;
+    width: 300px;
+    height: 300px;
+    border-radius: 5px;
+    overflow: hidden; /* Hide the overflow to clip the zoomed image */
 }
 
 .productMiniCardImage::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  background-image: var(--background-image);
-  transform-origin: center; /* Set the transform origin to the center of the pseudo-element */
-  transition: transform 0.2s ease; /* Adding the transition for smooth animation */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-image: var(--background-image);
+    transform-origin: center; /* Set the transform origin to the center of the pseudo-element */
+    transition: transform 0.2s ease; /* Adding the transition for smooth animation */
 }
 
 .productMiniCardContainer:hover {
-  .productMiniCardImage::before {
-    transform: scale(1.1);
-  }
-  .productMiniButtonContainer {
-    display: block; /* Show the button when hovering over the container */
-  }
+    .productMiniCardImage::before {
+        transform: scale(1.1);
+    }
+    .productMiniButtonContainer {
+        display: block; /* Show the button when hovering over the container */
+    }
 }
 
 .productMiniButtonContainer {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  display: flex;
-  width: 100%;
-  transform: translateX(-50%);
-  display: none;
-  padding: 0 10px 0 10px;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    display: flex;
+    width: 100%;
+    transform: translateX(-50%);
+    display: none;
+    padding: 0 10px 0 10px;
 }
 
 .productMiniButton {
-  background-color: white;
-  width: 100%;
-  background-color: #ffffff;
-  border-radius: 5px;
-  border: 0;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2), 0px -4px 6px rgba(0, 0, 0, 0.2); /* Set the box-shadow here */
+    background-color: white;
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 5px;
+    border: 0;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2), 0px -4px 6px rgba(0, 0, 0, 0.2); /* Set the box-shadow here */
 }
 
 .productMiniCardProductDetailsContainer {
 }
 
 .productMiniCardProductDetailsRow {
-  display: flex;
-  justify-content: center;
-
+    display: flex;
+    justify-content: center;
 }
 
 .productName {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 .productPrice {
-  font-size: 12px;
-  font-weight: 500;
+    font-size: 12px;
+    font-weight: 500;
 }
