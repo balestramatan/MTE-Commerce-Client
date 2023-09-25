@@ -3,11 +3,14 @@ import {animated, useTransition} from "@react-spring/web";
 import rootStores from "../../../stores";
 import {STORE_INFORMATION_STORE} from "../../../stores/consts";
 import StoreInformationStore from "../../../stores/StoreInformation.store";
+import {observer} from 'mobx-react';
+
 const storeInformationStore = rootStores[STORE_INFORMATION_STORE] as StoreInformationStore;
-const HeaderAdds = () => {
+const HeaderAdds = observer(() => {
     const [index, setIndex] = useState(0);
 
     const {headerAddsTexts} = storeInformationStore;
+
     const transitions = useTransition(headerAddsTexts[index], {
         from: {opacity: 0, transform: 'translateX(400%)'},
         enter: {opacity: 1, transform: 'translateX(0%)'},
@@ -19,7 +22,7 @@ const HeaderAdds = () => {
         }, 5000);
 
         return () => clearInterval(interval);
-    }, [headerAddsTexts.length]);
+    }, [headerAddsTexts]);
 
     return (
         <header className='header'>
@@ -32,6 +35,6 @@ const HeaderAdds = () => {
             </div>
         </header>
     );
-};
+});
 
 export default HeaderAdds;
